@@ -77,28 +77,31 @@ const Tours = () => {
         jsonLd={jsonLd}
       />
       <Header />
-      <main className="py-8 sm:py-12">
+      <main className="py-10 sm:py-16">
         <div className="container">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display mb-2">
-            {activeCategory ? `${activeCategory.name} Tours` : t("tours.title")}
-          </h1>
-          <p className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base">
-            {searchFilter
-              ? `${t("tours.results")} "${searchFilter}"`
-              : t("tours.subtitle")}
-          </p>
+          <div className="mb-8 sm:mb-10">
+            <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-2">Explore</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight mb-3">
+              {activeCategory ? `${activeCategory.name} Tours` : t("tours.title")}
+            </h1>
+            <p className="text-muted-foreground text-sm sm:text-base max-w-lg">
+              {searchFilter
+                ? `${t("tours.results")} "${searchFilter}"`
+                : t("tours.subtitle")}
+            </p>
+          </div>
 
-          {/* Category filters - horizontal scrollable on mobile */}
+          {/* Category filters */}
           <nav
             aria-label="Tour categories"
-            className="flex gap-2 mb-8 sm:mb-10 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide"
+            className="flex gap-2 mb-10 sm:mb-12 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide"
           >
             <button
               onClick={() => setCategory("")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 ${
+              className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
                 !categoryFilter
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-primary/10"
+                  ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-soft"
+                  : "bg-card text-foreground/70 border border-border/50 hover:bg-secondary hover:border-primary/20"
               }`}
             >
               {t("tours.all")}
@@ -107,10 +110,10 @@ const Tours = () => {
               <button
                 key={cat.slug}
                 onClick={() => setCategory(cat.slug)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 ${
+                className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
                   categoryFilter === cat.slug
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-secondary-foreground hover:bg-primary/10"
+                    ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-soft"
+                    : "bg-card text-foreground/70 border border-border/50 hover:bg-secondary hover:border-primary/20"
                 }`}
               >
                 {cat.name}
@@ -119,13 +122,13 @@ const Tours = () => {
           </nav>
 
           {filteredTours.length > 0 ? (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {filteredTours.map((tour) => (
                 <TourCard key={tour.id} tour={tour} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-20">
+            <div className="text-center py-24">
               <p className="text-muted-foreground text-lg">{t("tours.notours")}</p>
             </div>
           )}

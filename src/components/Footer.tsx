@@ -1,41 +1,51 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, Heart } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-foreground text-background py-8 sm:py-10">
-      <div className="container text-center space-y-5 sm:space-y-6">
-        <Link to="/">
-          <img
-            src="https://fixatrippuertorico.com/wp-content/uploads/2025/09/FIX-A-TRIP-LOGO.webp"
-            alt="Fix a Trip Puerto Rico"
-            className="h-8 sm:h-10 mx-auto brightness-0 invert"
-          />
-        </Link>
-        <div className="flex justify-center gap-3 sm:gap-4">
-          <a
-            href="https://www.facebook.com/fixatrippr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-full bg-background/10 hover:bg-primary transition-colors active:scale-95"
-            aria-label="Facebook"
-          >
-            <Facebook className="h-5 w-5" />
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-full bg-background/10 hover:bg-primary transition-colors active:scale-95"
-            aria-label="Instagram"
-          >
-            <Instagram className="h-5 w-5" />
-          </a>
+    <footer className="bg-foreground text-background py-12 sm:py-16">
+      <div className="container">
+        <div className="flex flex-col items-center space-y-8">
+          <Link to="/" className="group">
+            <img
+              src="https://fixatrippuertorico.com/wp-content/uploads/2025/09/FIX-A-TRIP-LOGO.webp"
+              alt="Fix a Trip Puerto Rico"
+              className="h-10 sm:h-12 mx-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+            />
+          </Link>
+
+          <div className="flex justify-center gap-3">
+            <a
+              href="https://www.facebook.com/fixatrippr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-background/10 hover:bg-primary hover:scale-110 transition-all duration-300"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-background/10 hover:bg-primary hover:scale-110 transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+          </div>
+
+          <div className="flex items-center gap-1.5 text-background/50 text-sm">
+            <span>Made with</span>
+            <Heart className="h-3.5 w-3.5 fill-primary text-primary" />
+            <span>in Puerto Rico</span>
+          </div>
+
+          <p className="text-xs text-background/40">{t("footer.copyright")} © {new Date().getFullYear()}</p>
         </div>
-        <p className="text-sm text-background/60">{t("footer.copyright")} © {new Date().getFullYear()}</p>
       </div>
     </footer>
   );

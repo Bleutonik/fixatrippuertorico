@@ -66,6 +66,7 @@ export const tours: Tour[] = [
     notIncluded: ["Meals and gratuity which is greatly appreciated for our guides."],
     featured: true,
     itemCode: "04-156",
+    fareHarborItemId: "654700",
   },
   {
     id: "2",
@@ -96,6 +97,7 @@ export const tours: Tour[] = [
     included: ["Air-conditioned vehicle", "Waterfall, natural waterslide, and walk-through El Yunque Rainforest", "Swimming and shopping at Luquillo Beach \"Kioskos\"", "Local guide", "Local food options are available for an additional cost"],
     notIncluded: ["Tips"],
     itemCode: "141-5853",
+    fareHarborItemId: "512042",
   },
   {
     id: "3",
@@ -125,6 +127,7 @@ export const tours: Tour[] = [
     experience: "Your El Yunque Half Day Tour begins as we drive up the mountain. We ascend over 2,000 feet into the heart of the forest. The scenery gets better with every turn. First, we reach Yokahu Tower, where you stop to enjoy sweeping panoramic views of the forest canopy. Next, we visit La Coca Waterfall. This 150-foot fall is a natural oasis tucked within the forest. It boasts flowing water and scenery that makes for gorgeous photos. To complete the experience, we embark on a managed 15-20 minute walk on a nature trail. This path leads to a pristine river. Here, you can take a nice swim and cool off in the fresh water before we head back.",
     included: ["Transport"],
     notIncluded: ["Gratuity"],
+    fareHarborItemId: "512075",
   },
   {
     id: "4",
@@ -187,6 +190,7 @@ export const tours: Tour[] = [
     included: ["Bilingual expert guide", "2 hr. walking experience of Old San Juan"],
     notIncluded: ["Tips"],
     itemCode: "141-5857",
+    fareHarborItemId: "574447",
   },
   {
     id: "6",
@@ -351,6 +355,7 @@ export const tours: Tour[] = [
     experience: "Visit the legendary Barrilito distillery in San Juan for an intimate tasting experience. You'll learn about the history and craft behind one of Puerto Rico's most sought-after artisanal rums while sampling their award-winning spirits. This is a must-do for any rum enthusiast or foodie visiting the island.",
     included: ["Rum tasting", "Distillery tour"],
     notIncluded: ["Transportation", "Gratuity"],
+    fareHarborItemId: "577957",
   },
 ];
 

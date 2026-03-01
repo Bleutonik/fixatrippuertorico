@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, Clock, MapPin, Users, ArrowLeft, Check, X as XIcon, Share2 } from "lucide-react";
+import { Star, Clock, MapPin, Users, ArrowLeft, Check, X as XIcon, Share2, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -37,9 +37,11 @@ const TourDetail = () => {
 
   const allImages = tour.gallery.length > 0 ? tour.gallery : [tour.image];
   const relatedTours = tours.filter((t) => t.category === tour.category && t.id !== tour.id).slice(0, 4);
+  const isWhatsApp = !tour.fareHarborItemId;
+  const whatsAppUrl = `https://wa.me/17874880202?text=${encodeURIComponent(`Hi! I'd like to book: ${tour.name} ($${tour.price}/person)`)}`;
   const bookingUrl = tour.fareHarborItemId
     ? `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/${tour.fareHarborItemId}/?flow=no`
-    : `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/?flow=no&full-items=yes`;
+    : whatsAppUrl;
 
   const handleShare = async () => {
     const url = window.location.href;
@@ -149,8 +151,9 @@ const TourDetail = () => {
                 <p className="text-xs text-muted-foreground">{t("detail.perperson")}</p>
               </div>
               <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                <Button className="rounded-full px-6 font-semibold h-11">
-                  {t("detail.booknow")}
+                <Button className={`rounded-full px-6 font-semibold h-11 ${isWhatsApp ? "bg-[#25D366] hover:bg-[#1da851] text-white" : ""}`}>
+                  {isWhatsApp && <MessageCircle className="h-4 w-4 mr-2" />}
+                  {isWhatsApp ? "WhatsApp" : t("detail.booknow")}
                 </Button>
               </a>
             </div>
@@ -271,8 +274,9 @@ const TourDetail = () => {
                 </div>
 
                 <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full rounded-full py-3 font-semibold text-base">
-                    {t("detail.booknow")}
+                  <Button className={`w-full rounded-full py-3 font-semibold text-base ${isWhatsApp ? "bg-[#25D366] hover:bg-[#1da851] text-white" : ""}`}>
+                    {isWhatsApp && <MessageCircle className="h-5 w-5 mr-2" />}
+                    {isWhatsApp ? "💬 Book via WhatsApp" : t("detail.booknow")}
                   </Button>
                 </a>
 

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ChevronUp, ChevronDown, Users, Clock, MapPin } from "lucide-react";
+import { ChevronUp, ChevronDown, SlidersHorizontal } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TourCard from "@/components/TourCard";
@@ -10,8 +10,37 @@ import { tours, categories } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 type SortOption = "title" | "price" | "rating" | "availability";
+
+const SidebarSection = ({
+  title,
+  open,
+  onToggle,
+  children,
+}: {
+  title: string;
+  open: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+}) => (
+  <div className="border-b border-border pb-5 mb-5">
+    <button
+      onClick={onToggle}
+      className="flex items-center justify-between w-full text-left"
+    >
+      <h3 className="text-base font-bold text-foreground">{title}</h3>
+      {open ? (
+        <ChevronUp className="h-5 w-5 text-muted-foreground" />
+      ) : (
+        <ChevronDown className="h-5 w-5 text-muted-foreground" />
+      )}
+    </button>
+    {open && <div className="mt-4">{children}</div>}
+  </div>
+);
 
 const Tours = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,7 +48,6 @@ const Tours = () => {
   const { t } = useLanguage();
 
   const [sortBy, setSortBy] = useState<SortOption>("title");
-  const [priceRange, setPriceRange] = useState<[number, number]>([45, 975]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     () => {
@@ -30,6 +58,7 @@ const Tours = () => {
   const [showPrice, setShowPrice] = useState(true);
   const [showLocation, setShowLocation] = useState(true);
   const [showCategories, setShowCategories] = useState(true);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const allLocations = useMemo(() => {
     const locs = [...new Set(tours.map((t) => t.location))];
@@ -38,6 +67,7 @@ const Tours = () => {
 
   const priceMin = useMemo(() => Math.min(...tours.map((t) => t.price)), []);
   const priceMax = useMemo(() => Math.max(...tours.map((t) => t.price)), []);
+  const [priceRange, setPriceRange] = useState<[number, number]>([priceMin, priceMax]);
 
   const filteredTours = useMemo(() => {
     let result = tours.filter((tour) => {
@@ -94,6 +124,11 @@ const Tours = () => {
     });
   };
 
+  const activeFilterCount =
+    selectedLocations.length +
+    selectedCategories.length +
+    (priceRange[0] > priceMin || priceRange[1] < priceMax ? 1 : 0);
+
   const pageTitle = "Booking - Fix A Trip";
   const pageDescription =
     "Browse all tours and experiences in Puerto Rico. From El Yunque rainforest hikes to bioluminescent bay kayaking, island hopping, and cultural walking tours.";
@@ -124,31 +159,99 @@ const Tours = () => {
     },
   };
 
-  const SidebarSection = ({
-    title,
-    open,
-    onToggle,
-    children,
-  }: {
-    title: string;
-    open: boolean;
-    onToggle: () => void;
-    children: React.ReactNode;
-  }) => (
-    <div className="border-b border-border pb-5 mb-5">
-      <button
-        onClick={onToggle}
-        className="flex items-center justify-between w-full text-left"
+  const filtersContent = (
+    <>
+      {/* Price */}
+      <SidebarSection
+        title="Price"
+        open={showPrice}
+        onToggle={() => setShowPrice(!showPrice)}
       >
-        <h3 className="text-base font-bold text-foreground">{title}</h3>
-        {open ? (
-          <ChevronUp className="h-5 w-5 text-muted-foreground" />
-        ) : (
-          <ChevronDown className="h-5 w-5 text-muted-foreground" />
-        )}
-      </button>
-      {open && <div className="mt-4">{children}</div>}
-    </div>
+        <Slider
+          min={priceMin}
+          max={priceMax}
+          step={5}
+          value={priceRange}
+          onValueChange={(val) => setPriceRange(val as [number, number])}
+          className="mb-4"
+        />
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1 border border-border rounded-lg px-3 py-2 bg-background">
+            <span className="text-sm text-muted-foreground">$</span>
+            <input
+              type="number"
+              value={priceRange[0]}
+              onChange={(e) =>
+                setPriceRange([Number(e.target.value), priceRange[1]])
+              }
+              className="w-12 text-sm bg-transparent text-foreground outline-none"
+            />
+            <span className="text-xs text-muted-foreground">min</span>
+          </div>
+          <span className="text-muted-foreground">—</span>
+          <div className="flex items-center gap-1 border border-border rounded-lg px-3 py-2 bg-background">
+            <span className="text-sm text-muted-foreground">$</span>
+            <input
+              type="number"
+              value={priceRange[1]}
+              onChange={(e) =>
+                setPriceRange([priceRange[0], Number(e.target.value)])
+              }
+              className="w-12 text-sm bg-transparent text-foreground outline-none"
+            />
+            <span className="text-xs text-muted-foreground">max</span>
+          </div>
+        </div>
+      </SidebarSection>
+
+      {/* Location */}
+      <SidebarSection
+        title="Location"
+        open={showLocation}
+        onToggle={() => setShowLocation(!showLocation)}
+      >
+        <div className="space-y-3">
+          {allLocations.map((loc) => (
+            <label
+              key={loc}
+              className="flex items-center gap-3 cursor-pointer group"
+            >
+              <Checkbox
+                checked={selectedLocations.includes(loc)}
+                onCheckedChange={() => toggleLocation(loc)}
+              />
+              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                {loc}
+              </span>
+            </label>
+          ))}
+        </div>
+      </SidebarSection>
+
+      {/* Categories */}
+      <SidebarSection
+        title="Categories"
+        open={showCategories}
+        onToggle={() => setShowCategories(!showCategories)}
+      >
+        <div className="space-y-3">
+          {categories.map((cat) => (
+            <label
+              key={cat.slug}
+              className="flex items-center gap-3 cursor-pointer group"
+            >
+              <Checkbox
+                checked={selectedCategories.includes(cat.slug)}
+                onCheckedChange={() => toggleCategory(cat.slug)}
+              />
+              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                {cat.name}
+              </span>
+            </label>
+          ))}
+        </div>
+      </SidebarSection>
+    </>
   );
 
   return (
@@ -163,113 +266,49 @@ const Tours = () => {
       <main className="py-6 sm:py-10">
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Sidebar Filters */}
-            <aside className="w-full lg:w-[280px] lg:flex-shrink-0">
-              {/* Price */}
-              <SidebarSection
-                title="Price"
-                open={showPrice}
-                onToggle={() => setShowPrice(!showPrice)}
-              >
-                <Slider
-                  min={priceMin}
-                  max={priceMax}
-                  step={5}
-                  value={priceRange}
-                  onValueChange={(val) =>
-                    setPriceRange(val as [number, number])
-                  }
-                  className="mb-4"
-                />
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 border border-border rounded-lg px-3 py-2 bg-background">
-                    <span className="text-sm text-muted-foreground">$</span>
-                    <input
-                      type="number"
-                      value={priceRange[0]}
-                      onChange={(e) =>
-                        setPriceRange([Number(e.target.value), priceRange[1]])
-                      }
-                      className="w-12 text-sm bg-transparent text-foreground outline-none"
-                    />
-                    <span className="text-xs text-muted-foreground">min</span>
-                  </div>
-                  <span className="text-muted-foreground">—</span>
-                  <div className="flex items-center gap-1 border border-border rounded-lg px-3 py-2 bg-background">
-                    <span className="text-sm text-muted-foreground">$</span>
-                    <input
-                      type="number"
-                      value={priceRange[1]}
-                      onChange={(e) =>
-                        setPriceRange([priceRange[0], Number(e.target.value)])
-                      }
-                      className="w-12 text-sm bg-transparent text-foreground outline-none"
-                    />
-                    <span className="text-xs text-muted-foreground">max</span>
-                  </div>
-                </div>
-              </SidebarSection>
-
-              {/* Location */}
-              <SidebarSection
-                title="Location"
-                open={showLocation}
-                onToggle={() => setShowLocation(!showLocation)}
-              >
-                <div className="space-y-3">
-                  {allLocations.map((loc) => (
-                    <label
-                      key={loc}
-                      className="flex items-center gap-3 cursor-pointer group"
-                    >
-                      <Checkbox
-                        checked={selectedLocations.includes(loc)}
-                        onCheckedChange={() => toggleLocation(loc)}
-                      />
-                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                        {loc}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </SidebarSection>
-
-              {/* Categories */}
-              <SidebarSection
-                title="Categories"
-                open={showCategories}
-                onToggle={() => setShowCategories(!showCategories)}
-              >
-                <div className="space-y-3">
-                  {categories.map((cat) => (
-                    <label
-                      key={cat.slug}
-                      className="flex items-center gap-3 cursor-pointer group"
-                    >
-                      <Checkbox
-                        checked={selectedCategories.includes(cat.slug)}
-                        onCheckedChange={() => toggleCategory(cat.slug)}
-                      />
-                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                        {cat.name}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </SidebarSection>
+            {/* Desktop Sidebar */}
+            <aside className="hidden lg:block w-[280px] flex-shrink-0">
+              {filtersContent}
             </aside>
 
             {/* Main content */}
             <div className="flex-1 min-w-0">
-              {/* Top bar: count + sort */}
-              <div className="flex items-center justify-between mb-6">
+              {/* Top bar: mobile filter button + count + sort */}
+              <div className="flex items-center justify-between mb-6 gap-3">
+                {/* Mobile filter trigger */}
+                <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
+                  <SheetTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="lg:hidden flex items-center gap-2 rounded-xl"
+                    >
+                      <SlidersHorizontal className="h-4 w-4" />
+                      Filters
+                      {activeFilterCount > 0 && (
+                        <span className="bg-primary text-primary-foreground text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                          {activeFilterCount}
+                        </span>
+                      )}
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="left" className="w-[300px] overflow-y-auto">
+                    <SheetHeader>
+                      <SheetTitle>Filters</SheetTitle>
+                    </SheetHeader>
+                    <div className="mt-6">
+                      {filtersContent}
+                    </div>
+                  </SheetContent>
+                </Sheet>
+
                 <p className="text-sm text-muted-foreground">
                   <span className="font-semibold text-foreground">
                     {filteredTours.length}
                   </span>{" "}
                   Tours Results
                 </p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 ml-auto">
                   <span className="text-sm text-muted-foreground hidden sm:inline">
                     Sort by
                   </span>

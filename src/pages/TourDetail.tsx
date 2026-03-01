@@ -5,17 +5,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
-import BookingModal from "@/components/BookingModal";
 import { Button } from "@/components/ui/button";
 import { tours } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TourCard from "@/components/TourCard";
 
+const FAREHARBOR_SHORTNAME = "fixatrippuertorico";
+
 const TourDetail = () => {
   const { slug } = useParams();
   const tour = tours.find((t) => t.slug === slug);
   const [activeImage, setActiveImage] = useState(0);
-  const [bookingOpen, setBookingOpen] = useState(false);
   const { t } = useLanguage();
 
   if (!tour) {
@@ -37,6 +37,7 @@ const TourDetail = () => {
 
   const allImages = tour.gallery.length > 0 ? tour.gallery : [tour.image];
   const relatedTours = tours.filter((t) => t.category === tour.category && t.id !== tour.id).slice(0, 4);
+  const bookingUrl = `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/?flow=no&full-items=yes`;
 
   const handleShare = async () => {
     const url = window.location.href;
@@ -145,9 +146,11 @@ const TourDetail = () => {
                 <p className="text-3xl font-bold text-primary">${tour.price}</p>
                 <p className="text-xs text-muted-foreground">{t("detail.perperson")}</p>
               </div>
-              <Button onClick={() => setBookingOpen(true)} className="rounded-full px-6 font-semibold h-11">
-                {t("detail.booknow")}
-              </Button>
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                <Button className="rounded-full px-6 font-semibold h-11">
+                  {t("detail.booknow")}
+                </Button>
+              </a>
             </div>
           </div>
 
@@ -265,12 +268,11 @@ const TourDetail = () => {
                   </div>
                 </div>
 
-                <Button
-                  onClick={() => setBookingOpen(true)}
-                  className="w-full rounded-full py-3 font-semibold text-base"
-                >
-                  {t("detail.booknow")}
-                </Button>
+                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full rounded-full py-3 font-semibold text-base">
+                    {t("detail.booknow")}
+                  </Button>
+                </a>
 
                 <p className="text-xs text-center text-muted-foreground">
                   {t("detail.freecancel")}
@@ -294,7 +296,6 @@ const TourDetail = () => {
       </main>
       <Footer />
       <ScrollToTop />
-      <BookingModal tour={tour} open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </div>
   );
 };

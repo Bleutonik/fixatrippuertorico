@@ -18,6 +18,7 @@ export interface Tour {
   notIncluded: string[];
   featured?: boolean;
   itemCode?: string;
+  fareHarborItemId?: string;
 }
 
 export interface Category {

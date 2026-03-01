@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { boats } from "@/data/services";
 import { useState } from "react";
 
-const FAREHARBOR_SHORTNAME = "fixatrippuertorico";
+const WHATSAPP_NUMBER = "17874880202";
 
 const BoatDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -31,7 +31,8 @@ const BoatDetail = () => {
     );
   }
 
-  const bookingUrl = `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/?flow=no&full-items=yes`;
+  const whatsappMessage = encodeURIComponent(`Hi! I'm interested in booking the ${boat.name}. Could you provide availability and pricing?`);
+  const bookingUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -220,12 +221,12 @@ const BoatDetail = () => {
                   <p className="text-sm text-muted-foreground">{boat.location} · {boat.duration}</p>
                 </div>
                 <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full rounded-xl h-12 font-semibold text-base bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
-                    Book Now
+                  <Button className="w-full rounded-xl h-12 font-semibold text-base bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground gap-2">
+                    💬 Book via WhatsApp
                   </Button>
                 </a>
                 <p className="text-xs text-muted-foreground text-center">
-                  Powered by FareHarbor — Secure online booking
+                  Chat with us directly to book your boat
                 </p>
               </div>
             </div>
@@ -236,8 +237,8 @@ const BoatDetail = () => {
       {/* Mobile sticky booking bar */}
       <div className="lg:hidden fixed bottom-16 left-0 right-0 z-40 bg-background/95 backdrop-blur-xl border-t border-border p-3 safe-area-bottom">
         <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-          <Button className="w-full rounded-xl h-14 font-semibold text-base bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shadow-elevated">
-            Book Now
+          <Button className="w-full rounded-xl h-14 font-semibold text-base bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground gap-2 shadow-elevated">
+            💬 Book via WhatsApp
           </Button>
         </a>
       </div>

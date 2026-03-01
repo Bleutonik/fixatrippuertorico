@@ -11,6 +11,7 @@ export interface Boat {
   cancellation: string;
   age: string;
   youtubeVideoId?: string;
+  whatsappNumber?: string;
 }
 
 export interface ChefService {

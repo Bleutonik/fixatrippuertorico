@@ -35,22 +35,24 @@ const FixAWellness = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative py-20 sm:py-28 bg-gradient-to-br from-primary/10 via-background to-primary-glow/5 overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-20 right-20 w-64 h-64 bg-primary rounded-full blur-[100px]" />
-          </div>
-          <div className="container relative text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Heart className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">{t("wellness.badge")}</span>
+        <section className="relative py-28 sm:py-36 overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url(https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/Brown-and-Light-Brown-Circle-Framed-Instagram-Profile-Picture-410-x-410-px-1500-x-1000-px-1.jpg?fit=1024%2C1024&ssl=1)" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
+          <div className="container relative z-10 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 mb-6">
+              <Heart className="h-4 w-4 text-white" />
+              <span className="text-sm font-medium text-white/90">{t("wellness.badge")}</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tight mb-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display tracking-tight mb-4">
               FIX A WELLNESS
             </h1>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-4">
+            <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-4">
               {t("wellness.subtitle")}
             </p>
-            <p className="text-foreground font-medium text-lg max-w-xl mx-auto mb-8">
+            <p className="text-white font-medium text-lg max-w-xl mx-auto mb-8">
               {t("wellness.tagline")}
             </p>
           </div>

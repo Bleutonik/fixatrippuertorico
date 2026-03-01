@@ -38,7 +38,7 @@ const FixAChef = () => {
         <section className="relative py-28 sm:py-36 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url(https://fixatrippuertorico.com/wp-content/uploads/2025/12/FOODIE-600x400.jpg)" }}
+            style={{ backgroundImage: "url(https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/istockphoto-1338854758-612x612-1.jpg?fit=1024%2C1024&ssl=1)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
           <div className="container relative z-10 text-center">

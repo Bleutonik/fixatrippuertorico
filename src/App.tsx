@@ -10,6 +10,7 @@ import Tours from "./pages/Tours";
 import TourDetail from "./pages/TourDetail";
 import Contact from "./pages/Contact";
 import FixABoat from "./pages/FixABoat";
+import BoatDetail from "./pages/BoatDetail";
 import FixAChef from "./pages/FixAChef";
 import FixATransport from "./pages/FixATransport";
 import FixAWellness from "./pages/FixAWellness";
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/tours" element={<Tours />} />
               <Route path="/tour/:slug" element={<TourDetail />} />
               <Route path="/fix-a-boat" element={<FixABoat />} />
+              <Route path="/fix-a-boat/:slug" element={<BoatDetail />} />
               <Route path="/fix-a-chef" element={<FixAChef />} />
               <Route path="/fix-a-transport" element={<FixATransport />} />
               <Route path="/fix-a-wellness" element={<FixAWellness />} />

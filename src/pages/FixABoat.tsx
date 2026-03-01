@@ -1,4 +1,5 @@
 import { MapPin, Clock, MessageCircle, Anchor } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -9,11 +10,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const FixABoat = () => {
   const { t } = useLanguage();
-
-  const handleInquiry = (boatName: string) => {
-    const msg = encodeURIComponent(`Hello! I'm interested in booking the ${boatName}. Could you provide pricing and availability? Thank you!`);
-    window.open(`https://wa.me/17874880202?text=${msg}`, "_blank");
-  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -44,43 +40,38 @@ const FixABoat = () => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url(/images/boat-hero.jpg)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
           <div className="container relative z-10 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 mb-6">
-              <Anchor className="h-4 w-4 text-white" />
-              <span className="text-sm font-medium text-white/90">{t("boat.badge")}</span>
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display tracking-tight mb-4">
-              {t("boat.title")}
+              {t("boat.heroTitle")}
             </h1>
-            <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-8">
-              {t("boat.subtitle")}
-            </p>
-            <Button
-              onClick={() => {
-                const msg = encodeURIComponent("Hello! I'm interested in booking a private boat charter. Can you help me choose the right boat?");
-                window.open(`https://wa.me/17874880202?text=${msg}`, "_blank");
-              }}
-              className="rounded-xl px-8 h-12 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2"
-            >
-              <MessageCircle className="h-5 w-5" />
-              {t("boat.chat")}
-            </Button>
           </div>
         </section>
 
         {/* Boat Grid */}
         <section className="py-16 sm:py-24">
           <div className="container">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-10 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-10">
               {t("boat.choose")}
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+            <div className="flex justify-end mb-6">
+              <Button
+                onClick={() => {
+                  const msg = encodeURIComponent("Hello! I'm interested in booking a private boat charter. Can you help me choose the right boat?");
+                  window.open(`https://wa.me/17874880202?text=${msg}`, "_blank");
+                }}
+                className="rounded-xl px-6 h-10 font-semibold text-sm bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2"
+              >
+                <MessageCircle className="h-4 w-4" />
+                {t("boat.chat")}
+              </Button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {boats.map((boat) => (
-                <div
+                <Link
                   key={boat.slug}
-                  className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1.5 border border-border/50 cursor-pointer"
-                  onClick={() => handleInquiry(boat.name)}
+                  to={`/fix-a-boat/${boat.slug}`}
+                  className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1.5 border border-border/50"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
@@ -91,25 +82,19 @@ const FixABoat = () => {
                     />
                   </div>
                   <div className="p-4 sm:p-5 space-y-2">
-                    <h3 className="font-semibold text-foreground text-[13px] sm:text-[15px] leading-snug group-hover:text-primary transition-colors">
+                    <div className="flex items-center gap-1 text-muted-foreground text-xs">
+                      <MapPin className="h-3.5 w-3.5" />
+                      <span>{boat.location}</span>
+                    </div>
+                    <h3 className="font-semibold text-foreground text-[15px] leading-snug group-hover:text-primary transition-colors">
                       {boat.name}
                     </h3>
-                    <div className="flex items-center gap-3 text-muted-foreground text-xs sm:text-sm">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="h-3.5 w-3.5" />
-                        {boat.location}
-                      </span>
-                      <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" />
-                        {boat.duration}
-                      </span>
-                    </div>
-                    <div className="pt-2 border-t border-border/50">
-                      <p className="text-sm font-semibold text-primary">{t("boat.inquire")}</p>
+                    <div className="flex items-center gap-1 text-muted-foreground text-xs pt-1">
+                      <Clock className="h-3.5 w-3.5" />
+                      <span>{boat.duration}</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

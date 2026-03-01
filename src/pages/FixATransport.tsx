@@ -1,4 +1,4 @@
-import { Car, MessageCircle, Phone, MapPin, Shield, Clock } from "lucide-react";
+import { Car, MessageCircle, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -23,13 +23,6 @@ const FixATransport = () => {
     provider: { "@type": "TravelAgency", name: "Fix a Trip Puerto Rico", telephone: "+1-787-488-0202" },
   };
 
-  const services = [
-    { icon: Car, title: t("transport.airport"), desc: t("transport.airportdesc") },
-    { icon: MapPin, title: t("transport.private"), desc: t("transport.privatedesc") },
-    { icon: Clock, title: t("transport.hourly"), desc: t("transport.hourlydesc") },
-    { icon: Shield, title: t("transport.vip"), desc: t("transport.vipdesc") },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -46,22 +39,54 @@ const FixATransport = () => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url(/images/transport-hero.jpg)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
           <div className="container relative z-10 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 mb-6">
-              <Car className="h-4 w-4 text-white" />
-              <span className="text-sm font-medium text-white/90">{t("transport.badge")}</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display tracking-tight mb-4">
+            <h5 className="text-sm sm:text-base font-semibold text-white/80 tracking-widest uppercase mb-4">FIX A TRANSPORT</h5>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#ff4c00] font-display tracking-tight">
               FIX A TRANSPORT
             </h1>
-            <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-8">
-              {t("transport.subtitle")}
-            </p>
+          </div>
+        </section>
+
+        {/* Content */}
+        <section className="py-16 sm:py-24">
+          <div className="container max-w-4xl">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display mb-8 text-center">
+              Start Your Trips With The Security Of Fix A Transport.
+            </h2>
+
+            <div className="space-y-6 text-muted-foreground text-base sm:text-lg leading-relaxed text-center">
+              <p className="font-semibold">
+                Dock into the San Juan Cruise Piers, or simply need transportation services on the island, your friendly driver will meet you and drive you on this shared service directly to your San Juan destination.
+              </p>
+              <p className="font-semibold">
+                Whether you're traveling individually, with a partner or in a group, your ground transport needs will be covered by our transport services.
+              </p>
+              <p className="font-semibold">
+                Avoid the confusion of taxis or public transport. Approximately 24-48 hours prior to your service, you will be required to reconfirm exact pick-up time and place in order to be advised if there are any adjustments in time in order to accommodate all passengers during this shared service.
+              </p>
+            </div>
+
+            <div className="mt-12">
+              <img
+                src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/6.jpg?fit=1024%2C1024&ssl=1"
+                alt="Fix a Transport service"
+                className="w-full rounded-2xl shadow-elevated"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 sm:py-24 bg-secondary/50">
+          <div className="container text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-4">Booking your Fix a Transport now!</h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">Contact us via WhatsApp or phone to book your transportation service.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button onClick={handleInquiry} className="rounded-xl px-8 h-12 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2">
                 <MessageCircle className="h-5 w-5" />
-                {t("transport.chat")}
+                Chat With Us
               </Button>
               <Button
                 onClick={() => window.open("tel:+17874880202", "_self")}
@@ -72,38 +97,6 @@ const FixATransport = () => {
                 +1 787 488 0202
               </Button>
             </div>
-          </div>
-        </section>
-
-        {/* Services */}
-        <section className="py-16 sm:py-24">
-          <div className="container">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-10 text-center">
-              {t("transport.our")}
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {services.map((s, i) => (
-                <div key={i} className="bg-card rounded-2xl p-6 border border-border/50 shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mx-auto mb-5 shadow-soft">
-                    <s.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-base font-bold text-foreground mb-2">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16 sm:py-24 bg-secondary/50">
-          <div className="container text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-4">{t("transport.cta")}</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">{t("transport.ctadesc")}</p>
-            <Button onClick={handleInquiry} className="rounded-xl px-8 h-12 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2">
-              <MessageCircle className="h-5 w-5" />
-              {t("transport.chatbook")}
-            </Button>
           </div>
         </section>
       </main>

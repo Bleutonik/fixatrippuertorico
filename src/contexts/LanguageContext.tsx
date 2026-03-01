@@ -134,6 +134,7 @@ const translations: Record<string, Record<Language, string>> = {
   // Fix a Boat
   "boat.badge": { en: "Private Charters", es: "Charters Privados" },
   "boat.title": { en: "Choose Your Boat", es: "Elige Tu Bote" },
+  "boat.heroTitle": { en: "Your adventure starts here", es: "Tu aventura comienza aquí" },
   "boat.subtitle": { en: "Your adventure starts here. Browse our fleet of private boats, yachts, and catamarans available in Puerto Rico.", es: "Tu aventura comienza aquí. Explora nuestra flota de botes privados, yates y catamaranes disponibles en Puerto Rico." },
   "boat.chat": { en: "Chat With Us", es: "Chatea Con Nosotros" },
   "boat.choose": { en: "Choose Your Boat", es: "Elige Tu Bote" },

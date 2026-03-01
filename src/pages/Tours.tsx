@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ChevronUp, ChevronDown, SlidersHorizontal } from "lucide-react";
+import { ChevronUp, ChevronDown, SlidersHorizontal, Search, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TourCard from "@/components/TourCard";
@@ -263,6 +263,51 @@ const Tours = () => {
         jsonLd={jsonLd}
       />
       <Header />
+
+      {/* Search Hero */}
+      <div className="bg-gradient-to-b from-primary/10 to-background border-b border-border/50 py-8 sm:py-12">
+        <div className="container max-w-2xl text-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 font-display">Booking</h1>
+          <p className="text-sm text-muted-foreground mb-6">Find your perfect Puerto Rico experience</p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+            className="flex items-center bg-card border border-border rounded-2xl overflow-hidden shadow-soft"
+          >
+            <Search className="h-5 w-5 text-muted-foreground ml-4 flex-shrink-0" />
+            <input
+              type="text"
+              value={searchFilter}
+              onChange={(e) => {
+                const params = new URLSearchParams(searchParams);
+                if (e.target.value) {
+                  params.set("search", e.target.value);
+                } else {
+                  params.delete("search");
+                }
+                setSearchParams(params);
+              }}
+              placeholder={t("hero.search")}
+              className="flex-1 px-4 py-3.5 text-foreground bg-transparent focus:outline-none text-sm min-w-0 placeholder:text-muted-foreground"
+            />
+            {searchFilter && (
+              <button
+                type="button"
+                onClick={() => {
+                  const params = new URLSearchParams(searchParams);
+                  params.delete("search");
+                  setSearchParams(params);
+                }}
+                className="p-2 mr-2 rounded-lg hover:bg-secondary transition-colors"
+              >
+                <X className="h-4 w-4 text-muted-foreground" />
+              </button>
+            )}
+          </form>
+        </div>
+      </div>
+
       <main className="py-6 sm:py-10">
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-8">

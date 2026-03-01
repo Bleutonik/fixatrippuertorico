@@ -37,7 +37,9 @@ const TourDetail = () => {
 
   const allImages = tour.gallery.length > 0 ? tour.gallery : [tour.image];
   const relatedTours = tours.filter((t) => t.category === tour.category && t.id !== tour.id).slice(0, 4);
-  const bookingUrl = `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/?flow=no&full-items=yes`;
+  const bookingUrl = tour.fareHarborItemId
+    ? `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/${tour.fareHarborItemId}/?flow=no`
+    : `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/?flow=no&full-items=yes`;
 
   const handleShare = async () => {
     const url = window.location.href;

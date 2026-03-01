@@ -16,6 +16,7 @@ import FixATransport from "./pages/FixATransport";
 import FixAWellness from "./pages/FixAWellness";
 import NotFound from "./pages/NotFound";
 import BottomNav from "./components/BottomNav";
+import RouteScrollToTop from "./components/RouteScrollToTop";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <RouteScrollToTop />
             <div className="pb-16 lg:pb-0">
               <Routes>
                 <Route path="/" element={<Index />} />

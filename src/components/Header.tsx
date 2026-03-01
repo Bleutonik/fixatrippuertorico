@@ -15,10 +15,10 @@ const Header = () => {
 
   const navItems = [
     { label: t("nav.experiences"), href: "/tours" },
-    { label: t("nav.boat"), href: "/tours?category=boat-trips" },
-    { label: t("nav.chef"), href: "/tours?category=foodie-culture" },
-    { label: t("nav.transport"), href: "/contact" },
-    { label: t("nav.wellness"), href: "/tours?category=nature" },
+    { label: t("nav.boat"), href: "/fix-a-boat" },
+    { label: t("nav.chef"), href: "/fix-a-chef" },
+    { label: t("nav.transport"), href: "/fix-a-transport" },
+    { label: t("nav.wellness"), href: "/fix-a-wellness" },
   ];
 
   return (

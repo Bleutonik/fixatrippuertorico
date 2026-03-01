@@ -6,11 +6,13 @@ import TourCard from "@/components/TourCard";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import { tours, categories } from "@/data/tours";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Tours = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryFilter = searchParams.get("category") || "";
   const searchFilter = searchParams.get("search") || "";
+  const { t } = useLanguage();
 
   const filteredTours = useMemo(() => {
     return tours.filter((tour) => {
@@ -60,11 +62,7 @@ const Tours = () => {
           name: tour.name,
           description: tour.description,
           url: `https://fixatrippuertorico.com/tour/${tour.slug}`,
-          offers: {
-            "@type": "Offer",
-            price: tour.price,
-            priceCurrency: "USD",
-          },
+          offers: { "@type": "Offer", price: tour.price, priceCurrency: "USD" },
         },
       })),
     },
@@ -79,34 +77,37 @@ const Tours = () => {
         jsonLd={jsonLd}
       />
       <Header />
-      <main className="py-12">
+      <main className="py-8 sm:py-12">
         <div className="container">
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-display mb-2">
-            {activeCategory ? `${activeCategory.name} Tours` : "Experiences"}
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display mb-2">
+            {activeCategory ? `${activeCategory.name} Tours` : t("tours.title")}
           </h1>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base">
             {searchFilter
-              ? `Results for "${searchFilter}"`
-              : "Explore all our tours and activities in Puerto Rico."}
+              ? `${t("tours.results")} "${searchFilter}"`
+              : t("tours.subtitle")}
           </p>
 
-          {/* Category filters */}
-          <nav aria-label="Tour categories" className="flex flex-wrap gap-2 mb-10">
+          {/* Category filters - horizontal scrollable on mobile */}
+          <nav
+            aria-label="Tour categories"
+            className="flex gap-2 mb-8 sm:mb-10 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide"
+          >
             <button
               onClick={() => setCategory("")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 ${
                 !categoryFilter
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary text-secondary-foreground hover:bg-primary/10"
               }`}
             >
-              All
+              {t("tours.all")}
             </button>
             {categories.map((cat) => (
               <button
                 key={cat.slug}
                 onClick={() => setCategory(cat.slug)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0 ${
                   categoryFilter === cat.slug
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-secondary-foreground hover:bg-primary/10"
@@ -118,14 +119,14 @@ const Tours = () => {
           </nav>
 
           {filteredTours.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
               {filteredTours.map((tour) => (
                 <TourCard key={tour.id} tour={tour} />
               ))}
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-muted-foreground text-lg">No tours found.</p>
+              <p className="text-muted-foreground text-lg">{t("tours.notours")}</p>
             </div>
           )}
         </div>

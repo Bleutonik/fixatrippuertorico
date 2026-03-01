@@ -17,6 +17,9 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Contact from ${form.name}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+    window.location.href = `mailto:bookings@fixatrippr.com?subject=${subject}&body=${body}`;
     toast({ title: t("contact.sent"), description: t("contact.sentdesc") });
     setForm({ name: "", email: "", message: "" });
   };

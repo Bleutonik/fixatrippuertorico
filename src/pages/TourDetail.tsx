@@ -7,21 +7,23 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { tours } from "@/data/tours";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TourDetail = () => {
   const { slug } = useParams();
   const tour = tours.find((t) => t.slug === slug);
   const [activeImage, setActiveImage] = useState(0);
+  const { t } = useLanguage();
 
   if (!tour) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
         <div className="container py-20 text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Tour not found</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4">{t("detail.notfound")}</h1>
           <Link to="/tours">
             <Button variant="outline" className="rounded-full">
-              <ArrowLeft className="h-4 w-4 mr-2" /> Back to Tours
+              <ArrowLeft className="h-4 w-4 mr-2" /> {t("detail.back")}
             </Button>
           </Link>
         </div>
@@ -74,8 +76,8 @@ const TourDetail = () => {
       <main>
         {/* Image Gallery */}
         <section className="bg-secondary">
-          <div className="container py-6">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+          <div className="container py-3 sm:py-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-3">
               <div className="lg:col-span-2 relative aspect-[16/10] rounded-xl overflow-hidden">
                 <img
                   src={allImages[activeImage]}
@@ -83,12 +85,12 @@ const TourDetail = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="grid grid-cols-3 lg:grid-cols-2 gap-2">
+              <div className="grid grid-cols-4 lg:grid-cols-2 gap-1.5 sm:gap-2">
                 {allImages.slice(0, 4).map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setActiveImage(idx)}
-                    className={`relative aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all ${
+                    className={`relative aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all active:scale-95 ${
                       activeImage === idx ? "border-primary" : "border-transparent hover:border-primary/50"
                     }`}
                   >
@@ -105,48 +107,63 @@ const TourDetail = () => {
           </div>
         </section>
 
-        <div className="container py-10">
+        <div className="container py-6 sm:py-10">
           <Link
             to="/tours"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-6 transition-colors text-sm"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-4 sm:mb-6 transition-colors text-sm"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to Tours
+            <ArrowLeft className="h-4 w-4" /> {t("detail.back")}
           </Link>
 
-          <div className="grid lg:grid-cols-3 gap-10">
-            <article className="lg:col-span-2 space-y-8">
+          {/* Mobile: Booking card on top */}
+          <div className="lg:hidden mb-6">
+            <div className="bg-card border border-border rounded-2xl p-5 shadow-lg flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs text-muted-foreground">{t("detail.pricefrom")}</p>
+                <p className="text-3xl font-bold text-primary">${tour.price}</p>
+                <p className="text-xs text-muted-foreground">{t("detail.perperson")}</p>
+              </div>
+              <Button className="rounded-full px-6 font-semibold h-11">
+                {t("detail.booknow")}
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-10">
+            <article className="lg:col-span-2 space-y-6 sm:space-y-8">
               <header>
-                <div className="flex items-center gap-3 flex-wrap mb-3">
+                <div className="flex items-center gap-2 sm:gap-3 flex-wrap mb-3">
                   <div className="flex items-center gap-1 bg-primary/10 px-3 py-1 rounded-full">
                     <Star className="h-4 w-4 fill-primary text-primary" />
                     <span className="font-bold text-primary">{tour.rating}</span>
                   </div>
                   {tour.ratingCount && (
-                    <span className="text-sm text-muted-foreground">({tour.ratingCount} reviews)</span>
-                  )}
-                  <span className="text-sm text-muted-foreground capitalize">{tour.category.replace("-", " / ")}</span>
-                  {tour.itemCode && (
-                    <span className="text-xs text-muted-foreground">Item Code: {tour.itemCode}</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground">({tour.ratingCount} {t("detail.reviews")})</span>
                   )}
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-display leading-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display leading-tight">
                   {tour.name}
                 </h1>
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-3 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1"><Clock className="h-4 w-4" /> {tour.duration}</span>
+                  <span className="flex items-center gap-1"><MapPin className="h-4 w-4" /> {tour.location}</span>
+                  <span className="flex items-center gap-1"><Users className="h-4 w-4" /> {tour.age}</span>
+                </div>
               </header>
 
               <section>
-                <h2 className="text-xl font-bold text-foreground mb-3">About this Experience</h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">{tour.description}</p>
+                <h2 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">{t("detail.about")}</h2>
+                <p className="text-muted-foreground text-sm sm:text-lg leading-relaxed">{tour.description}</p>
               </section>
 
               {tour.highlights.length > 0 && (
                 <section>
-                  <h2 className="text-xl font-bold text-foreground mb-3">Tour Highlights</h2>
-                  <ul className="space-y-3">
+                  <h2 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">{t("detail.highlights")}</h2>
+                  <ul className="space-y-2.5 sm:space-y-3">
                     {tour.highlights.map((h, i) => (
-                      <li key={i} className="flex gap-3">
+                      <li key={i} className="flex gap-2.5 sm:gap-3">
                         <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{h}</span>
+                        <span className="text-muted-foreground text-sm sm:text-base">{h}</span>
                       </li>
                     ))}
                   </ul>
@@ -154,17 +171,17 @@ const TourDetail = () => {
               )}
 
               <section>
-                <h2 className="text-xl font-bold text-foreground mb-3">The Experience</h2>
-                <p className="text-muted-foreground leading-relaxed">{tour.experience}</p>
+                <h2 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">{t("detail.experience")}</h2>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{tour.experience}</p>
               </section>
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 {tour.included.length > 0 && (
                   <section>
-                    <h3 className="font-bold text-foreground mb-2">What's Included</h3>
+                    <h3 className="font-bold text-foreground mb-2 text-sm sm:text-base">{t("detail.included")}</h3>
                     <ul className="space-y-2">
                       {tour.included.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
                           <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
                           {item}
                         </li>
@@ -174,10 +191,10 @@ const TourDetail = () => {
                 )}
                 {tour.notIncluded.length > 0 && (
                   <section>
-                    <h3 className="font-bold text-foreground mb-2">What's Not Included</h3>
+                    <h3 className="font-bold text-foreground mb-2 text-sm sm:text-base">{t("detail.notincluded")}</h3>
                     <ul className="space-y-2">
                       {tour.notIncluded.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
                           <XIcon className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
                           {item}
                         </li>
@@ -188,45 +205,45 @@ const TourDetail = () => {
               </div>
             </article>
 
-            {/* Booking sidebar */}
-            <aside className="lg:col-span-1">
+            {/* Desktop booking sidebar */}
+            <aside className="hidden lg:block lg:col-span-1">
               <div className="bg-card border border-border rounded-2xl p-6 shadow-lg sticky top-24 space-y-5">
                 <div>
-                  <p className="text-xs text-muted-foreground">Price From</p>
+                  <p className="text-xs text-muted-foreground">{t("detail.pricefrom")}</p>
                   <p className="text-4xl font-bold text-primary">${tour.price}</p>
-                  <p className="text-xs text-muted-foreground">per person</p>
+                  <p className="text-xs text-muted-foreground">{t("detail.perperson")}</p>
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Clock className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="text-xs text-muted-foreground">Duration</p>
+                      <p className="text-xs text-muted-foreground">{t("detail.duration")}</p>
                       <p className="font-semibold text-foreground">{tour.duration}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="text-xs text-muted-foreground">Location</p>
+                      <p className="text-xs text-muted-foreground">{t("detail.location")}</p>
                       <p className="font-semibold text-foreground">{tour.location}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Users className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="text-xs text-muted-foreground">Age Requirement</p>
+                      <p className="text-xs text-muted-foreground">{t("detail.agerequirement")}</p>
                       <p className="font-semibold text-foreground">{tour.age}</p>
                     </div>
                   </div>
                 </div>
 
                 <Button className="w-full rounded-full py-3 font-semibold text-base">
-                  Book Now
+                  {t("detail.booknow")}
                 </Button>
 
                 <p className="text-xs text-center text-muted-foreground">
-                  Free cancellation available
+                  {t("detail.freecancel")}
                 </p>
               </div>
             </aside>

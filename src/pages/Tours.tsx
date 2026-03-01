@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { SlidersHorizontal, ArrowUpDown, X } from "lucide-react";
+import { ChevronUp, ChevronDown, Users, Clock, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TourCard from "@/components/TourCard";
@@ -8,103 +8,102 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import { tours, categories } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Slider } from "@/components/ui/slider";
 
-type SortOption = "default" | "price-asc" | "price-desc" | "rating" | "duration";
+type SortOption = "title" | "price" | "rating" | "availability";
 
 const Tours = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const categoryFilter = searchParams.get("category") || "";
   const searchFilter = searchParams.get("search") || "";
-  const locationFilter = searchParams.get("location") || "";
   const { t } = useLanguage();
 
-  const [sortBy, setSortBy] = useState<SortOption>("default");
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 300]);
-  const [showFilters, setShowFilters] = useState(false);
+  const [sortBy, setSortBy] = useState<SortOption>("title");
+  const [priceRange, setPriceRange] = useState<[number, number]>([45, 975]);
+  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    () => {
+      const cat = searchParams.get("category");
+      return cat ? [cat] : [];
+    }
+  );
+  const [showPrice, setShowPrice] = useState(true);
+  const [showLocation, setShowLocation] = useState(true);
+  const [showCategories, setShowCategories] = useState(true);
 
   const allLocations = useMemo(() => {
     const locs = [...new Set(tours.map((t) => t.location))];
     return locs.sort();
   }, []);
 
+  const priceMin = useMemo(() => Math.min(...tours.map((t) => t.price)), []);
+  const priceMax = useMemo(() => Math.max(...tours.map((t) => t.price)), []);
+
   const filteredTours = useMemo(() => {
     let result = tours.filter((tour) => {
-      const matchesCategory = !categoryFilter || tour.category === categoryFilter;
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.includes(tour.category);
       const matchesSearch =
         !searchFilter ||
         tour.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
         tour.location.toLowerCase().includes(searchFilter.toLowerCase()) ||
         tour.description.toLowerCase().includes(searchFilter.toLowerCase());
       const matchesLocation =
-        !locationFilter ||
-        tour.location.toLowerCase().includes(locationFilter.toLowerCase());
-      const matchesPrice = tour.price >= priceRange[0] && tour.price <= priceRange[1];
+        selectedLocations.length === 0 ||
+        selectedLocations.includes(tour.location);
+      const matchesPrice =
+        tour.price >= priceRange[0] && tour.price <= priceRange[1];
       return matchesCategory && matchesSearch && matchesLocation && matchesPrice;
     });
 
     switch (sortBy) {
-      case "price-asc":
-        result.sort((a, b) => a.price - b.price);
+      case "title":
+        result.sort((a, b) => a.name.localeCompare(b.name));
         break;
-      case "price-desc":
-        result.sort((a, b) => b.price - a.price);
+      case "price":
+        result.sort((a, b) => a.price - b.price);
         break;
       case "rating":
         result.sort((a, b) => b.rating - a.rating);
         break;
-      case "duration":
-        result.sort((a, b) => parseInt(a.duration) - parseInt(b.duration));
-        break;
     }
 
     return result;
-  }, [categoryFilter, searchFilter, locationFilter, priceRange, sortBy]);
+  }, [selectedCategories, searchFilter, selectedLocations, priceRange, sortBy]);
 
-  const setCategory = (slug: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (slug) {
-      params.set("category", slug);
-    } else {
-      params.delete("category");
-    }
-    params.delete("search");
-    setSearchParams(params);
+  const toggleLocation = (loc: string) => {
+    setSelectedLocations((prev) =>
+      prev.includes(loc) ? prev.filter((l) => l !== loc) : [...prev, loc]
+    );
   };
 
-  const setLocation = (loc: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (loc) {
-      params.set("location", loc);
-    } else {
-      params.delete("location");
-    }
-    setSearchParams(params);
+  const toggleCategory = (slug: string) => {
+    setSelectedCategories((prev) => {
+      const next = prev.includes(slug)
+        ? prev.filter((c) => c !== slug)
+        : [...prev, slug];
+      const params = new URLSearchParams(searchParams);
+      if (next.length === 1) {
+        params.set("category", next[0]);
+      } else {
+        params.delete("category");
+      }
+      setSearchParams(params);
+      return next;
+    });
   };
 
-  const clearAllFilters = () => {
-    setSearchParams({});
-    setSortBy("default");
-    setPriceRange([0, 300]);
-  };
-
-  const hasActiveFilters = categoryFilter || searchFilter || locationFilter || sortBy !== "default" || priceRange[0] > 0 || priceRange[1] < 300;
-
-  const activeCategory = categories.find((c) => c.slug === categoryFilter);
-  const pageTitle = activeCategory
-    ? `${activeCategory.name} Tours in Puerto Rico | Fix a Trip`
-    : searchFilter
-    ? `Search Results for "${searchFilter}" | Fix a Trip Puerto Rico`
-    : "All Tours & Experiences in Puerto Rico | Fix a Trip";
-  const pageDescription = activeCategory
-    ? `Discover the best ${activeCategory.name.toLowerCase()} tours in Puerto Rico. Book unique experiences with expert local guides at Fix a Trip Puerto Rico.`
-    : "Browse all tours and experiences in Puerto Rico. From El Yunque rainforest hikes to bioluminescent bay kayaking, island hopping, and cultural walking tours.";
+  const pageTitle = "Booking - Fix A Trip";
+  const pageDescription =
+    "Browse all tours and experiences in Puerto Rico. From El Yunque rainforest hikes to bioluminescent bay kayaking, island hopping, and cultural walking tours.";
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: pageTitle,
     description: pageDescription,
-    url: `https://fixatrippuertorico.com/tours${categoryFilter ? `?category=${categoryFilter}` : ""}`,
+    url: "https://fixatrippuertorico.com/tours",
     mainEntity: {
       "@type": "ItemList",
       itemListElement: filteredTours.map((tour, idx) => ({
@@ -115,11 +114,42 @@ const Tours = () => {
           name: tour.name,
           description: tour.description,
           url: `https://fixatrippuertorico.com/tour/${tour.slug}`,
-          offers: { "@type": "Offer", price: tour.price, priceCurrency: "USD" },
+          offers: {
+            "@type": "Offer",
+            price: tour.price,
+            priceCurrency: "USD",
+          },
         },
       })),
     },
   };
+
+  const SidebarSection = ({
+    title,
+    open,
+    onToggle,
+    children,
+  }: {
+    title: string;
+    open: boolean;
+    onToggle: () => void;
+    children: React.ReactNode;
+  }) => (
+    <div className="border-b border-border pb-5 mb-5">
+      <button
+        onClick={onToggle}
+        className="flex items-center justify-between w-full text-left"
+      >
+        <h3 className="text-base font-bold text-foreground">{title}</h3>
+        {open ? (
+          <ChevronUp className="h-5 w-5 text-muted-foreground" />
+        ) : (
+          <ChevronDown className="h-5 w-5 text-muted-foreground" />
+        )}
+      </button>
+      {open && <div className="mt-4">{children}</div>}
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -130,158 +160,159 @@ const Tours = () => {
         jsonLd={jsonLd}
       />
       <Header />
-      <main className="py-10 sm:py-16">
+      <main className="py-6 sm:py-10">
         <div className="container">
-          <div className="mb-8 sm:mb-10">
-            <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-2">Explore</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight mb-3">
-              {activeCategory ? `${activeCategory.name} Tours` : t("tours.title")}
-            </h1>
-            <p className="text-muted-foreground text-sm sm:text-base max-w-lg">
-              {searchFilter
-                ? `${t("tours.results")} "${searchFilter}"`
-                : locationFilter
-                ? `${t("tours.locationresults")} ${locationFilter}`
-                : t("tours.subtitle")}
-            </p>
-          </div>
-
-          {/* Category filters */}
-          <nav
-            aria-label="Tour categories"
-            className="flex gap-2 mb-6 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide"
-          >
-            <button
-              onClick={() => setCategory("")}
-              className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
-                !categoryFilter
-                  ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-soft"
-                  : "bg-card text-foreground/70 border border-border/50 hover:bg-secondary hover:border-primary/20"
-              }`}
-            >
-              {t("tours.all")}
-            </button>
-            {categories.map((cat) => (
-              <button
-                key={cat.slug}
-                onClick={() => setCategory(cat.slug)}
-                className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
-                  categoryFilter === cat.slug
-                    ? "bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-soft"
-                    : "bg-card text-foreground/70 border border-border/50 hover:bg-secondary hover:border-primary/20"
-                }`}
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Sidebar Filters */}
+            <aside className="w-full lg:w-[280px] lg:flex-shrink-0">
+              {/* Price */}
+              <SidebarSection
+                title="Price"
+                open={showPrice}
+                onToggle={() => setShowPrice(!showPrice)}
               >
-                {cat.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* Filter bar */}
-          <div className="flex items-center gap-2 mb-8 sm:mb-10 flex-wrap">
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all ${
-                showFilters ? "bg-primary text-primary-foreground border-primary" : "bg-card text-foreground/70 border-border/50 hover:bg-secondary"
-              }`}
-            >
-              <SlidersHorizontal className="h-4 w-4" />
-              {t("tours.filters")}
-            </button>
-
-            {/* Sort dropdown */}
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="px-4 py-2.5 rounded-xl text-sm font-medium border border-border/50 bg-card text-foreground/70 hover:bg-secondary transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
-            >
-              <option value="default">{t("tours.sortdefault")}</option>
-              <option value="price-asc">{t("tours.sortpriceasc")}</option>
-              <option value="price-desc">{t("tours.sortpricedesc")}</option>
-              <option value="rating">{t("tours.sortrating")}</option>
-              <option value="duration">{t("tours.sortduration")}</option>
-            </select>
-
-            {hasActiveFilters && (
-              <button
-                onClick={clearAllFilters}
-                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-medium text-destructive border border-destructive/30 hover:bg-destructive/10 transition-all"
-              >
-                <X className="h-3.5 w-3.5" />
-                {t("tours.clearall")}
-              </button>
-            )}
-
-            <span className="text-sm text-muted-foreground ml-auto">
-              {filteredTours.length} {filteredTours.length === 1 ? "tour" : "tours"}
-            </span>
-          </div>
-
-          {/* Expanded filters */}
-          {showFilters && (
-            <div className="mb-8 p-5 rounded-2xl bg-card border border-border/50 shadow-card animate-fade-up">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Location filter */}
-                <div>
-                  <label className="text-sm font-semibold text-foreground block mb-2">{t("tours.filterlocation")}</label>
-                  <select
-                    value={locationFilter}
-                    onChange={(e) => setLocation(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl text-sm border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
-                  >
-                    <option value="">{t("tours.alllocs")}</option>
-                    {allLocations.map((loc) => (
-                      <option key={loc} value={loc}>{loc}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Price range */}
-                <div>
-                  <label className="text-sm font-semibold text-foreground block mb-2">
-                    {t("tours.filterprice")}: ${priceRange[0]} - ${priceRange[1]}
-                  </label>
-                  <div className="flex items-center gap-3">
+                <Slider
+                  min={priceMin}
+                  max={priceMax}
+                  step={5}
+                  value={priceRange}
+                  onValueChange={(val) =>
+                    setPriceRange(val as [number, number])
+                  }
+                  className="mb-4"
+                />
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1 border border-border rounded-lg px-3 py-2 bg-background">
+                    <span className="text-sm text-muted-foreground">$</span>
                     <input
-                      type="range"
-                      min={0}
-                      max={300}
-                      step={5}
+                      type="number"
                       value={priceRange[0]}
-                      onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
-                      className="flex-1 accent-primary"
+                      onChange={(e) =>
+                        setPriceRange([Number(e.target.value), priceRange[1]])
+                      }
+                      className="w-12 text-sm bg-transparent text-foreground outline-none"
                     />
+                    <span className="text-xs text-muted-foreground">min</span>
+                  </div>
+                  <span className="text-muted-foreground">—</span>
+                  <div className="flex items-center gap-1 border border-border rounded-lg px-3 py-2 bg-background">
+                    <span className="text-sm text-muted-foreground">$</span>
                     <input
-                      type="range"
-                      min={0}
-                      max={300}
-                      step={5}
+                      type="number"
                       value={priceRange[1]}
-                      onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-                      className="flex-1 accent-primary"
+                      onChange={(e) =>
+                        setPriceRange([priceRange[0], Number(e.target.value)])
+                      }
+                      className="w-12 text-sm bg-transparent text-foreground outline-none"
                     />
+                    <span className="text-xs text-muted-foreground">max</span>
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
+              </SidebarSection>
 
-          {filteredTours.length > 0 ? (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-              {filteredTours.map((tour) => (
-                <TourCard key={tour.id} tour={tour} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-24">
-              <p className="text-muted-foreground text-lg mb-4">{t("tours.notours")}</p>
-              <button
-                onClick={clearAllFilters}
-                className="text-primary font-semibold hover:underline"
+              {/* Location */}
+              <SidebarSection
+                title="Location"
+                open={showLocation}
+                onToggle={() => setShowLocation(!showLocation)}
               >
-                {t("tours.clearall")}
-              </button>
+                <div className="space-y-3">
+                  {allLocations.map((loc) => (
+                    <label
+                      key={loc}
+                      className="flex items-center gap-3 cursor-pointer group"
+                    >
+                      <Checkbox
+                        checked={selectedLocations.includes(loc)}
+                        onCheckedChange={() => toggleLocation(loc)}
+                      />
+                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                        {loc}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </SidebarSection>
+
+              {/* Categories */}
+              <SidebarSection
+                title="Categories"
+                open={showCategories}
+                onToggle={() => setShowCategories(!showCategories)}
+              >
+                <div className="space-y-3">
+                  {categories.map((cat) => (
+                    <label
+                      key={cat.slug}
+                      className="flex items-center gap-3 cursor-pointer group"
+                    >
+                      <Checkbox
+                        checked={selectedCategories.includes(cat.slug)}
+                        onCheckedChange={() => toggleCategory(cat.slug)}
+                      />
+                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                        {cat.name}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </SidebarSection>
+            </aside>
+
+            {/* Main content */}
+            <div className="flex-1 min-w-0">
+              {/* Top bar: count + sort */}
+              <div className="flex items-center justify-between mb-6">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold text-foreground">
+                    {filteredTours.length}
+                  </span>{" "}
+                  Tours Results
+                </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground hidden sm:inline">
+                    Sort by
+                  </span>
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as SortOption)}
+                    className="px-4 py-2 rounded-lg text-sm border border-border bg-card text-foreground cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  >
+                    <option value="title">Title</option>
+                    <option value="price">Price</option>
+                    <option value="rating">Rating</option>
+                    <option value="availability">Availability date</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Tour grid */}
+              {filteredTours.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {filteredTours.map((tour) => (
+                    <TourCard key={tour.id} tour={tour} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-24">
+                  <p className="text-muted-foreground text-lg mb-4">
+                    {t("tours.notours")}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setSelectedLocations([]);
+                      setSelectedCategories([]);
+                      setPriceRange([priceMin, priceMax]);
+                      setSearchParams({});
+                    }}
+                    className="text-primary font-semibold hover:underline"
+                  >
+                    {t("tours.clearall")}
+                  </button>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </main>
       <Footer />

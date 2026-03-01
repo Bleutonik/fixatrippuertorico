@@ -9,6 +9,10 @@ import Index from "./pages/Index";
 import Tours from "./pages/Tours";
 import TourDetail from "./pages/TourDetail";
 import Contact from "./pages/Contact";
+import FixABoat from "./pages/FixABoat";
+import FixAChef from "./pages/FixAChef";
+import FixATransport from "./pages/FixATransport";
+import FixAWellness from "./pages/FixAWellness";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +29,10 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/tours" element={<Tours />} />
               <Route path="/tour/:slug" element={<TourDetail />} />
+              <Route path="/fix-a-boat" element={<FixABoat />} />
+              <Route path="/fix-a-chef" element={<FixAChef />} />
+              <Route path="/fix-a-transport" element={<FixATransport />} />
+              <Route path="/fix-a-wellness" element={<FixAWellness />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

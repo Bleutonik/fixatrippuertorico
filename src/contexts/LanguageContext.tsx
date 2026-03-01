@@ -130,6 +130,56 @@ const translations: Record<string, Record<Language, string>> = {
   // Theme
   "theme.light": { en: "Light", es: "Claro" },
   "theme.dark": { en: "Dark", es: "Oscuro" },
+
+  // Fix a Boat
+  "boat.badge": { en: "Private Charters", es: "Charters Privados" },
+  "boat.title": { en: "Choose Your Boat", es: "Elige Tu Bote" },
+  "boat.subtitle": { en: "Your adventure starts here. Browse our fleet of private boats, yachts, and catamarans available in Puerto Rico.", es: "Tu aventura comienza aquí. Explora nuestra flota de botes privados, yates y catamaranes disponibles en Puerto Rico." },
+  "boat.chat": { en: "Chat With Us", es: "Chatea Con Nosotros" },
+  "boat.choose": { en: "Choose Your Boat", es: "Elige Tu Bote" },
+  "boat.inquire": { en: "Inquire for Pricing →", es: "Consultar Precio →" },
+
+  // Fix a Chef
+  "chef.badge": { en: "The New Fix a Trip Service", es: "El Nuevo Servicio de Fix a Trip" },
+  "chef.subtitle": { en: "The new Fix a Trip service", es: "El nuevo servicio de Fix a Trip" },
+  "chef.tagline": { en: "Enjoy a high-end personalized culinary experience, with a private chef, created for your budget. All in the tranquility, privacy and comfort of your home!", es: "¡Disfruta de una experiencia culinaria personalizada de alto nivel, con un chef privado, creada para tu presupuesto. Todo en la tranquilidad, privacidad y comodidad de tu hogar!" },
+  "chef.packages": { en: "Fix A Chef Private Chef Packages", es: "Paquetes de Chef Privado" },
+  "chef.packagesdesc": { en: "Custom menus designed to fit your event and budget. Discounts available for multiple meals/days of service – just ask us!", es: "Menús personalizados diseñados para tu evento y presupuesto. ¡Descuentos disponibles para múltiples comidas/días de servicio, solo pregúntanos!" },
+  "chef.step1title": { en: "We will cook excellent dishes from your home kitchen.", es: "Cocinaremos platos excelentes desde la cocina de tu hogar." },
+  "chef.step1desc": { en: "Before your private dinner, your personal chef will arrive and begin to organize and prepare the agreed menu. You will be able to watch, learn and enjoy new recipes from your professional chef.", es: "Antes de tu cena privada, tu chef personal llegará y comenzará a organizar y preparar el menú acordado. Podrás observar, aprender y disfrutar nuevas recetas de tu chef profesional." },
+  "chef.step2title": { en: "We will be preparing and serving each agreed dish", es: "Prepararemos y serviremos cada plato acordado" },
+  "chef.step2desc": { en: "The chef and his team will take care of everything. Table service, order, cleanliness and they will guide you through all the details involved in each dish.", es: "El chef y su equipo se encargarán de todo. Servicio de mesa, orden, limpieza y te guiarán a través de todos los detalles de cada plato." },
+  "chef.step3title": { en: "Your kitchen will be left impeccable!", es: "¡Tu cocina quedará impecable!" },
+  "chef.step3desc": { en: "Before departing, the chef and his team will ensure that all equipment and crockery involved in the service are left as you found them.", es: "Antes de irse, el chef y su equipo se asegurarán de que todo el equipo y la vajilla queden como los encontraron." },
+  "chef.cta": { en: "Fix a Chef Inquiry", es: "Consulta Fix a Chef" },
+  "chef.ctadesc": { en: "Tell us about your event, your group size, and what kind of culinary experience you'd like. We'll create a custom proposal for you.", es: "Cuéntanos sobre tu evento, el tamaño de tu grupo y qué tipo de experiencia culinaria te gustaría. Crearemos una propuesta personalizada para ti." },
+  "chef.chatbook": { en: "Book via WhatsApp", es: "Reservar por WhatsApp" },
+
+  // Fix a Transport
+  "transport.badge": { en: "Transportation Services", es: "Servicios de Transporte" },
+  "transport.subtitle": { en: "Reliable, comfortable transportation across Puerto Rico. Airport transfers, private tours, and custom itineraries.", es: "Transporte confiable y cómodo por todo Puerto Rico. Traslados al aeropuerto, tours privados e itinerarios personalizados." },
+  "transport.chat": { en: "Chat With Us", es: "Chatea Con Nosotros" },
+  "transport.our": { en: "Our Transportation Services", es: "Nuestros Servicios de Transporte" },
+  "transport.airport": { en: "Airport Transfers", es: "Traslados al Aeropuerto" },
+  "transport.airportdesc": { en: "Comfortable and punctual transfers to and from San Juan International Airport (SJU).", es: "Traslados cómodos y puntuales hacia y desde el Aeropuerto Internacional de San Juan (SJU)." },
+  "transport.private": { en: "Private Tours", es: "Tours Privados" },
+  "transport.privatedesc": { en: "Explore Puerto Rico at your own pace with a dedicated driver and customized itinerary.", es: "Explora Puerto Rico a tu propio ritmo con un conductor dedicado e itinerario personalizado." },
+  "transport.hourly": { en: "Hourly Rental", es: "Renta por Hora" },
+  "transport.hourlydesc": { en: "Need a driver for a few hours? Book by the hour for flexible scheduling.", es: "¿Necesitas un conductor por unas horas? Reserva por hora para horarios flexibles." },
+  "transport.vip": { en: "VIP Service", es: "Servicio VIP" },
+  "transport.vipdesc": { en: "Premium vehicles and professional chauffeurs for special occasions and executive needs.", es: "Vehículos premium y choferes profesionales para ocasiones especiales y necesidades ejecutivas." },
+  "transport.cta": { en: "Ready to Book Your Ride?", es: "¿Listo para Reservar tu Transporte?" },
+  "transport.ctadesc": { en: "Contact us with your travel details and we'll arrange the perfect transportation for your Puerto Rico trip.", es: "Contáctanos con los detalles de tu viaje y organizaremos el transporte perfecto para tu viaje a Puerto Rico." },
+  "transport.chatbook": { en: "Book via WhatsApp", es: "Reservar por WhatsApp" },
+
+  // Fix a Wellness
+  "wellness.badge": { en: "The New Fix a Trip Service", es: "El Nuevo Servicio de Fix a Trip" },
+  "wellness.subtitle": { en: "The new Fix a Trip service", es: "El nuevo servicio de Fix a Trip" },
+  "wellness.tagline": { en: "Enjoy a high-end personalized relax experience. All the relaxation Body-Soul in Fix a Wellness.", es: "Disfruta una experiencia de relajación personalizada de alto nivel. Toda la relajación Cuerpo-Alma en Fix a Wellness." },
+  "wellness.services": { en: "Our Services", es: "Nuestros Servicios" },
+  "wellness.cta": { en: "Booking Fix a Wellness Now!", es: "¡Reserva Fix a Wellness Ahora!" },
+  "wellness.ctadesc": { en: "Tell us about the service you'd like and we'll arrange a personalized wellness experience for you.", es: "Cuéntanos sobre el servicio que te gustaría y organizaremos una experiencia de bienestar personalizada para ti." },
+  "wellness.chatbook": { en: "Book via WhatsApp", es: "Reservar por WhatsApp" },
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);

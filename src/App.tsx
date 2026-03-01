@@ -15,7 +15,7 @@ import FixAChef from "./pages/FixAChef";
 import FixATransport from "./pages/FixATransport";
 import FixAWellness from "./pages/FixAWellness";
 import NotFound from "./pages/NotFound";
-
+import BottomNav from "./components/BottomNav";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,18 +26,21 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/tours" element={<Tours />} />
-              <Route path="/tour/:slug" element={<TourDetail />} />
-              <Route path="/fix-a-boat" element={<FixABoat />} />
-              <Route path="/fix-a-boat/:slug" element={<BoatDetail />} />
-              <Route path="/fix-a-chef" element={<FixAChef />} />
-              <Route path="/fix-a-transport" element={<FixATransport />} />
-              <Route path="/fix-a-wellness" element={<FixAWellness />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <div className="pb-16 lg:pb-0">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/tours" element={<Tours />} />
+                <Route path="/tour/:slug" element={<TourDetail />} />
+                <Route path="/fix-a-boat" element={<FixABoat />} />
+                <Route path="/fix-a-boat/:slug" element={<BoatDetail />} />
+                <Route path="/fix-a-chef" element={<FixAChef />} />
+                <Route path="/fix-a-transport" element={<FixATransport />} />
+                <Route path="/fix-a-wellness" element={<FixAWellness />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <BottomNav />
+            </div>
           </BrowserRouter>
         </TooltipProvider>
       </LanguageProvider>

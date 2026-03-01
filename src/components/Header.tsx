@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, Menu, X, Moon, Sun, Globe, ChevronRight } from "lucide-react";
+import { Search, Moon, Sun, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { theme, toggleTheme } = useTheme();
@@ -88,14 +87,7 @@ const Header = () => {
             </Button>
           </Link>
 
-          {/* Mobile menu */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2.5 rounded-xl hover:bg-secondary transition-all duration-200 -mr-1 focus-ring"
-            aria-label="Menu"
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          
         </div>
       </div>
 
@@ -129,46 +121,8 @@ const Header = () => {
         </div>
       )}
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 z-40 bg-background/98 backdrop-blur-2xl animate-fade-in">
-          <nav className="container py-6 flex flex-col gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="flex items-center justify-between text-[15px] font-medium text-foreground py-4 px-5 rounded-2xl hover:bg-secondary transition-all active:scale-[0.98]"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-                <ChevronRight className="h-4 w-4 text-muted-foreground" />
-              </Link>
-            ))}
-            <div className="border-t border-border/50 my-4" />
-            <Link to="/contact" onClick={() => setMobileOpen(false)}>
-              <Button className="w-full rounded-2xl font-semibold h-14 text-base bg-gradient-to-r from-primary to-primary-glow shadow-elevated">
-                {t("nav.contact")}
-              </Button>
-            </Link>
-            <div className="flex items-center justify-center gap-3 pt-6">
-              <button
-                onClick={() => setLang(lang === "en" ? "es" : "en")}
-                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-secondary text-foreground text-sm font-medium active:scale-95 transition-transform"
-              >
-                <Globe className="h-4 w-4" />
-                {lang === "en" ? "Español" : "English"}
-              </button>
-              <button
-                onClick={toggleTheme}
-                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-secondary text-foreground text-sm font-medium active:scale-95 transition-transform"
-              >
-                {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-                {theme === "light" ? t("theme.dark") : t("theme.light")}
-              </button>
-            </div>
-          </nav>
-        </div>
-      )}
+
+
     </header>
   );
 };

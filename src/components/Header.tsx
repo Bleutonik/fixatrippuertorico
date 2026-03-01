@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, Menu, X, Moon, Sun, Globe } from "lucide-react";
+import { Search, Menu, X, Moon, Sun, Globe, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,24 +22,24 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
-      <div className="container flex h-14 sm:h-16 items-center justify-between gap-2">
+    <header className="sticky top-0 z-50 glass border-b border-border/50">
+      <div className="container flex h-16 sm:h-[72px] items-center justify-between gap-3">
         {/* Logo */}
-        <Link to="/" className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0 group">
           <img
             src="https://fixatrippuertorico.com/wp-content/uploads/2025/09/FIX-A-TRIP-LOGO.webp"
             alt="Fix a Trip Puerto Rico"
-            className="h-8 sm:h-10 w-auto"
+            className="h-9 sm:h-11 w-auto transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-5">
+        <nav className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
             <Link
               key={item.label}
               to={item.href}
-              className="text-[11px] font-semibold tracking-wide text-foreground hover:text-primary transition-colors"
+              className="relative px-3.5 py-2 text-[13px] font-medium tracking-wide text-foreground/80 hover:text-foreground transition-colors rounded-lg hover:bg-secondary/80"
             >
               {item.label}
             </Link>
@@ -47,43 +47,43 @@ const Header = () => {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5">
           {/* Language toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="p-2 rounded-full hover:bg-secondary transition-colors flex items-center gap-1"
+            className="p-2.5 rounded-xl hover:bg-secondary transition-all duration-200 flex items-center gap-1.5 focus-ring"
             aria-label="Toggle language"
             title={lang === "en" ? "Cambiar a Español" : "Switch to English"}
           >
-            <Globe className="h-4 w-4 text-foreground" />
-            <span className="text-xs font-bold text-foreground hidden sm:inline">{lang.toUpperCase()}</span>
+            <Globe className="h-[18px] w-[18px] text-foreground/70" />
+            <span className="text-xs font-semibold text-foreground/70 hidden sm:inline">{lang.toUpperCase()}</span>
           </button>
 
           {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-secondary transition-colors"
+            className="p-2.5 rounded-xl hover:bg-secondary transition-all duration-200 focus-ring"
             aria-label="Toggle theme"
           >
             {theme === "light" ? (
-              <Moon className="h-4 w-4 text-foreground" />
+              <Moon className="h-[18px] w-[18px] text-foreground/70" />
             ) : (
-              <Sun className="h-4 w-4 text-foreground" />
+              <Sun className="h-[18px] w-[18px] text-foreground/70" />
             )}
           </button>
 
           {/* Search */}
           <button
             onClick={() => setSearchOpen(!searchOpen)}
-            className="p-2 rounded-full hover:bg-secondary transition-colors"
+            className="p-2.5 rounded-xl hover:bg-secondary transition-all duration-200 focus-ring"
             aria-label="Search"
           >
-            <Search className="h-4 w-4 text-foreground" />
+            <Search className="h-[18px] w-[18px] text-foreground/70" />
           </button>
 
           {/* Contact button */}
-          <Link to="/contact">
-            <Button className="hidden sm:inline-flex rounded-full px-5 font-semibold text-xs h-9">
+          <Link to="/contact" className="hidden sm:block ml-2">
+            <Button className="rounded-xl px-5 font-semibold text-xs h-10 bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity shadow-soft">
               {t("nav.contact")}
             </Button>
           </Link>
@@ -91,7 +91,7 @@ const Header = () => {
           {/* Mobile menu */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 -mr-2"
+            className="lg:hidden p-2.5 rounded-xl hover:bg-secondary transition-all duration-200 -mr-1 focus-ring"
             aria-label="Menu"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -101,8 +101,8 @@ const Header = () => {
 
       {/* Search bar */}
       {searchOpen && (
-        <div className="border-t border-border bg-background p-3 sm:p-4">
-          <div className="container">
+        <div className="border-t border-border/50 bg-background/95 backdrop-blur-xl p-4 animate-fade-up">
+          <div className="container max-w-xl">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -118,10 +118,10 @@ const Header = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t("hero.search")}
-                className="flex-1 px-4 py-2.5 rounded-full border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+                className="flex-1 px-5 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 text-sm transition-all"
                 autoFocus
               />
-              <Button type="submit" size="icon" className="rounded-full h-10 w-10">
+              <Button type="submit" className="rounded-xl h-[46px] px-5 bg-gradient-to-r from-primary to-primary-glow">
                 <Search className="h-4 w-4" />
               </Button>
             </form>
@@ -129,37 +129,38 @@ const Header = () => {
         </div>
       )}
 
-      {/* Mobile menu - full screen overlay for better UX */}
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 top-14 z-40 bg-background animate-in slide-in-from-top-2">
+        <div className="lg:hidden fixed inset-0 top-16 z-40 bg-background/98 backdrop-blur-2xl animate-fade-in">
           <nav className="container py-6 flex flex-col gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-base font-semibold text-foreground hover:text-primary py-3.5 px-4 rounded-xl hover:bg-secondary transition-colors active:bg-secondary"
+                className="flex items-center justify-between text-[15px] font-medium text-foreground py-4 px-5 rounded-2xl hover:bg-secondary transition-all active:scale-[0.98]"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
+                <ChevronRight className="h-4 w-4 text-muted-foreground" />
               </Link>
             ))}
-            <div className="border-t border-border my-3" />
+            <div className="border-t border-border/50 my-4" />
             <Link to="/contact" onClick={() => setMobileOpen(false)}>
-              <Button className="w-full rounded-full font-semibold h-12 text-base">
+              <Button className="w-full rounded-2xl font-semibold h-14 text-base bg-gradient-to-r from-primary to-primary-glow shadow-elevated">
                 {t("nav.contact")}
               </Button>
             </Link>
-            <div className="flex items-center justify-center gap-4 pt-4">
+            <div className="flex items-center justify-center gap-3 pt-6">
               <button
                 onClick={() => setLang(lang === "en" ? "es" : "en")}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary text-foreground text-sm font-medium"
+                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-secondary text-foreground text-sm font-medium active:scale-95 transition-transform"
               >
                 <Globe className="h-4 w-4" />
                 {lang === "en" ? "Español" : "English"}
               </button>
               <button
                 onClick={toggleTheme}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary text-foreground text-sm font-medium"
+                className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-secondary text-foreground text-sm font-medium active:scale-95 transition-transform"
               >
                 {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                 {theme === "light" ? t("theme.dark") : t("theme.light")}

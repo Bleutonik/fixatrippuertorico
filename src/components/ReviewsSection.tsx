@@ -6,28 +6,33 @@ const ReviewsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-12 sm:py-20 bg-secondary">
+    <section className="py-16 sm:py-24 bg-secondary/50">
       <div className="container">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display mb-8 sm:mb-10 text-center">
-          {t("reviews.title")}
-        </h2>
+        <div className="text-center mb-10 sm:mb-14">
+          <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">Testimonials</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight">
+            {t("reviews.title")}
+          </h2>
+        </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="bg-card p-5 sm:p-6 rounded-xl shadow-md border border-border space-y-3 sm:space-y-4"
+              className="bg-card p-6 sm:p-7 rounded-2xl shadow-card border border-border/50 space-y-4 hover:shadow-elevated transition-all duration-500 hover:-translate-y-1"
             >
-              <Quote className="h-6 w-6 sm:h-8 sm:w-8 text-primary/30" />
-              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{review.text}</p>
-              <div className="flex items-center gap-1">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Quote className="h-5 w-5 text-primary" />
+              </div>
+              <p className="text-foreground/80 leading-relaxed text-sm sm:text-[15px]">{review.text}</p>
+              <div className="flex items-center gap-0.5">
                 {Array.from({ length: review.rating }).map((_, i) => (
                   <Star key={i} className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-primary text-primary" />
                 ))}
               </div>
-              <div>
-                <p className="font-semibold text-foreground text-sm sm:text-base">{review.name}</p>
-                <p className="text-xs text-muted-foreground">{review.tour}</p>
+              <div className="pt-3 border-t border-border/50">
+                <p className="font-semibold text-foreground text-sm">{review.name}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{review.tour}</p>
               </div>
             </div>
           ))}

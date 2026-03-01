@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, Clock, MapPin, Users, ArrowLeft, Check, X as XIcon } from "lucide-react";
+import { Star, Clock, MapPin, Users, ArrowLeft, Check, X as XIcon, Share2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
+import BookingModal from "@/components/BookingModal";
 import { Button } from "@/components/ui/button";
 import { tours } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
+import TourCard from "@/components/TourCard";
 
 const TourDetail = () => {
   const { slug } = useParams();
   const tour = tours.find((t) => t.slug === slug);
   const [activeImage, setActiveImage] = useState(0);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const { t } = useLanguage();
 
   if (!tour) {
@@ -33,6 +36,16 @@ const TourDetail = () => {
   }
 
   const allImages = tour.gallery.length > 0 ? tour.gallery : [tour.image];
+  const relatedTours = tours.filter((t) => t.category === tour.category && t.id !== tour.id).slice(0, 4);
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      await navigator.share({ title: tour.name, url });
+    } else {
+      await navigator.clipboard.writeText(url);
+    }
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -108,12 +121,21 @@ const TourDetail = () => {
         </section>
 
         <div className="container py-6 sm:py-10">
-          <Link
-            to="/tours"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-4 sm:mb-6 transition-colors text-sm"
-          >
-            <ArrowLeft className="h-4 w-4" /> {t("detail.back")}
-          </Link>
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <Link
+              to="/tours"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+            >
+              <ArrowLeft className="h-4 w-4" /> {t("detail.back")}
+            </Link>
+            <button
+              onClick={handleShare}
+              className="p-2.5 rounded-xl hover:bg-secondary transition-colors"
+              aria-label="Share"
+            >
+              <Share2 className="h-4 w-4 text-muted-foreground" />
+            </button>
+          </div>
 
           {/* Mobile: Booking card on top */}
           <div className="lg:hidden mb-6">
@@ -123,7 +145,7 @@ const TourDetail = () => {
                 <p className="text-3xl font-bold text-primary">${tour.price}</p>
                 <p className="text-xs text-muted-foreground">{t("detail.perperson")}</p>
               </div>
-              <Button className="rounded-full px-6 font-semibold h-11">
+              <Button onClick={() => setBookingOpen(true)} className="rounded-full px-6 font-semibold h-11">
                 {t("detail.booknow")}
               </Button>
             </div>
@@ -139,6 +161,11 @@ const TourDetail = () => {
                   </div>
                   {tour.ratingCount && (
                     <span className="text-xs sm:text-sm text-muted-foreground">({tour.ratingCount} {t("detail.reviews")})</span>
+                  )}
+                  {tour.itemCode && (
+                    <span className="text-xs text-muted-foreground bg-secondary px-2 py-0.5 rounded">
+                      #{tour.itemCode}
+                    </span>
                   )}
                 </div>
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display leading-tight">
@@ -238,7 +265,10 @@ const TourDetail = () => {
                   </div>
                 </div>
 
-                <Button className="w-full rounded-full py-3 font-semibold text-base">
+                <Button
+                  onClick={() => setBookingOpen(true)}
+                  className="w-full rounded-full py-3 font-semibold text-base"
+                >
                   {t("detail.booknow")}
                 </Button>
 
@@ -248,10 +278,23 @@ const TourDetail = () => {
               </div>
             </aside>
           </div>
+
+          {/* Related tours */}
+          {relatedTours.length > 0 && (
+            <section className="mt-12 sm:mt-16">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground font-display mb-6">{t("detail.related")}</h2>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                {relatedTours.map((rt) => (
+                  <TourCard key={rt.id} tour={rt} />
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </main>
       <Footer />
       <ScrollToTop />
+      <BookingModal tour={tour} open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </div>
   );
 };

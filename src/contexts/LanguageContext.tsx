@@ -74,6 +74,7 @@ const translations: Record<string, Record<Language, string>> = {
   "detail.freecancel": { en: "Free cancellation available", es: "Cancelación gratuita disponible" },
   "detail.reviews": { en: "reviews", es: "opiniones" },
   "detail.notfound": { en: "Tour not found", es: "Tour no encontrado" },
+  "detail.related": { en: "You might also like", es: "También te puede gustar" },
 
   // Tours page
   "tours.title": { en: "Experiences", es: "Experiencias" },
@@ -81,6 +82,30 @@ const translations: Record<string, Record<Language, string>> = {
   "tours.results": { en: "Results for", es: "Resultados para" },
   "tours.all": { en: "All", es: "Todos" },
   "tours.notours": { en: "No tours found.", es: "No se encontraron tours." },
+  "tours.locationresults": { en: "Tours in", es: "Tours en" },
+  "tours.filters": { en: "Filters", es: "Filtros" },
+  "tours.sortdefault": { en: "Sort by: Default", es: "Ordenar: Predeterminado" },
+  "tours.sortpriceasc": { en: "Price: Low to High", es: "Precio: Menor a Mayor" },
+  "tours.sortpricedesc": { en: "Price: High to Low", es: "Precio: Mayor a Menor" },
+  "tours.sortrating": { en: "Best Rated", es: "Mejor Valorados" },
+  "tours.sortduration": { en: "Duration: Shortest", es: "Duración: Más Cortos" },
+  "tours.clearall": { en: "Clear All", es: "Limpiar Todo" },
+  "tours.filterlocation": { en: "Location", es: "Ubicación" },
+  "tours.alllocs": { en: "All Locations", es: "Todas las Ubicaciones" },
+  "tours.filterprice": { en: "Price Range", es: "Rango de Precio" },
+
+  // Booking modal
+  "booking.title": { en: "Book This Experience", es: "Reservar Esta Experiencia" },
+  "booking.date": { en: "Select Date", es: "Seleccionar Fecha" },
+  "booking.selectdate": { en: "Pick a date", es: "Elige una fecha" },
+  "booking.guests": { en: "Guests", es: "Huéspedes" },
+  "booking.adults": { en: "Adults", es: "Adultos" },
+  "booking.children": { en: "Children", es: "Niños" },
+  "booking.each": { en: "each", es: "c/u" },
+  "booking.estimated": { en: "Estimated Total", es: "Total Estimado" },
+  "booking.gueststotal": { en: "guests", es: "huéspedes" },
+  "booking.whatsapp": { en: "Book via WhatsApp", es: "Reservar por WhatsApp" },
+  "booking.call": { en: "Call to Book", es: "Llamar para Reservar" },
 
   // Contact
   "contact.title": { en: "We'd Love to Hear From You", es: "Nos Encantaría Saber de Ti" },

@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Clock, X, Users, Calendar, MapPin, MessageCircle, Check } from "lucide-react";
+import { Clock, X, Users, Calendar, MapPin, Check } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -7,6 +7,8 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { boats } from "@/data/services";
 import { useState } from "react";
+
+const FAREHARBOR_SHORTNAME = "fixatrippuertorico";
 
 const BoatDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -29,12 +31,7 @@ const BoatDetail = () => {
     );
   }
 
-  const handleInquiry = () => {
-    const msg = encodeURIComponent(
-      `Hello! I'm interested in booking the ${boat.name}. Could you provide pricing and availability? Thank you!`
-    );
-    window.open(`https://wa.me/17874880202?text=${msg}`, "_blank");
-  };
+  const bookingUrl = `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/?flow=no&full-items=yes`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -200,7 +197,7 @@ const BoatDetail = () => {
                   <ul className="space-y-2">
                     {boat.included.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
-                        <Check className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
+                        <Check className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -222,15 +219,13 @@ const BoatDetail = () => {
                   <h3 className="text-lg font-bold text-foreground mb-2">{boat.name}</h3>
                   <p className="text-sm text-muted-foreground">{boat.location} · {boat.duration}</p>
                 </div>
-                <Button
-                  onClick={handleInquiry}
-                  className="w-full rounded-xl h-12 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  Book Now
-                </Button>
+                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full rounded-xl h-12 font-semibold text-base bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
+                    Book Now
+                  </Button>
+                </a>
                 <p className="text-xs text-muted-foreground text-center">
-                  Contact us via WhatsApp for pricing and availability
+                  Powered by FareHarbor — Secure online booking
                 </p>
               </div>
             </div>
@@ -239,14 +234,12 @@ const BoatDetail = () => {
       </main>
 
       {/* Mobile sticky booking bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-xl border-t border-border p-3 safe-area-bottom">
-        <Button
-          onClick={handleInquiry}
-          className="w-full rounded-xl h-14 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2 shadow-elevated"
-        >
-          <MessageCircle className="h-5 w-5" />
-          Book Now — WhatsApp
-        </Button>
+      <div className="lg:hidden fixed bottom-16 left-0 right-0 z-40 bg-background/95 backdrop-blur-xl border-t border-border p-3 safe-area-bottom">
+        <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+          <Button className="w-full rounded-xl h-14 font-semibold text-base bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shadow-elevated">
+            Book Now
+          </Button>
+        </a>
       </div>
 
       {/* Lightbox */}

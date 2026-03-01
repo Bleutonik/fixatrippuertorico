@@ -40,38 +40,57 @@ const FixAWellness = () => {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url(/images/wellness-hero.jpg)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
           <div className="container relative z-10 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 mb-6">
-              <Heart className="h-4 w-4 text-white" />
-              <span className="text-sm font-medium text-white/90">{t("wellness.badge")}</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display tracking-tight mb-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#ff4c00] font-display tracking-tight mb-4">
               FIX A WELLNESS
             </h1>
-            <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-4">
-              {t("wellness.subtitle")}
+          </div>
+        </section>
+
+        {/* The New Fix a Trip Service */}
+        <section className="py-16 sm:py-24">
+          <div className="container text-center max-w-4xl">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-display mb-8">
+              The New Fix A Trip Service
+            </h2>
+            <p className="text-lg text-muted-foreground mb-4">
+              Enjoy a high-end personalized relax experience.
             </p>
-            <p className="text-white font-medium text-lg max-w-xl mx-auto mb-8">
-              {t("wellness.tagline")}
+            <p className="text-lg text-muted-foreground">
+              All the relaxation Body-Soul in Fix a Wellness
             </p>
           </div>
         </section>
 
         {/* Services Grid */}
-        <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24 bg-secondary/50">
           <div className="container">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-10 text-center">
-              {t("wellness.services")}
+              Our Services
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {wellnessServices.map((service) => (
-                <div key={service.name} className="bg-card rounded-2xl p-6 border border-border/50 shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 text-center group">
-                  <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden mx-auto mb-5 shadow-card">
-                    <img src={service.image} alt={service.name} className="w-full h-full object-cover" loading="lazy" />
+            <div className="space-y-16">
+              {wellnessServices.map((service, index) => (
+                <div
+                  key={service.name}
+                  className={`grid md:grid-cols-2 gap-8 lg:gap-16 items-center ${
+                    index % 2 === 1 ? "md:flex-row-reverse" : ""
+                  }`}
+                >
+                  <div className={index % 2 === 1 ? "md:order-2" : ""}>
+                    <div className="w-full max-w-md mx-auto">
+                      <img
+                        src={service.image}
+                        alt={service.name}
+                        className="w-full rounded-2xl shadow-card"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{service.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                  <div className={index % 2 === 1 ? "md:order-1" : ""}>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">{service.name}</h3>
+                    <p className="text-muted-foreground leading-relaxed font-medium">{service.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -79,13 +98,15 @@ const FixAWellness = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 sm:py-24 bg-secondary/50">
+        <section className="py-16 sm:py-24">
           <div className="container text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-4">{t("wellness.cta")}</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">{t("wellness.ctadesc")}</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-4">Booking Fix a Wellness Now!!</h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+              Contact us via WhatsApp to book your wellness experience. We'll help you choose the perfect service.
+            </p>
             <Button onClick={handleInquiry} className="rounded-xl px-8 h-12 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2">
               <MessageCircle className="h-5 w-5" />
-              {t("wellness.chatbook")}
+              Chat With Us
             </Button>
           </div>
         </section>

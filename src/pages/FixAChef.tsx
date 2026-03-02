@@ -38,7 +38,7 @@ const FixAChef = () => {
         <section className="relative py-28 sm:py-36 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url(/images/chef-hero.jpg)" }}
+            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=1920&q=80&auto=format&fit=crop)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
           <div className="container relative z-10 text-center">

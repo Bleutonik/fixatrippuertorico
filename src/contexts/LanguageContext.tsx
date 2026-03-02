@@ -15,6 +15,7 @@ const translations: Record<string, Record<Language, string>> = {
   "nav.chef": { en: "FIX A CHEF", es: "FIX A CHEF" },
   "nav.transport": { en: "FIX A TRANSPORT", es: "FIX A TRANSPORT" },
   "nav.wellness": { en: "FIX A WELLNESS", es: "FIX A WELLNESS" },
+  "nav.blog": { en: "BLOG", es: "BLOG" },
   "nav.contact": { en: "CONTACT", es: "CONTACTO" },
 
   // Hero

@@ -24,7 +24,7 @@ const Blog = () => {
   const { t } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [activeCategory, setActiveCategory] = useState<string>("__all__");
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -40,8 +40,8 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  const categories = [t("blog.all"), ...Array.from(new Set(posts.map((p) => p.category)))];
-  const filtered = activeCategory === t("blog.all") ? posts : posts.filter((p) => p.category === activeCategory);
+  const categoryValues = ["__all__", ...Array.from(new Set(posts.map((p) => p.category)))];
+  const filtered = activeCategory === "__all__" ? posts : posts.filter((p) => p.category === activeCategory);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -83,7 +83,7 @@ const Blog = () => {
         <section className="py-6 border-b border-border">
           <div className="container">
             <div className="flex flex-wrap items-center justify-center gap-2">
-              {categories.map((cat) => (
+              {categoryValues.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
@@ -93,7 +93,7 @@ const Blog = () => {
                       : "bg-secondary/60 text-muted-foreground hover:bg-secondary hover:text-foreground"
                   }`}
                 >
-                  {cat}
+                  {cat === "__all__" ? t("blog.all") : cat}
                 </button>
               ))}
             </div>

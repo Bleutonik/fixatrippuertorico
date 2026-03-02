@@ -22,7 +22,7 @@ const AboutSection = () => {
             </p>
 
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="p-4 sm:p-5 rounded-2xl bg-secondary/60 border border-border/50 space-y-3 hover:shadow-card transition-shadow">
+              <div className="p-4 sm:p-5 rounded-2xl liquid-glass space-y-3">
                 <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-soft">
                   <Compass className="h-5 w-5 text-primary-foreground" />
                 </div>
@@ -31,7 +31,7 @@ const AboutSection = () => {
                   {t("about.experts.desc")}
                 </p>
               </div>
-              <div className="p-4 sm:p-5 rounded-2xl bg-secondary/60 border border-border/50 space-y-3 hover:shadow-card transition-shadow">
+              <div className="p-4 sm:p-5 rounded-2xl liquid-glass space-y-3">
                 <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-soft">
                   <BookOpen className="h-5 w-5 text-primary-foreground" />
                 </div>
@@ -42,7 +42,7 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/40 border border-border/50">
+            <div className="flex items-center gap-4 p-4 rounded-2xl liquid-glass-subtle">
               <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Phone className="h-5 w-5 text-primary" />
               </div>

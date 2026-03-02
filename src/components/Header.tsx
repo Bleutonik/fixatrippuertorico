@@ -21,7 +21,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 glass border-b border-border/50">
+    <header className="sticky top-0 z-50 glass">
       <div className="container flex h-16 sm:h-[72px] items-center justify-between gap-3">
         {/* Logo */}
         <Link to="/" className="flex-shrink-0 group">
@@ -93,7 +93,7 @@ const Header = () => {
 
       {/* Search bar */}
       {searchOpen && (
-        <div className="border-t border-border/50 bg-background/95 backdrop-blur-xl p-4 animate-fade-up">
+        <div className="border-t border-border/50 liquid-glass-elevated p-4 animate-fade-up">
           <div className="container max-w-xl">
             <form
               onSubmit={(e) => {

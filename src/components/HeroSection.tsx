@@ -26,7 +26,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
 
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 mb-6 animate-fade-up">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/15 mb-6 animate-fade-up">
           <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
           <span className="text-xs font-medium text-white/90 tracking-wide">Puerto Rico's #1 Experience Concierge</span>
         </div>
@@ -39,7 +39,7 @@ const HeroSection = () => {
         </p>
 
         <form onSubmit={handleSearch} className="max-w-lg mx-auto px-2" style={{ animationDelay: "0.3s" }}>
-          <div className="flex items-center bg-white/95 dark:bg-card/95 backdrop-blur-xl rounded-2xl overflow-hidden shadow-elevated border border-white/20">
+          <div className="flex items-center liquid-glass-elevated rounded-2xl overflow-hidden bg-white/90 dark:bg-card/80">
             <Search className="h-5 w-5 text-muted-foreground ml-5 flex-shrink-0" />
             <input
               type="text"

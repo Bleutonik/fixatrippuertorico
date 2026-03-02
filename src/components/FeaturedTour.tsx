@@ -12,7 +12,7 @@ const FeaturedTour = () => {
   return (
     <section className="py-16 sm:py-24 bg-background">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-elevated bg-card border border-border/50">
+        <div className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden liquid-glass-elevated">
           <div className="relative aspect-[4/3] lg:aspect-auto min-h-[280px]">
             <img
               src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/YUNQUE-CARTEL.png"
@@ -43,18 +43,18 @@ const FeaturedTour = () => {
             </p>
 
             <div className="grid grid-cols-3 gap-4 sm:gap-6 py-2">
-              <div className="p-3 rounded-xl bg-secondary/60 border border-border/50">
+              <div className="p-3 rounded-xl liquid-glass-subtle">
                 <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 uppercase tracking-wide">{t("featured.price")}</p>
                 <p className="text-xl sm:text-2xl font-bold gradient-text">${tour.price}</p>
               </div>
-              <div className="p-3 rounded-xl bg-secondary/60 border border-border/50">
+              <div className="p-3 rounded-xl liquid-glass-subtle">
                 <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 uppercase tracking-wide">{t("featured.duration")}</p>
                 <div className="flex items-center gap-1.5 mt-1">
                   <Clock className="h-4 w-4 text-primary" />
                   <p className="font-semibold text-foreground text-sm">{tour.duration}</p>
                 </div>
               </div>
-              <div className="p-3 rounded-xl bg-secondary/60 border border-border/50">
+              <div className="p-3 rounded-xl liquid-glass-subtle">
                 <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 uppercase tracking-wide">{t("featured.age")}</p>
                 <div className="flex items-center gap-1.5 mt-1">
                   <Users className="h-4 w-4 text-primary" />

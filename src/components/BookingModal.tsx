@@ -41,8 +41,8 @@ const BookingModal = ({ tour, open, onClose }: BookingModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full sm:max-w-md bg-card border border-border rounded-t-3xl sm:rounded-3xl shadow-elevated p-6 sm:p-8 animate-fade-up max-h-[90vh] overflow-y-auto">
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-md" onClick={onClose} />
+      <div className="relative w-full sm:max-w-md liquid-glass-elevated rounded-t-3xl sm:rounded-3xl p-6 sm:p-8 animate-fade-up max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 rounded-full hover:bg-secondary transition-colors"
@@ -87,7 +87,7 @@ const BookingModal = ({ tour, open, onClose }: BookingModalProps) => {
         <div className="space-y-4 mb-6">
           <label className="text-sm font-semibold text-foreground block">{t("booking.guests")}</label>
           
-          <div className="flex items-center justify-between p-4 rounded-xl border border-border bg-secondary/30">
+          <div className="flex items-center justify-between p-4 rounded-xl liquid-glass-subtle">
             <div>
               <p className="text-sm font-medium text-foreground">{t("booking.adults")}</p>
               <p className="text-xs text-muted-foreground">${tour.price} {t("booking.each")}</p>
@@ -110,7 +110,7 @@ const BookingModal = ({ tour, open, onClose }: BookingModalProps) => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-xl border border-border bg-secondary/30">
+          <div className="flex items-center justify-between p-4 rounded-xl liquid-glass-subtle">
             <div>
               <p className="text-sm font-medium text-foreground">{t("booking.children")}</p>
               <p className="text-xs text-muted-foreground">${Math.round(tour.price * 0.7)} {t("booking.each")}</p>
@@ -135,7 +135,7 @@ const BookingModal = ({ tour, open, onClose }: BookingModalProps) => {
         </div>
 
         {/* Total */}
-        <div className="flex items-center justify-between p-4 rounded-xl bg-primary/5 border border-primary/20 mb-6">
+        <div className="flex items-center justify-between p-4 rounded-xl liquid-glass-subtle mb-6" style={{ borderColor: 'hsl(var(--primary) / 0.2)' }}>
           <div>
             <p className="text-xs text-muted-foreground">{t("booking.estimated")}</p>
             <p className="text-2xl font-bold gradient-text">${totalPrice}</p>

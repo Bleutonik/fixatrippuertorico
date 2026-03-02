@@ -91,7 +91,7 @@ const FixAChef = () => {
             <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
               {chefServices.map((service) => (
                 <div key={service.name} className="text-center group">
-                  <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden mx-auto mb-5 shadow-card group-hover:shadow-elevated transition-all duration-500">
+                  <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden mx-auto mb-5 liquid-glass transition-all duration-500">
                     <img src={service.image} alt={service.name} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">{service.name}</h3>

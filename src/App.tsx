@@ -16,6 +16,8 @@ const BoatDetail = lazy(() => import("./pages/BoatDetail"));
 const FixAChef = lazy(() => import("./pages/FixAChef"));
 const FixATransport = lazy(() => import("./pages/FixATransport"));
 const FixAWellness = lazy(() => import("./pages/FixAWellness"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 import BottomNav from "./components/BottomNav";
 import RouteScrollToTop from "./components/RouteScrollToTop";
@@ -41,6 +43,8 @@ const App = () => (
                   <Route path="/fix-a-chef" element={<FixAChef />} />
                   <Route path="/fix-a-transport" element={<FixATransport />} />
                   <Route path="/fix-a-wellness" element={<FixAWellness />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

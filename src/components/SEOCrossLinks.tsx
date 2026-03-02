@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Ship, UtensilsCrossed, Car, Heart, Map, Phone } from "lucide-react";
+import { Ship, UtensilsCrossed, Car, Heart, Map, Phone, BookOpen } from "lucide-react";
 
 interface CrossLink {
   path: string;
@@ -38,6 +38,12 @@ const allLinks: CrossLink[] = [
     label: "Wellness & Spa",
     description: "In-villa massage therapy, yoga, sound healing, reiki, and holistic wellness experiences across Puerto Rico.",
     icon: <Heart className="h-5 w-5" />,
+  },
+  {
+    path: "/blog",
+    label: "Travel Blog",
+    description: "Expert guides, tips, and insider knowledge about Puerto Rico beaches, food, nightlife, adventures, and more.",
+    icon: <BookOpen className="h-5 w-5" />,
   },
   {
     path: "/contact",

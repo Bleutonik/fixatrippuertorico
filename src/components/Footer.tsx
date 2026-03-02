@@ -22,7 +22,7 @@ const Footer = () => {
               href="https://www.facebook.com/fixatrippr/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-background/10 hover:bg-primary hover:scale-110 transition-all duration-300"
+              className="p-3 rounded-xl liquid-glass-btn hover:bg-primary hover:scale-110"
               aria-label="Facebook"
             >
               <Facebook className="h-5 w-5" />
@@ -31,7 +31,7 @@ const Footer = () => {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-background/10 hover:bg-primary hover:scale-110 transition-all duration-300"
+              className="p-3 rounded-xl liquid-glass-btn hover:bg-primary hover:scale-110"
               aria-label="Instagram"
             >
               <Instagram className="h-5 w-5" />

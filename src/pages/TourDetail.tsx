@@ -143,7 +143,7 @@ const TourDetail = () => {
 
           {/* Mobile: Booking card on top */}
           <div className="lg:hidden mb-6">
-            <div className="bg-card border border-border rounded-2xl p-5 shadow-lg space-y-3">
+            <div className="liquid-glass-elevated rounded-2xl p-5 space-y-3">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs text-muted-foreground">{t("detail.pricefrom")}</p>
@@ -248,7 +248,7 @@ const TourDetail = () => {
 
             {/* Desktop booking sidebar */}
             <aside className="hidden lg:block lg:col-span-1">
-              <div className="bg-card border border-border rounded-2xl p-6 shadow-lg sticky top-24 space-y-5">
+              <div className="liquid-glass-elevated rounded-2xl p-6 sticky top-24 space-y-5">
                 <div>
                   <p className="text-xs text-muted-foreground">{t("detail.pricefrom")}</p>
                   <p className="text-4xl font-bold text-primary">${tour.price}</p>

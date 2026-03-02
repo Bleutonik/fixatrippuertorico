@@ -71,7 +71,7 @@ const FixABoat = () => {
                 <Link
                   key={boat.slug}
                   to={`/fix-a-boat/${boat.slug}`}
-                  className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1.5 border border-border/50"
+                  className="group liquid-glass liquid-glass-shimmer rounded-2xl overflow-hidden active:scale-[0.98]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img

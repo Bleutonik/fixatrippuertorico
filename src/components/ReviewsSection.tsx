@@ -19,7 +19,7 @@ const ReviewsSection = () => {
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="bg-card p-6 sm:p-7 rounded-2xl shadow-card border border-border/50 space-y-4 hover:shadow-elevated transition-all duration-500 hover:-translate-y-1"
+              className="liquid-glass p-6 sm:p-7 rounded-2xl space-y-4"
             >
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Quote className="h-5 w-5 text-primary" />

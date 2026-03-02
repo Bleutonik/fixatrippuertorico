@@ -41,8 +41,7 @@ const FixATransport = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
           <div className="container relative z-10 text-center">
-            <h5 className="text-sm sm:text-base font-semibold text-white/80 tracking-widest uppercase mb-4">FIX A TRANSPORT</h5>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#ff4c00] font-display tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display tracking-tight mb-4 drop-shadow-lg">
               FIX A TRANSPORT
             </h1>
           </div>

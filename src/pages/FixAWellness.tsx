@@ -42,7 +42,7 @@ const FixAWellness = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
           <div className="container relative z-10 text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display tracking-tight mb-4 drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#ff4c00] font-display tracking-tight mb-4">
               FIX A WELLNESS
             </h1>
           </div>

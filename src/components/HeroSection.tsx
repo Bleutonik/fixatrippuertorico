@@ -61,14 +61,14 @@ const HeroSection = () => {
           onSubmit={handleSearch}
           className="max-w-lg mx-auto px-2"
         >
-          <div className="flex items-center liquid-glass-elevated rounded-2xl overflow-hidden bg-white/90 dark:bg-card/80">
-            <Search className="h-5 w-5 text-muted-foreground ml-5 flex-shrink-0" />
+          <div className="flex items-center liquid-glass-elevated rounded-2xl overflow-hidden bg-white/95 dark:bg-card/90 shadow-lg">
+            <Search className="h-5 w-5 text-foreground/60 ml-5 flex-shrink-0" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("hero.search")}
-              className="flex-1 px-4 py-4 sm:py-[18px] text-foreground bg-transparent focus:outline-none text-sm min-w-0"
+              className="flex-1 px-4 py-4 sm:py-[18px] text-foreground placeholder:text-foreground/40 bg-transparent focus:outline-none text-sm min-w-0 font-medium"
             />
             <button
               type="submit"

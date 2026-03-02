@@ -18,8 +18,8 @@ const FixAWellness = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Fix a Wellness - Wellness Services Puerto Rico",
-    description: "Enjoy a high-end personalized relax experience in Puerto Rico. Massage, yoga, sound therapy, and more.",
+    name: "Fix a Wellness - Premium Wellness & Spa Services Puerto Rico",
+    description: "Fix a Wellness by Fix a Trip Puerto Rico offers a comprehensive suite of luxury wellness and spa services designed to rejuvenate your body, mind, and spirit during your stay on the island. Our certified wellness practitioners bring premium spa experiences directly to your vacation rental, hotel, resort, or private villa, eliminating the need to travel to a spa facility. Services include Swedish massage, deep tissue massage, hot stone therapy, aromatherapy massage, couples massage, prenatal massage, sports recovery massage, reflexology, and Thai massage. Beyond traditional massage therapy, Fix a Wellness offers transformative holistic experiences including private yoga sessions on the beach or at your accommodation, guided meditation, breathwork workshops, sound healing with crystal singing bowls and Tibetan instruments, reiki energy healing, acupuncture, cupping therapy, and personalized wellness coaching. Each session is tailored to your individual needs, preferences, and health goals. Our therapists use premium organic oils, locally sourced botanical products, and professional-grade equipment to ensure a five-star spa experience in complete privacy and comfort. Fix a Wellness also provides group wellness packages perfect for bachelorette parties, corporate wellness retreats, family vacation relaxation days, and couples romantic getaway packages. Multi-session discounts and customized wellness itineraries are available for extended stays. All practitioners are licensed, insured, and extensively trained in their specialties. Experience the healing power of the Caribbean combined with world-class wellness expertise. Contact Fix a Wellness via WhatsApp to schedule your personalized wellness experience in Puerto Rico today.",
     url: "https://fixatrippuertorico.com/fix-a-wellness",
     provider: { "@type": "TravelAgency", name: "Fix a Trip Puerto Rico", telephone: "+1-787-488-0202" },
   };
@@ -28,7 +28,7 @@ const FixAWellness = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Fix a Wellness | Wellness & Spa Services Puerto Rico"
-        description="Enjoy a high-end personalized relax experience. Massage, therapeutic massage, yoga, sound therapy, acupuncture, reiki and more in Puerto Rico."
+        description="Luxury wellness and spa services in Puerto Rico delivered to your door. Swedish massage, deep tissue, hot stone therapy, yoga, sound healing, reiki, acupuncture, and more. Certified practitioners, organic products, couples and group packages. Book with Fix a Trip Puerto Rico."
         canonicalPath="/fix-a-wellness"
         jsonLd={jsonLd}
       />

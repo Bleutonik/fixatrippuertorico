@@ -28,7 +28,7 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Contact Fix a Trip Puerto Rico",
-    description: "Get in touch with Fix a Trip Puerto Rico for personalized travel recommendations and tour bookings.",
+    description: "Get in touch with Fix a Trip Puerto Rico, the island's leading boutique travel concierge, for personalized tour recommendations, private boat charter reservations, luxury transportation bookings, private chef arrangements, and wellness service scheduling. Our dedicated bilingual team is available seven days a week to help you plan every detail of your Puerto Rico vacation, from selecting the perfect El Yunque rainforest hike or bioluminescent bay kayaking adventure to arranging airport transfers in executive vehicles and booking in-villa massage therapy sessions. Whether you are visiting Puerto Rico for the first time or returning for another unforgettable experience, our travel experts provide tailored itineraries based on your interests, group size, budget, and schedule. We respond to all inquiries within minutes via WhatsApp, ensuring fast and convenient communication from anywhere in the world. You can also reach us by phone at +1 787 488 0202 or by email at bookings@fixatrippr.com. Our team speaks English and Spanish fluently and can assist with special requests including surprise celebrations, honeymoon planning, corporate event coordination, and accessibility accommodations. Fix a Trip Puerto Rico has earned hundreds of five-star reviews for our responsive customer service, attention to detail, and genuine passion for sharing the beauty of Puerto Rico with visitors from around the globe. Contact us today and let us help you create the Caribbean vacation of your dreams.",
     url: "https://fixatrippuertorico.com/contact",
     mainEntity: {
       "@type": "TravelAgency",
@@ -43,7 +43,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Contact Us | Fix a Trip Puerto Rico"
-        description="Contact Fix a Trip Puerto Rico for personalized travel recommendations, tour bookings, and trip planning. Call +1 787 488 0202 or email bookings@fixatrippr.com."
+        description="Contact Fix a Trip Puerto Rico for personalized travel planning, tour bookings, boat charters, private chef reservations, luxury transport, and wellness services. Call +1 787 488 0202, email bookings@fixatrippr.com, or message us on WhatsApp for instant responses."
         canonicalPath="/contact"
         jsonLd={jsonLd}
       />

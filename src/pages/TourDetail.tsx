@@ -51,11 +51,13 @@ const TourDetail = () => {
     }
   };
 
+  const richDescription = `${tour.description} This tour departs from ${tour.location} and lasts approximately ${tour.duration}. Suitable for ${tour.age}. ${tour.experience || ""} ${tour.highlights.length > 0 ? `Highlights include: ${tour.highlights.join(", ")}.` : ""} ${tour.included.length > 0 ? `Price includes: ${tour.included.join(", ")}.` : ""} Book this unforgettable Puerto Rico experience with Fix a Trip Puerto Rico, the island's premier boutique travel concierge. Our certified local guides provide personalized attention, deep cultural knowledge, and seamless logistics for every adventure. Whether you are a solo traveler, couple, family, or group, this tour offers an authentic Caribbean experience with comfortable transportation, professional equipment, and safety-first protocols. Contact us via WhatsApp at +1 787 488 0202 for availability, custom itineraries, and group discounts. Fix a Trip Puerto Rico is rated 5 stars by thousands of happy travelers.`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     name: tour.name,
-    description: tour.description,
+    description: richDescription,
     image: allImages,
     url: `https://fixatrippuertorico.com/tour/${tour.slug}`,
     touristType: "Adventure traveler",

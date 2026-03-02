@@ -129,9 +129,9 @@ const Tours = () => {
     selectedCategories.length +
     (priceRange[0] > priceMin || priceRange[1] < priceMax ? 1 : 0);
 
-  const pageTitle = "Booking - Fix A Trip";
+  const pageTitle = "Booking - Fix A Trip Puerto Rico Tours & Experiences";
   const pageDescription =
-    "Browse all tours and experiences in Puerto Rico. From El Yunque rainforest hikes to bioluminescent bay kayaking, island hopping, and cultural walking tours.";
+    "Browse and book the best tours and experiences in Puerto Rico with Fix a Trip. Explore guided adventures through El Yunque National Rainforest, kayak the bioluminescent bays of Vieques and La Parguera, snorkel in crystal-clear Caribbean waters, and discover the historic charm of Old San Juan on expert-led walking tours. Our curated collection features island-hopping excursions to Culebra and Flamenco Beach, catamaran sailing trips, cultural food tours, sunset cruises, and adrenaline-pumping zip-line adventures through tropical canopy. Whether you are a solo traveler seeking authentic local experiences, a couple looking for romantic getaways, or a family planning the ultimate Caribbean vacation, Fix a Trip Puerto Rico offers small-group and private tour options at competitive prices. Each tour is led by certified bilingual guides with deep knowledge of Puerto Rican history, ecology, and traditions. We provide hotel pickup, all necessary equipment, and seamless online booking through our platform. Filter by category, location, price range, and rating to find your perfect adventure. With hundreds of five-star reviews and a commitment to sustainable tourism, Fix a Trip Puerto Rico is the trusted choice for unforgettable island experiences. Book today and create memories that last a lifetime.";
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -19,7 +19,7 @@ const FixAChef = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Fix a Chef - Private Chef Service Puerto Rico",
-    description: "Enjoy a high-end personalized culinary experience with a private chef in Puerto Rico.",
+    description: "Fix a Chef by Fix a Trip Puerto Rico delivers an extraordinary private dining experience directly to your vacation rental, Airbnb, hotel suite, or private villa anywhere on the island. Our network of professional, certified chefs specializes in Puerto Rican, Caribbean, Latin American, Mediterranean, Asian fusion, and international cuisines, crafting bespoke multi-course menus tailored to your dietary preferences, allergies, and budget. Whether you are celebrating a birthday, anniversary, honeymoon dinner, corporate retreat, or simply want to elevate your vacation with a gourmet meal, Fix a Chef transforms your kitchen into a world-class restaurant. The experience begins with a personalized menu consultation where your chef designs each course using the freshest locally sourced ingredients, premium seafood from Puerto Rican waters, and seasonal tropical produce. On the day of your event, your private chef arrives with all ingredients and equipment, prepares each dish before your eyes, serves every course with professional table service, and leaves your kitchen spotless. Packages are available for intimate dinners for two, family gatherings, and large group events of up to 50 guests. Multi-day and multi-meal discounts are offered for extended stays. Fix a Chef is the highest-rated private chef service in Puerto Rico, combining culinary excellence with warm Caribbean hospitality. Contact us via WhatsApp to design your perfect dining experience today.",
     url: "https://fixatrippuertorico.com/fix-a-chef",
     provider: { "@type": "TravelAgency", name: "Fix a Trip Puerto Rico", telephone: "+1-787-488-0202" },
   };
@@ -28,7 +28,7 @@ const FixAChef = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Fix a Chef | Private Chef Service Puerto Rico"
-        description="Enjoy a high-end personalized culinary experience with a private chef, created for your budget. All in the tranquility, privacy and comfort of your home!"
+        description="Book a private chef in Puerto Rico for a luxury dining experience at your vacation rental. Custom multi-course menus, locally sourced ingredients, professional table service, and spotless cleanup. Perfect for birthdays, anniversaries, and special celebrations. Fix a Trip Puerto Rico."
         canonicalPath="/fix-a-chef"
         jsonLd={jsonLd}
       />

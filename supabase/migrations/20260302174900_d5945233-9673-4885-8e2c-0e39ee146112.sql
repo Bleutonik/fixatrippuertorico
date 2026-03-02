@@ -1,0 +1,1 @@
+UPDATE blog_posts SET image_url = 'https://images.unsplash.com/photo-1568402102990-bc541580b59f?w=800' WHERE slug = 'exploring-old-san-juan-walking-guide';

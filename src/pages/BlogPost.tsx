@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BlogPost {
   id: string;
@@ -21,6 +22,7 @@ interface BlogPost {
 }
 
 const BlogPostPage = () => {
+  const { t } = useLanguage();
   const { slug } = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
@@ -74,8 +76,8 @@ const BlogPostPage = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="container py-20 text-center">
-          <h1 className="text-3xl font-bold text-foreground mb-4">Article Not Found</h1>
-          <Link to="/blog" className="text-primary font-semibold hover:underline">← Back to Blog</Link>
+          <h1 className="text-3xl font-bold text-foreground mb-4">{t("blog.notfound")}</h1>
+          <Link to="/blog" className="text-primary font-semibold hover:underline">← {t("blog.back")}</Link>
         </div>
         <Footer />
       </div>
@@ -194,7 +196,7 @@ const BlogPostPage = () => {
         <article className="container max-w-3xl -mt-20 relative z-10 pb-16">
           <div className="liquid-glass rounded-2xl p-6 sm:p-10">
             <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm text-primary font-semibold mb-6 hover:gap-2.5 transition-all">
-              <ArrowLeft className="h-4 w-4" /> Back to Blog
+              <ArrowLeft className="h-4 w-4" /> {t("blog.back")}
             </Link>
 
             <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-4">
@@ -225,7 +227,7 @@ const BlogPostPage = () => {
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
             <div className="mt-16">
-              <h2 className="text-2xl font-bold text-foreground font-display mb-8">Related Articles</h2>
+              <h2 className="text-2xl font-bold text-foreground font-display mb-8">{t("blog.related")}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {relatedPosts.map((rp) => (
                   <Link

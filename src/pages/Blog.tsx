@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BlogPost {
   id: string;
@@ -20,6 +21,7 @@ interface BlogPost {
 }
 
 const Blog = () => {
+  const { t } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -38,8 +40,8 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
-  const filtered = activeCategory === "All" ? posts : posts.filter((p) => p.category === activeCategory);
+  const categories = [t("blog.all"), ...Array.from(new Set(posts.map((p) => p.category)))];
+  const filtered = activeCategory === t("blog.all") ? posts : posts.filter((p) => p.category === activeCategory);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -66,13 +68,13 @@ const Blog = () => {
           <div className="container relative z-10 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
               <BookOpen className="h-4 w-4" />
-              Travel Blog
+              {t("blog.badge")}
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tight mb-4">
-              Puerto Rico Travel Guide
+              {t("blog.hero")}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Insider tips, expert guides, and everything you need to plan your perfect Puerto Rico adventure.
+              {t("blog.herodesc")}
             </p>
           </div>
         </section>
@@ -115,7 +117,7 @@ const Blog = () => {
                 ))}
               </div>
             ) : filtered.length === 0 ? (
-              <p className="text-center text-muted-foreground text-lg">No articles found.</p>
+              <p className="text-center text-muted-foreground text-lg">{t("blog.noarticles")}</p>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {filtered.map((post) => (
@@ -151,7 +153,7 @@ const Blog = () => {
                       </h2>
                       <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
                       <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                        Read More <ArrowRight className="h-4 w-4" />
+                        {t("blog.readmore")} <ArrowRight className="h-4 w-4" />
                       </span>
                     </div>
                   </Link>

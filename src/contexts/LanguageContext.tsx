@@ -128,9 +128,16 @@ const translations: Record<string, Record<Language, string>> = {
   // Footer
   "footer.copyright": { en: "Copyright", es: "Derechos Reservados" },
 
-  // Theme
-  "theme.light": { en: "Light", es: "Claro" },
-  "theme.dark": { en: "Dark", es: "Oscuro" },
+  // Blog
+  "blog.badge": { en: "Travel Blog", es: "Blog de Viajes" },
+  "blog.hero": { en: "Puerto Rico Travel Guide", es: "Guía de Viajes de Puerto Rico" },
+  "blog.herodesc": { en: "Insider tips, expert guides, and everything you need to plan your perfect Puerto Rico adventure.", es: "Consejos locales, guías expertas y todo lo que necesitas para planificar tu aventura perfecta en Puerto Rico." },
+  "blog.all": { en: "All", es: "Todos" },
+  "blog.readmore": { en: "Read More", es: "Leer Más" },
+  "blog.noarticles": { en: "No articles found.", es: "No se encontraron artículos." },
+  "blog.back": { en: "Back to Blog", es: "Volver al Blog" },
+  "blog.related": { en: "Related Articles", es: "Artículos Relacionados" },
+  "blog.notfound": { en: "Article Not Found", es: "Artículo No Encontrado" },
 
   // Fix a Boat
   "boat.badge": { en: "Private Charters", es: "Charters Privados" },

@@ -82,46 +82,83 @@ const BlogPostPage = () => {
     );
   }
 
-  // Convert markdown-like content to HTML paragraphs
+  // Parse inline markdown (bold)
+  const parseInline = (text: string) => {
+    const parts = text.split(/\*\*(.*?)\*\*/g);
+    return parts.map((part, k) =>
+      k % 2 === 1 ? (
+        <strong key={k} className="text-foreground font-semibold">{part}</strong>
+      ) : (
+        <span key={k}>{part}</span>
+      )
+    );
+  };
+
+  // Convert markdown-like content to HTML
   const renderContent = (content: string) => {
-    return content.split("\n\n").map((block, i) => {
-      if (block.startsWith("## ")) {
-        return (
-          <h2 key={i} className="text-2xl font-bold text-foreground mt-10 mb-4 font-display">
-            {block.replace("## ", "")}
-          </h2>
-        );
+    // First split into lines, then group into blocks
+    const lines = content.split("\n");
+    const blocks: { type: string; lines: string[] }[] = [];
+    let current: { type: string; lines: string[] } | null = null;
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed === "") {
+        current = null;
+        continue;
       }
-      if (block.startsWith("### ")) {
-        return (
-          <h3 key={i} className="text-xl font-bold text-foreground mt-8 mb-3">
-            {block.replace("### ", "")}
-          </h3>
-        );
+      if (trimmed.startsWith("## ")) {
+        blocks.push({ type: "h2", lines: [trimmed.replace("## ", "")] });
+        current = null;
+      } else if (trimmed.startsWith("### ")) {
+        blocks.push({ type: "h3", lines: [trimmed.replace("### ", "")] });
+        current = null;
+      } else if (trimmed.startsWith("- ")) {
+        if (!current || current.type !== "list") {
+          current = { type: "list", lines: [] };
+          blocks.push(current);
+        }
+        current.lines.push(trimmed.replace("- ", ""));
+      } else {
+        if (!current || current.type !== "p") {
+          current = { type: "p", lines: [] };
+          blocks.push(current);
+        }
+        current.lines.push(trimmed);
       }
-      if (block.startsWith("- ")) {
-        const items = block.split("\n").filter((l) => l.startsWith("- "));
-        return (
-          <ul key={i} className="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
-            {items.map((item, j) => (
-              <li key={j} className="leading-relaxed">
-                {item.replace("- ", "").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").split("<strong>").map((part, k) => {
-                  if (part.includes("</strong>")) {
-                    const [bold, rest] = part.split("</strong>");
-                    return <span key={k}><strong className="text-foreground">{bold}</strong>{rest}</span>;
-                  }
-                  return part;
-                })}
-              </li>
-            ))}
-          </ul>
-        );
+    }
+
+    return blocks.map((block, i) => {
+      switch (block.type) {
+        case "h2":
+          return (
+            <h2 key={i} className="text-2xl font-bold text-foreground mt-10 mb-4 font-display">
+              {block.lines[0]}
+            </h2>
+          );
+        case "h3":
+          return (
+            <h3 key={i} className="text-xl font-bold text-foreground mt-8 mb-3">
+              {block.lines[0]}
+            </h3>
+          );
+        case "list":
+          return (
+            <ul key={i} className="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
+              {block.lines.map((item, j) => (
+                <li key={j} className="leading-relaxed">
+                  {parseInline(item)}
+                </li>
+              ))}
+            </ul>
+          );
+        default:
+          return (
+            <p key={i} className="text-muted-foreground leading-relaxed mb-4">
+              {parseInline(block.lines.join(" "))}
+            </p>
+          );
       }
-      return (
-        <p key={i} className="text-muted-foreground leading-relaxed mb-4">
-          {block}
-        </p>
-      );
     });
   };
 

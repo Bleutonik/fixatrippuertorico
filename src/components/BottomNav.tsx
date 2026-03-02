@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Home, Ship, ChefHat, Car, BookOpen } from "lucide-react";
+import { Home, Ship, ChefHat, Car, Heart, BookOpen } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const BottomNav = () => {
@@ -11,6 +11,7 @@ const BottomNav = () => {
     { icon: Ship, label: "Boat", href: "/fix-a-boat" },
     { icon: ChefHat, label: "Chef", href: "/fix-a-chef" },
     { icon: Car, label: "Transport", href: "/fix-a-transport" },
+    { icon: Heart, label: "Wellness", href: "/fix-a-wellness" },
     { icon: BookOpen, label: "Blog", href: "/blog" },
   ];
 

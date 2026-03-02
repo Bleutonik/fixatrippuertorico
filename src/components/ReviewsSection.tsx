@@ -1,6 +1,9 @@
 import { Star, Quote } from "lucide-react";
 import { reviews } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
+import FadeIn from "@/components/motion/FadeIn";
+import StaggerChildren, { staggerItemVariants } from "@/components/motion/StaggerChildren";
+import { motion } from "framer-motion";
 
 const ReviewsSection = () => {
   const { t } = useLanguage();
@@ -8,17 +11,18 @@ const ReviewsSection = () => {
   return (
     <section className="py-16 sm:py-24 bg-secondary/50">
       <div className="container">
-        <div className="text-center mb-10 sm:mb-14">
+        <FadeIn className="text-center mb-10 sm:mb-14">
           <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">Testimonials</p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight">
             {t("reviews.title")}
           </h2>
-        </div>
+        </FadeIn>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        <StaggerChildren className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6" stagger={0.1}>
           {reviews.map((review) => (
-            <div
+            <motion.div
               key={review.id}
+              variants={staggerItemVariants}
               className="liquid-glass p-6 sm:p-7 rounded-2xl space-y-4"
             >
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -34,9 +38,9 @@ const ReviewsSection = () => {
                 <p className="font-semibold text-foreground text-sm">{review.name}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{review.tour}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );

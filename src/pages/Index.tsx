@@ -9,6 +9,7 @@ import PopularPlaces from "@/components/PopularPlaces";
 import ReviewsSection from "@/components/ReviewsSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
+import SEOCrossLinks from "@/components/SEOCrossLinks";
 
 const Index = () => {
   const jsonLd = {
@@ -51,6 +52,7 @@ const Index = () => {
         <BestSellingTours />
         <PopularPlaces />
         <ReviewsSection />
+        <SEOCrossLinks />
       </main>
       <Footer />
       <ScrollToTop />

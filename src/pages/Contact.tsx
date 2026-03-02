@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
+import SEOCrossLinks from "@/components/SEOCrossLinks";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -151,6 +152,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
+        <SEOCrossLinks />
       </main>
       <Footer />
       <ScrollToTop />

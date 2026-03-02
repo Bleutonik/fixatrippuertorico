@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import TourCard from "@/components/TourCard";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
+import SEOCrossLinks from "@/components/SEOCrossLinks";
 import { tours, categories } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -398,6 +399,7 @@ const Tours = () => {
             </div>
           </div>
         </div>
+        <SEOCrossLinks />
       </main>
       <Footer />
       <ScrollToTop />

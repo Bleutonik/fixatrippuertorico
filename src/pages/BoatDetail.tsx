@@ -34,11 +34,13 @@ const BoatDetail = () => {
   const whatsappMessage = encodeURIComponent(`Hi! I'm interested in booking the ${boat.name}. Could you provide availability and pricing?`);
   const bookingUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
+  const richBoatDescription = `${boat.description} The ${boat.name} is available for private charter from ${boat.location}, with trips lasting ${boat.duration}. ${boat.groupSize ? `Accommodates ${boat.groupSize}.` : ""} ${boat.cancellation ? `Cancellation policy: ${boat.cancellation}.` : ""} ${boat.included.length > 0 ? `Charter includes: ${boat.included.join(", ")}.` : ""} Fix a Boat by Fix a Trip Puerto Rico offers the finest private boat charter experiences in the Caribbean. Our licensed captains and crew ensure your safety and comfort while navigating Puerto Rico's stunning coastline, pristine islands, and turquoise waters. Whether you are celebrating a special occasion, planning a corporate outing, or simply want to explore hidden beaches and world-class snorkeling spots, our fleet of luxury catamarans, powerboats, and yachts delivers an unforgettable maritime adventure. Book via WhatsApp at +1 787 488 0202 for instant availability and custom itineraries.`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: boat.name,
-    description: boat.description,
+    description: richBoatDescription,
     url: `https://fixatrippuertorico.com/fix-a-boat/${boat.slug}`,
     brand: { "@type": "Organization", name: "Fix a Trip Puerto Rico" },
   };

@@ -15,7 +15,7 @@ const FixABoat = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Fix a Boat - Private Boat Charters Puerto Rico",
-    description: "Choose from our fleet of private boats, yachts, and catamarans for your Puerto Rico adventure.",
+    description: "Fix a Boat by Fix a Trip Puerto Rico offers an exclusive fleet of private boat charters, luxury catamarans, high-performance powerboats, and elegant yachts departing from Fajardo, San Juan, and other premier marinas across Puerto Rico. Whether you are planning a romantic sunset cruise along the coast, a full-day snorkeling expedition to the pristine islands of Culebra, Icacos, Palomino, or Cayo Lobos, or an unforgettable bachelor or bachelorette celebration on the water, our private charters are fully customizable to your group size, itinerary, and budget. Each vessel is captained by licensed, experienced professionals who know Puerto Rico's coastline intimately, ensuring safe and scenic voyages through turquoise Caribbean waters and secluded cays. Our boats come equipped with premium amenities including snorkeling gear, paddleboards, Bluetooth sound systems, coolers, and shaded lounging areas. We accommodate groups ranging from intimate couples to large parties of up to 100 guests on our biggest catamarans. Complimentary beverages and catering packages are available upon request. Fix a Boat is the top-rated boat charter service in Puerto Rico, trusted by thousands of visitors for its reliability, professionalism, and attention to detail. Book your private boat experience via WhatsApp or our online platform and set sail on the adventure of a lifetime in the Caribbean.",
     url: "https://fixatrippuertorico.com/fix-a-boat",
     provider: {
       "@type": "TravelAgency",
@@ -28,7 +28,7 @@ const FixABoat = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Fix a Boat | Private Boat Charters Puerto Rico"
-        description="Choose your perfect boat for a private charter in Puerto Rico. Catamarans, yachts, and powerboats available in Fajardo. Book with Fix a Trip Puerto Rico."
+        description="Choose your perfect private boat charter in Puerto Rico. Luxury catamarans, yachts, and powerboats departing from Fajardo. Snorkeling, sunset cruises, island hopping to Culebra, Icacos, and Palomino. Fully customizable charters for groups of all sizes. Book with Fix a Trip Puerto Rico today."
         canonicalPath="/fix-a-boat"
         jsonLd={jsonLd}
       />

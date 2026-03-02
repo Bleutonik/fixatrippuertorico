@@ -17,7 +17,7 @@ const NotFound = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Page Not Found | Fix a Trip Puerto Rico"
-        description="The page you're looking for doesn't exist. Browse our Puerto Rico tours and experiences instead."
+        description="The page you're looking for doesn't exist. Browse our Puerto Rico tours, private boat charters, chef services, luxury transportation, and wellness experiences. Visit fixatrippuertorico.com to discover unforgettable Caribbean adventures with expert local guides."
         canonicalPath={location.pathname}
       />
       <Header />

@@ -17,8 +17,8 @@ const FixATransport = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Fix a Transport - Transportation Services Puerto Rico",
-    description: "Reliable transportation services in Puerto Rico. Airport transfers, private tours, and custom itineraries.",
+    name: "Fix a Transport - Luxury Transportation Services Puerto Rico",
+    description: "Fix a Transport by Fix a Trip Puerto Rico provides premium luxury ground transportation services across the entire island, including San Juan, Fajardo, Ponce, Rincón, Vieques, and all major tourist destinations. Our fleet of executive vehicles, luxury SUVs, Mercedes-Benz sedans, and spacious vans ensures comfortable, safe, and stylish travel for individuals, couples, families, and large groups of up to 20 passengers. Services include San Juan Luis Muñoz Marín International Airport (SJU) transfers, cruise port pickups from the San Juan Cruise Terminal, inter-city transfers, full-day private chauffeur service, and custom multi-day itineraries. Our professional, bilingual drivers are fully licensed and insured, with extensive knowledge of Puerto Rico's roads, neighborhoods, and attractions, providing insider tips and seamless navigation throughout your journey. Whether you need a reliable airport pickup after a long flight, a VIP transfer to your resort or vacation rental, dedicated transportation for a wedding or corporate event, or a private driver for a full-day island exploration, Fix a Transport delivers punctual, discreet, and luxurious service every time. All vehicles are equipped with air conditioning, complimentary bottled water, phone chargers, and WiFi. We offer 24/7 availability with flexible scheduling and competitive pricing. Child car seats are available upon request at no extra charge. Avoid the hassle of rental cars, taxis, and rideshares — trust Fix a Transport for a first-class travel experience in Puerto Rico. Book via WhatsApp or phone for instant confirmation.",
     url: "https://fixatrippuertorico.com/fix-a-transport",
     provider: { "@type": "TravelAgency", name: "Fix a Trip Puerto Rico", telephone: "+1-787-488-0202" },
   };
@@ -26,8 +26,8 @@ const FixATransport = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Fix a Transport | Transportation Services Puerto Rico"
-        description="Reliable transportation services in Puerto Rico. Airport transfers, private tours, hourly rentals, and VIP service. Book with Fix a Trip Puerto Rico."
+        title="Fix a Transport | Luxury Transportation Puerto Rico"
+        description="Premium luxury transportation in Puerto Rico. Airport transfers from SJU, cruise port pickups, private chauffeur service, executive SUVs and Mercedes-Benz sedans. Bilingual drivers, 24/7 availability, competitive pricing. Book with Fix a Trip Puerto Rico via WhatsApp."
         canonicalPath="/fix-a-transport"
         jsonLd={jsonLd}
       />

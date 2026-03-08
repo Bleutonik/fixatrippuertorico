@@ -41,8 +41,9 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  const categoryValues = ["__all__", ...Array.from(new Set(posts.map((p) => p.category)))];
-  const filtered = activeCategory === "__all__" ? posts : posts.filter((p) => p.category === activeCategory);
+  const { translatedPosts, translating } = useBlogTranslation(posts);
+  const categoryValues = ["__all__", ...Array.from(new Set(translatedPosts.map((p) => p.category)))];
+  const filtered = activeCategory === "__all__" ? translatedPosts : translatedPosts.filter((p) => p.category === activeCategory);
 
   const jsonLd = {
     "@context": "https://schema.org",

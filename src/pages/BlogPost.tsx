@@ -239,11 +239,11 @@ const BlogPostPage = () => {
           </div>
 
           {/* Related Posts */}
-          {relatedPosts.length > 0 && (
+          {displayRelated.length > 0 && (
             <div className="mt-16">
               <h2 className="text-2xl font-bold text-foreground font-display mb-8">{t("blog.related")}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {relatedPosts.map((rp) => (
+                {displayRelated.map((rp) => (
                   <Link
                     key={rp.id}
                     to={`/blog/${rp.slug}`}

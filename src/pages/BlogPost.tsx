@@ -23,7 +23,7 @@ interface BlogPost {
 }
 
 const BlogPostPage = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { slug } = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);

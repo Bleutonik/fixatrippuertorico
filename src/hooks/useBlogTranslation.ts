@@ -8,7 +8,6 @@ interface TranslatablePost {
   excerpt: string;
   content?: string;
   category: string;
-  [key: string]: unknown;
 }
 
 // In-memory cache keyed by post id + lang

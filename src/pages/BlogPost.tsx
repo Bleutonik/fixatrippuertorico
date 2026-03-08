@@ -195,7 +195,7 @@ const BlogPostPage = () => {
       <main>
         {/* Hero Image */}
         <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
-          <img src={post.image_url} alt={post.title} className="w-full h-full object-cover" />
+          <img src={displayPost.image_url} alt={displayPost.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
         </div>
 
@@ -207,20 +207,20 @@ const BlogPostPage = () => {
             </Link>
 
             <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-4">
-              {post.category}
+              {displayPost.category}
             </span>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight mb-6">
-              {post.title}
+              {displayPost.title}
             </h1>
 
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-10 pb-6 border-b border-border">
               <span className="flex items-center gap-1.5">
-                <User className="h-4 w-4" /> {post.author}
+                <User className="h-4 w-4" /> {displayPost.author}
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />
-                {new Date(post.created_at).toLocaleDateString("en-US", {
+                {new Date(displayPost.created_at).toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
@@ -228,7 +228,14 @@ const BlogPostPage = () => {
               </span>
             </div>
 
-            <div className="prose-custom">{renderContent(post.content)}</div>
+            {translatingPost && (
+              <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Traduciendo...
+              </div>
+            )}
+
+            <div className="prose-custom">{renderContent(displayPost.content)}</div>
           </div>
 
           {/* Related Posts */}

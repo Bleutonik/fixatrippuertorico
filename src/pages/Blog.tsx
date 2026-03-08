@@ -22,7 +22,7 @@ interface BlogPost {
 }
 
 const Blog = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState<string>("__all__");

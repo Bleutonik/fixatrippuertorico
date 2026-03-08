@@ -149,7 +149,7 @@ const Blog = () => {
                         </span>
                         <span className="text-xs text-muted-foreground flex items-center gap-1">
                           <Calendar className="h-3 w-3" />
-                          {new Date(post.created_at).toLocaleDateString("en-US", {
+                          {new Date(post.created_at).toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
                             month: "short",
                             day: "numeric",
                             year: "numeric",

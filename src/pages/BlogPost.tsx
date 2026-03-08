@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, User, ArrowLeft, ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -8,6 +8,7 @@ import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useBlogTranslation } from "@/hooks/useBlogTranslation";
 
 interface BlogPost {
   id: string;
@@ -22,7 +23,7 @@ interface BlogPost {
 }
 
 const BlogPostPage = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { slug } = useParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
@@ -54,6 +55,12 @@ const BlogPostPage = () => {
     fetchPost();
   }, [slug]);
 
+  const postArray = post ? [post] : [];
+  const relatedArray = relatedPosts;
+  const { translatedPosts: translatedPostArray, translating: translatingPost } = useBlogTranslation(postArray);
+  const { translatedPosts: translatedRelated, translating: translatingRelated } = useBlogTranslation(relatedArray);
+  const displayPost = translatedPostArray[0] || post;
+  const displayRelated = translatedRelated;
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
@@ -188,7 +195,7 @@ const BlogPostPage = () => {
       <main>
         {/* Hero Image */}
         <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
-          <img src={post.image_url} alt={post.title} className="w-full h-full object-cover" />
+          <img src={displayPost.image_url} alt={displayPost.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
         </div>
 
@@ -200,20 +207,20 @@ const BlogPostPage = () => {
             </Link>
 
             <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-4">
-              {post.category}
+              {displayPost.category}
             </span>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight mb-6">
-              {post.title}
+              {displayPost.title}
             </h1>
 
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-10 pb-6 border-b border-border">
               <span className="flex items-center gap-1.5">
-                <User className="h-4 w-4" /> {post.author}
+                <User className="h-4 w-4" /> {displayPost.author}
               </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="h-4 w-4" />
-                {new Date(post.created_at).toLocaleDateString("en-US", {
+                {new Date(displayPost.created_at).toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
@@ -221,15 +228,22 @@ const BlogPostPage = () => {
               </span>
             </div>
 
-            <div className="prose-custom">{renderContent(post.content)}</div>
+            {translatingPost && (
+              <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Traduciendo...
+              </div>
+            )}
+
+            <div className="prose-custom">{renderContent(displayPost.content)}</div>
           </div>
 
           {/* Related Posts */}
-          {relatedPosts.length > 0 && (
+          {displayRelated.length > 0 && (
             <div className="mt-16">
               <h2 className="text-2xl font-bold text-foreground font-display mb-8">{t("blog.related")}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {relatedPosts.map((rp) => (
+                {displayRelated.map((rp) => (
                   <Link
                     key={rp.id}
                     to={`/blog/${rp.slug}`}

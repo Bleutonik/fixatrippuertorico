@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Calendar, ArrowRight, BookOpen } from "lucide-react";
+import { Calendar, ArrowRight, BookOpen, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -8,6 +8,7 @@ import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useBlogTranslation } from "@/hooks/useBlogTranslation";
 
 interface BlogPost {
   id: string;
@@ -21,7 +22,7 @@ interface BlogPost {
 }
 
 const Blog = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState<string>("__all__");
@@ -40,8 +41,9 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  const categoryValues = ["__all__", ...Array.from(new Set(posts.map((p) => p.category)))];
-  const filtered = activeCategory === "__all__" ? posts : posts.filter((p) => p.category === activeCategory);
+  const { translatedPosts, translating } = useBlogTranslation(posts);
+  const categoryValues = ["__all__", ...Array.from(new Set(translatedPosts.map((p) => p.category)))];
+  const filtered = activeCategory === "__all__" ? translatedPosts : translatedPosts.filter((p) => p.category === activeCategory);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -103,6 +105,12 @@ const Blog = () => {
         {/* Posts Grid */}
         <section className="py-16 sm:py-24">
           <div className="container">
+            {translating && (
+              <div className="flex items-center justify-center gap-2 mb-6 text-sm text-muted-foreground">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Traduciendo artículos...
+              </div>
+            )}
             {loading ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {Array.from({ length: 6 }).map((_, i) => (
@@ -141,7 +149,7 @@ const Blog = () => {
                         </span>
                         <span className="text-xs text-muted-foreground flex items-center gap-1">
                           <Calendar className="h-3 w-3" />
-                          {new Date(post.created_at).toLocaleDateString("en-US", {
+                          {new Date(post.created_at).toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
                             month: "short",
                             day: "numeric",
                             year: "numeric",

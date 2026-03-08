@@ -55,6 +55,12 @@ const BlogPostPage = () => {
     fetchPost();
   }, [slug]);
 
+  const postArray = post ? [post] : [];
+  const relatedArray = relatedPosts;
+  const { translatedPosts: translatedPostArray, translating: translatingPost } = useBlogTranslation(postArray);
+  const { translatedPosts: translatedRelated, translating: translatingRelated } = useBlogTranslation(relatedArray);
+  const displayPost = translatedPostArray[0] || post;
+  const displayRelated = translatedRelated;
   if (loading) {
     return (
       <div className="min-h-screen bg-background">

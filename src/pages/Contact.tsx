@@ -151,6 +151,17 @@ const Contact = () => {
                   />
                 </div>
                 <div>
+                  <label htmlFor="phone" className="text-sm font-medium text-foreground block mb-1">{t("contact.phone") || "Phone"}</label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+1 787 000 0000"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className="rounded-lg h-11"
+                  />
+                </div>
+                <div>
                   <label htmlFor="message" className="text-sm font-medium text-foreground block mb-1">{t("contact.message")}</label>
                   <Textarea
                     id="message"
@@ -162,8 +173,8 @@ const Contact = () => {
                     className="rounded-lg"
                   />
                 </div>
-                <Button type="submit" className="w-full rounded-full font-semibold h-11">
-                  {t("contact.submit")}
+                <Button type="submit" disabled={sending} className="w-full rounded-full font-semibold h-11">
+                  {sending ? "..." : t("contact.submit")}
                 </Button>
               </form>
             </div>

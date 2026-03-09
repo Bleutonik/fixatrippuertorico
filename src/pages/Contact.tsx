@@ -14,15 +14,32 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Contact = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Contact from ${form.name}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
-    window.location.href = `mailto:bookings@fixatrippr.com?subject=${subject}&body=${body}`;
-    toast({ title: t("contact.sent"), description: t("contact.sentdesc") });
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    try {
+      const res = await fetch("https://crm-ia-production-c247.up.railway.app/api/webhook/webform", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+          source: "fixatrippuertorico.com",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast({ title: t("contact.sent"), description: t("contact.sentdesc") });
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      toast({ title: "Error", description: "Could not send message. Please try again.", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   const jsonLd = {

@@ -14,15 +14,32 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Contact = () => {
   const { toast } = useToast();
   const { t } = useLanguage();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Contact from ${form.name}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
-    window.location.href = `mailto:bookings@fixatrippr.com?subject=${subject}&body=${body}`;
-    toast({ title: t("contact.sent"), description: t("contact.sentdesc") });
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    try {
+      const res = await fetch("https://crm-ia-production-c247.up.railway.app/api/webhook/webform", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+          source: "fixatrippuertorico.com",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast({ title: t("contact.sent"), description: t("contact.sentdesc") });
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      toast({ title: "Error", description: "Could not send message. Please try again.", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   const jsonLd = {
@@ -134,6 +151,17 @@ const Contact = () => {
                   />
                 </div>
                 <div>
+                  <label htmlFor="phone" className="text-sm font-medium text-foreground block mb-1">{t("contact.phone") || "Phone"}</label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+1 787 000 0000"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className="rounded-lg h-11"
+                  />
+                </div>
+                <div>
                   <label htmlFor="message" className="text-sm font-medium text-foreground block mb-1">{t("contact.message")}</label>
                   <Textarea
                     id="message"
@@ -145,8 +173,8 @@ const Contact = () => {
                     className="rounded-lg"
                   />
                 </div>
-                <Button type="submit" className="w-full rounded-full font-semibold h-11">
-                  {t("contact.submit")}
+                <Button type="submit" disabled={sending} className="w-full rounded-full font-semibold h-11">
+                  {sending ? "..." : t("contact.submit")}
                 </Button>
               </form>
             </div>

@@ -108,7 +108,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Double Dip Power Catamaran",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/07/PORTADA-.jpg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/07/PORTADA-.jpg?ssl=1",
     location: "Villa Marina",
     duration: "4 hours",
     slug: "double-dip-power-catamaran",

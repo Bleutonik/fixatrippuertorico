@@ -18,11 +18,11 @@ const TourCard = ({ tour }: TourCardProps) => {
     >
       {/* Image */}
       <div className="relative aspect-[4/5] overflow-hidden">
-        <img
+        <ProgressiveImage
           src={tour.image}
           alt={tour.name}
-          className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
-          loading="lazy"
+          className="absolute inset-0 w-full h-full"
+          imgClassName="transition-transform duration-[1.2s] ease-out group-hover:scale-110"
         />
         {/* Gradient overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />

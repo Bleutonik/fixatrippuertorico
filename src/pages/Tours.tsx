@@ -7,6 +7,8 @@ import TourCard from "@/components/TourCard";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
+import ServiceHero from "@/components/ServiceHero";
+import FadeIn from "@/components/motion/FadeIn";
 import { tours, categories } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -132,7 +134,7 @@ const Tours = () => {
 
   const pageTitle = "Booking - Fix A Trip Puerto Rico Tours & Experiences";
   const pageDescription =
-    "Browse and book the best tours and experiences in Puerto Rico with Fix a Trip. Explore guided adventures through El Yunque National Rainforest, kayak the bioluminescent bays of Vieques and La Parguera, snorkel in crystal-clear Caribbean waters, and discover the historic charm of Old San Juan on expert-led walking tours. Our curated collection features island-hopping excursions to Culebra and Flamenco Beach, catamaran sailing trips, cultural food tours, sunset cruises, and adrenaline-pumping zip-line adventures through tropical canopy. Whether you are a solo traveler seeking authentic local experiences, a couple looking for romantic getaways, or a family planning the ultimate Caribbean vacation, Fix a Trip Puerto Rico offers small-group and private tour options at competitive prices. Each tour is led by certified bilingual guides with deep knowledge of Puerto Rican history, ecology, and traditions. We provide hotel pickup, all necessary equipment, and seamless online booking through our platform. Filter by category, location, price range, and rating to find your perfect adventure. With hundreds of five-star reviews and a commitment to sustainable tourism, Fix a Trip Puerto Rico is the trusted choice for unforgettable island experiences. Book today and create memories that last a lifetime.";
+    "Browse and book the best tours and experiences in Puerto Rico with Fix a Trip. Explore guided adventures through El Yunque National Rainforest, kayak the bioluminescent bays of Vieques and La Parguera, snorkel in crystal-clear Caribbean waters, and discover the historic charm of Old San Juan on expert-led walking tours.";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -162,7 +164,6 @@ const Tours = () => {
 
   const filtersContent = (
     <>
-      {/* Price */}
       <SidebarSection
         title="Price"
         open={showPrice}
@@ -205,7 +206,6 @@ const Tours = () => {
         </div>
       </SidebarSection>
 
-      {/* Location */}
       <SidebarSection
         title="Location"
         open={showLocation}
@@ -229,7 +229,6 @@ const Tours = () => {
         </div>
       </SidebarSection>
 
-      {/* Categories */}
       <SidebarSection
         title="Categories"
         open={showCategories}
@@ -265,117 +264,130 @@ const Tours = () => {
       />
       <Header />
 
-      {/* Search Hero */}
-      <div className="bg-gradient-to-b from-primary/10 to-background border-b border-border/50 py-8 sm:py-12">
-        <div className="container max-w-2xl text-center">
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 font-display">Booking</h1>
-          <p className="text-sm text-muted-foreground mb-6">Find your perfect Puerto Rico experience</p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-            className="flex items-center bg-card border border-border rounded-2xl overflow-hidden shadow-soft"
-          >
-            <Search className="h-5 w-5 text-muted-foreground ml-4 flex-shrink-0" />
-            <input
-              type="text"
-              value={searchFilter}
-              onChange={(e) => {
-                const params = new URLSearchParams(searchParams);
-                if (e.target.value) {
-                  params.set("search", e.target.value);
-                } else {
-                  params.delete("search");
-                }
-                setSearchParams(params);
-              }}
-              placeholder={t("hero.search")}
-              className="flex-1 px-4 py-3.5 text-foreground bg-transparent focus:outline-none text-sm min-w-0 placeholder:text-muted-foreground"
-            />
-            {searchFilter && (
-              <button
-                type="button"
-                onClick={() => {
+      {/* Cinematic Hero */}
+      <ServiceHero
+        title="Tours & Experiences"
+        subtitle="Find your perfect Puerto Rico adventure"
+        eyebrow="Booking"
+        backgroundImage="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=1920&q=80"
+      />
+
+      {/* Floating Search Bar */}
+      <div className="relative z-10 -mt-8">
+        <div className="container max-w-2xl">
+          <FadeIn delay={0.3}>
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="flex items-center bg-card border border-border/50 rounded-2xl overflow-hidden shadow-elevated backdrop-blur-sm"
+            >
+              <Search className="h-5 w-5 text-muted-foreground ml-5 flex-shrink-0" />
+              <input
+                type="text"
+                value={searchFilter}
+                onChange={(e) => {
                   const params = new URLSearchParams(searchParams);
-                  params.delete("search");
+                  if (e.target.value) {
+                    params.set("search", e.target.value);
+                  } else {
+                    params.delete("search");
+                  }
                   setSearchParams(params);
                 }}
-                className="p-2 mr-2 rounded-lg hover:bg-secondary transition-colors"
-              >
-                <X className="h-4 w-4 text-muted-foreground" />
-              </button>
-            )}
-          </form>
+                placeholder={t("hero.search")}
+                className="flex-1 px-4 py-4 text-foreground bg-transparent focus:outline-none text-sm min-w-0 placeholder:text-muted-foreground"
+              />
+              {searchFilter && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const params = new URLSearchParams(searchParams);
+                    params.delete("search");
+                    setSearchParams(params);
+                  }}
+                  className="p-2 mr-3 rounded-lg hover:bg-secondary transition-colors"
+                >
+                  <X className="h-4 w-4 text-muted-foreground" />
+                </button>
+              )}
+            </form>
+          </FadeIn>
         </div>
       </div>
 
-      <main className="py-6 sm:py-10">
+      <main className="py-10 sm:py-14">
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Desktop Sidebar */}
             <aside className="hidden lg:block w-[280px] flex-shrink-0">
-              {filtersContent}
+              <FadeIn delay={0.4} direction="left">
+                <div className="sticky top-24">
+                  {filtersContent}
+                </div>
+              </FadeIn>
             </aside>
 
             {/* Main content */}
             <div className="flex-1 min-w-0">
-              {/* Top bar: mobile filter button + count + sort */}
-              <div className="flex items-center justify-between mb-6 gap-3">
-                {/* Mobile filter trigger */}
-                <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
-                  <SheetTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="lg:hidden flex items-center gap-2 rounded-xl"
-                    >
-                      <SlidersHorizontal className="h-4 w-4" />
-                      Filters
-                      {activeFilterCount > 0 && (
-                        <span className="bg-primary text-primary-foreground text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                          {activeFilterCount}
-                        </span>
-                      )}
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent side="left" className="w-[300px] overflow-y-auto">
-                    <SheetHeader>
-                      <SheetTitle>Filters</SheetTitle>
-                    </SheetHeader>
-                    <div className="mt-6">
-                      {filtersContent}
-                    </div>
-                  </SheetContent>
-                </Sheet>
+              {/* Top bar */}
+              <FadeIn delay={0.3}>
+                <div className="flex items-center justify-between mb-8 gap-3">
+                  <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
+                    <SheetTrigger asChild>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="lg:hidden flex items-center gap-2 rounded-xl"
+                      >
+                        <SlidersHorizontal className="h-4 w-4" />
+                        Filters
+                        {activeFilterCount > 0 && (
+                          <span className="bg-primary text-primary-foreground text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                            {activeFilterCount}
+                          </span>
+                        )}
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left" className="w-[300px] overflow-y-auto">
+                      <SheetHeader>
+                        <SheetTitle>Filters</SheetTitle>
+                      </SheetHeader>
+                      <div className="mt-6">
+                        {filtersContent}
+                      </div>
+                    </SheetContent>
+                  </Sheet>
 
-                <p className="text-sm text-muted-foreground">
-                  <span className="font-semibold text-foreground">
-                    {filteredTours.length}
-                  </span>{" "}
-                  Tours Results
-                </p>
-                <div className="flex items-center gap-2 ml-auto">
-                  <span className="text-sm text-muted-foreground hidden sm:inline">
-                    Sort by
-                  </span>
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value as SortOption)}
-                    className="px-4 py-2 rounded-lg text-sm border border-border bg-card text-foreground cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
-                  >
-                    <option value="title">Title</option>
-                    <option value="price">Price</option>
-                    <option value="rating">Rating</option>
-                    <option value="availability">Availability date</option>
-                  </select>
+                  <p className="text-sm text-muted-foreground">
+                    <span className="font-semibold text-foreground">
+                      {filteredTours.length}
+                    </span>{" "}
+                    Tours Results
+                  </p>
+                  <div className="flex items-center gap-2 ml-auto">
+                    <span className="text-sm text-muted-foreground hidden sm:inline">
+                      Sort by
+                    </span>
+                    <select
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value as SortOption)}
+                      className="px-4 py-2 rounded-lg text-sm border border-border bg-card text-foreground cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    >
+                      <option value="title">Title</option>
+                      <option value="price">Price</option>
+                      <option value="rating">Rating</option>
+                      <option value="availability">Availability date</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
 
               {/* Tour grid */}
               {filteredTours.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {filteredTours.map((tour) => (
-                    <TourCard key={tour.id} tour={tour} />
+                  {filteredTours.map((tour, idx) => (
+                    <FadeIn key={tour.id} delay={0.1 + (idx % 4) * 0.08}>
+                      <TourCard tour={tour} />
+                    </FadeIn>
                   ))}
                 </div>
               ) : (

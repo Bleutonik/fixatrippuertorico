@@ -611,7 +611,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 6,
     age: "+2",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/CATAMARAN-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/CATAMARAN.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/1-4.webp",
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/3-2.webp",

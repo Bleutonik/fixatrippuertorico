@@ -140,10 +140,10 @@ export const boats: Boat[] = [
     description: "**Capacity of up to 6 passengers |**\n\n**Length:** 30 ft",
     included: ["Snorkeling gear"],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/2-9.jpg?fit=600%2C400&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/1-9.jpg?fit=600%2C400&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/3-9.jpg?fit=600%2C400&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/4-9.jpg?fit=600%2C400&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/2-9.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/1-9.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/3-9.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/4-9.jpg?ssl=1",
     ],
   },
   {

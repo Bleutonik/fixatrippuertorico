@@ -244,7 +244,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Sea Ray 51′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/3.jpeg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/3.jpeg?ssl=1",
     location: "Puerto del Rey",
     duration: "During the day",
     slug: "sea-ray-51",

@@ -167,7 +167,7 @@ export const tours: Tour[] = [
     location: "Plaza Colon",
     rating: 5,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/6-1-600x400.png",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/6-1.png",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-1.png",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-1.png",

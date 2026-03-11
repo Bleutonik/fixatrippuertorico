@@ -345,7 +345,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Acupuncture",
     description: "This comprehensive service begins with a brief update on progress and your priority for the session, followed by insertion of tiny sterile needles along the acupuncture meridians. Known to be effective for neurological, musculo-skeletal, gynecological, digestive, respiratory, emotional and other conditions.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/6.png?ssl=1",
+    image: acupunctureImg,
   },
   {
     name: "Reiki",

@@ -44,7 +44,7 @@ const ProgressiveImage = ({ src, alt, className, imgClassName }: ProgressiveImag
       {/* Blur placeholder shimmer */}
       <div
         className={cn(
-          "absolute inset-0 bg-muted animate-pulse transition-opacity duration-500",
+          "absolute inset-0 bg-muted transition-opacity duration-700",
           isLoaded ? "opacity-0" : "opacity-100"
         )}
       />

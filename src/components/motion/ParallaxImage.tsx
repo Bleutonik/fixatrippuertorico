@@ -24,7 +24,7 @@ const ParallaxImage = ({ src, alt, className = "", speed = -40 }: ParallaxImageP
       {/* Shimmer placeholder */}
       <div
         className={cn(
-          "absolute inset-0 bg-muted animate-pulse transition-opacity duration-500 z-10",
+          "absolute inset-0 bg-muted transition-opacity duration-700 z-10",
           isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
         )}
       />

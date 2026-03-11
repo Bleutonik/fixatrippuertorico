@@ -209,7 +209,7 @@ export const boats: Boat[] = [
     description: "Experience the ultimate luxury on a 60 foot Neptunus Cabrio yacht. Spacious, comfortable, and perfect for exploring Puerto Rico's beautiful coastline.",
     included: [],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/02/1-5.jpg?fit=675%2C450&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/02/1-5.jpg?ssl=1",
     ],
   },
   {

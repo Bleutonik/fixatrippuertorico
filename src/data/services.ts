@@ -1,3 +1,18 @@
+import massageImg from "@/assets/wellness/massage.jpg";
+import therapeuticImg from "@/assets/wellness/therapeutic-massage.jpg";
+import soothingImg from "@/assets/wellness/soothing-massage.jpg";
+import yogaImg from "@/assets/wellness/yoga.jpg";
+import soundTherapyImg from "@/assets/wellness/sound-therapy.jpg";
+import acupunctureImg from "@/assets/wellness/acupuncture.jpg";
+import reikiImg from "@/assets/wellness/reiki.jpg";
+import astrologyImg from "@/assets/wellness/astrology.jpg";
+import tarotImg from "@/assets/wellness/tarot.jpg";
+import numerologyImg from "@/assets/wellness/numerology.jpg";
+import energyCleaningImg from "@/assets/wellness/energy-cleaning.jpg";
+import breakfastImg from "@/assets/chef/breakfast.jpg";
+import dinnerImg from "@/assets/chef/dinner.jpg";
+import lunchImg from "@/assets/chef/lunch.jpg";
+
 export interface Boat {
   name: string;
   image: string;
@@ -287,17 +302,17 @@ export const chefServices: ChefService[] = [
   {
     name: "Breakfast Service",
     description: "Fresh and tasty breakfast services, continental or hot. Drop off, buffet or plated service available.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/Brown-and-Light-Brown-Circle-Framed-Instagram-Profile-Picture-410-x-410-px.png?ssl=1",
+    image: breakfastImg,
   },
   {
     name: "Dinner Service",
     description: "Custom Caribbean dinner service. Buffet style or plated with optional servers and wine pairings. Menu designed per your request.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/1.png?ssl=1",
+    image: dinnerImg,
   },
   {
     name: "Lunch Service",
     description: "Lunch on the go or poolside at your villa. Choose from pre-packaged bag lunches delivered fresh to your villa or hot chef service served how you like it.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/2.png?ssl=1",
+    image: lunchImg,
   },
 ];
 
@@ -305,56 +320,56 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Massage",
     description: "Great for those with limited time or tension in specific areas. Unlike a full body massage, this service allows your therapist to focus solely on areas in need.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/1.png?ssl=1",
+    image: massageImg,
   },
   {
     name: "Therapeutic Massage",
     description: "Release chronic patterns of tension and pain. Deeper pressure, slower massage strokes and cupping are utilized to facilitate flow of qi and blood.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/2.png?ssl=1",
+    image: therapeuticImg,
   },
   {
     name: "Soothing Massage",
     description: "Banish stress and enjoy a fresh start. This service is designed to relax muscles, improve circulation and range of motion, and calm the nervous system.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/3.png?ssl=1",
+    image: soothingImg,
   },
   {
     name: "Yoga",
     description: "Private and semi-private sessions are a great way to try yoga for the first time or to share the experience with loved ones. Address specific physical needs, personal goals, and discover modifications for poses that you can use in any yoga class no matter where you are.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/4.png?ssl=1",
+    image: yogaImg,
   },
   {
     name: "Sound Therapy",
     description: "Close your eyes while listening to music, vibrations and magnetic stimulation to drift into a deep meditative state. Tune into your body's energy and rebalance with this deep and healing power nap session.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/5.png?ssl=1",
+    image: soundTherapyImg,
   },
   {
     name: "Acupuncture",
     description: "This comprehensive service begins with a brief update on progress and your priority for the session, followed by insertion of tiny sterile needles along the acupuncture meridians. Known to be effective for neurological, musculo-skeletal, gynecological, digestive, respiratory, emotional and other conditions.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/6.png?ssl=1",
+    image: acupunctureImg,
   },
   {
     name: "Reiki",
     description: "It acts on the aura and chakras, and also helps to remove energy blockages or imbalances at different levels. A distance healing is performed when the person who requests it, for various reasons, either health or not being able to move, is not present with a healer.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/7.png?ssl=1",
+    image: reikiImg,
   },
   {
     name: "Astrology",
     description: "Astrology is a method of divination based on the map of the sky at the exact place and time of birth. It has been used for millennia to study the life of a person in all its aspects and to know its possibilities such as: life purpose, finances, health, relationships, spirituality, education, etc.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/8.png?ssl=1",
+    image: astrologyImg,
   },
   {
     name: "Tarot",
     description: "Taromancy is a divinatory art that uses 78 randomly chosen decks or cards to seek knowledge about past, present and future situations. By reading or interpreting the images and symbols on the cards, the taromancer answers specific questions from the client.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/9.png?ssl=1",
+    image: tarotImg,
   },
   {
     name: "Numerology",
     description: "Numerology is a centuries-old divinatory art based on the teachings of Pythagoras. The father of mathematics believed that every word or name contains a number vibration and that every number has a meaning.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/10.png?ssl=1",
+    image: numerologyImg,
   },
   {
     name: "Energy Cleaning",
     description: "Energetic cleansings are used in different cultures to purify and/or bless people, objects or places. Usually, a ceremony with one or more of the four elements of nature – fire, earth, air or water – is carried out with a prayer. Each ceremony is specific to the need of the consultant, object or place to be purified or consecrated.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/11.png?ssl=1",
+    image: energyCleaningImg,
   },
 ];

@@ -229,7 +229,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Riviera 40′ Yacht",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px-1.png?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px-1.png?ssl=1",
     location: "Fajardo",
     duration: "During the day",
     slug: "riviera-40-yacht",

@@ -239,7 +239,7 @@ export const boats: Boat[] = [
     description: "Enjoy a luxurious day on a 40 foot Riviera yacht, exploring the stunning coastline and islands of Puerto Rico.",
     included: [],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px-1.png?fit=600%2C400&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px-1.png?ssl=1",
     ],
   },
   {

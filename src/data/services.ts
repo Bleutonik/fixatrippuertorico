@@ -98,12 +98,12 @@ export const boats: Boat[] = [
       "Freshwater and bathroom on board",
     ],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.10-2.jpeg?fit=829%2C597&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-6.jpeg?fit=1290%2C720&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-7.jpeg?fit=1290%2C685&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.10-3.jpeg?fit=1290%2C731&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-5.jpeg?fit=1290%2C705&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-3.jpeg?fit=1290%2C699&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.10-2.jpeg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-6.jpeg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-7.jpeg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.10-3.jpeg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-5.jpeg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-12-at-11.42.11-3.jpeg?ssl=1",
     ],
   },
   {

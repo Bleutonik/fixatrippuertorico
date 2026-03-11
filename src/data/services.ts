@@ -312,7 +312,7 @@ export const chefServices: ChefService[] = [
   {
     name: "Lunch Service",
     description: "Lunch on the go or poolside at your villa. Choose from pre-packaged bag lunches delivered fresh to your villa or hot chef service served how you like it.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/2.png?ssl=1",
+    image: lunchImg,
   },
 ];
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Star, Clock, MapPin, ArrowUpRight } from "lucide-react";
 import { Tour } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
+import ProgressiveImage from "@/components/motion/ProgressiveImage";
 
 interface TourCardProps {
   tour: Tour;

@@ -199,7 +199,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Neptunus Cabrio 60′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/02/1-5.jpg?fit=675%2C450&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/02/1-5.jpg?ssl=1",
     location: "Fajardo",
     duration: "During the day",
     slug: "neptunus-cabrio-60",

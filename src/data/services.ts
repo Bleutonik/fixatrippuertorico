@@ -305,7 +305,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Massage",
     description: "Great for those with limited time or tension in specific areas. Unlike a full body massage, this service allows your therapist to focus solely on areas in need.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/1.png?fit=1024%2C1024&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/1.png?ssl=1",
   },
   {
     name: "Therapeutic Massage",

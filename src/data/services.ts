@@ -194,7 +194,7 @@ export const boats: Boat[] = [
     description: "Enjoy a day on our classic Marine Trader 42 foot yacht. Perfect for exploring the islands of eastern Puerto Rico.",
     included: [],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/PORTADA-600-x-400-px-3.jpg?fit=600%2C400&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/PORTADA-600-x-400-px-3.jpg?ssl=1",
     ],
   },
   {

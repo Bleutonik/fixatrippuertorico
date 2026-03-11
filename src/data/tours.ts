@@ -201,7 +201,7 @@ export const tours: Tour[] = [
     location: "Fajardo",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-6-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-6.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-6.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-6.jpg",

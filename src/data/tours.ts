@@ -138,7 +138,7 @@ export const tours: Tour[] = [
     location: "Luquillo",
     rating: 5,
     age: "+16",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-min-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-min.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-min.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-min.jpg",

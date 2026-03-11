@@ -302,17 +302,17 @@ export const chefServices: ChefService[] = [
   {
     name: "Breakfast Service",
     description: "Fresh and tasty breakfast services, continental or hot. Drop off, buffet or plated service available.",
-    image: breakfastImg,
+    image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Dinner Service",
     description: "Custom Caribbean dinner service. Buffet style or plated with optional servers and wine pairings. Menu designed per your request.",
-    image: dinnerImg,
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Lunch Service",
     description: "Lunch on the go or poolside at your villa. Choose from pre-packaged bag lunches delivered fresh to your villa or hot chef service served how you like it.",
-    image: lunchImg,
+    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -320,56 +320,56 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Massage",
     description: "Great for those with limited time or tension in specific areas. Unlike a full body massage, this service allows your therapist to focus solely on areas in need.",
-    image: massageImg,
+    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Therapeutic Massage",
     description: "Release chronic patterns of tension and pain. Deeper pressure, slower massage strokes and cupping are utilized to facilitate flow of qi and blood.",
-    image: therapeuticImg,
+    image: "https://images.unsplash.com/photo-1519823551278-64ac92734314?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Soothing Massage",
     description: "Banish stress and enjoy a fresh start. This service is designed to relax muscles, improve circulation and range of motion, and calm the nervous system.",
-    image: soothingImg,
+    image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Yoga",
     description: "Private and semi-private sessions are a great way to try yoga for the first time or to share the experience with loved ones. Address specific physical needs, personal goals, and discover modifications for poses that you can use in any yoga class no matter where you are.",
-    image: yogaImg,
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Sound Therapy",
     description: "Close your eyes while listening to music, vibrations and magnetic stimulation to drift into a deep meditative state. Tune into your body's energy and rebalance with this deep and healing power nap session.",
-    image: soundTherapyImg,
+    image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Acupuncture",
     description: "This comprehensive service begins with a brief update on progress and your priority for the session, followed by insertion of tiny sterile needles along the acupuncture meridians. Known to be effective for neurological, musculo-skeletal, gynecological, digestive, respiratory, emotional and other conditions.",
-    image: acupunctureImg,
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Reiki",
     description: "It acts on the aura and chakras, and also helps to remove energy blockages or imbalances at different levels. A distance healing is performed when the person who requests it, for various reasons, either health or not being able to move, is not present with a healer.",
-    image: reikiImg,
+    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Astrology",
     description: "Astrology is a method of divination based on the map of the sky at the exact place and time of birth. It has been used for millennia to study the life of a person in all its aspects and to know its possibilities such as: life purpose, finances, health, relationships, spirituality, education, etc.",
-    image: astrologyImg,
+    image: "https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f0?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Tarot",
     description: "Taromancy is a divinatory art that uses 78 randomly chosen decks or cards to seek knowledge about past, present and future situations. By reading or interpreting the images and symbols on the cards, the taromancer answers specific questions from the client.",
-    image: tarotImg,
+    image: "https://images.unsplash.com/photo-1633167606207-d840b5070fc2?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Numerology",
     description: "Numerology is a centuries-old divinatory art based on the teachings of Pythagoras. The father of mathematics believed that every word or name contains a number vibration and that every number has a meaning.",
-    image: numerologyImg,
+    image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&q=80&auto=format&fit=crop",
   },
   {
     name: "Energy Cleaning",
     description: "Energetic cleansings are used in different cultures to purify and/or bless people, objects or places. Usually, a ceremony with one or more of the four elements of nature – fire, earth, air or water – is carried out with a prayer. Each ceremony is specific to the need of the consultant, object or place to be purified or consecrated.",
-    image: energyCleaningImg,
+    image: "https://images.unsplash.com/photo-1602607667603-a7d6076d3042?w=800&q=80&auto=format&fit=crop",
   },
 ];

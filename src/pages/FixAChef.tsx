@@ -62,7 +62,7 @@ const FixAChef = () => {
           title="Fix A Chef"
           subtitle="Enjoy a high-end personalized culinary experience with a private chef, created for your budget"
           eyebrow="Private Dining"
-          backgroundImage="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=1920&q=80&auto=format&fit=crop"
+          backgroundImage="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80&auto=format&fit=crop"
         />
 
         {/* Packages */}

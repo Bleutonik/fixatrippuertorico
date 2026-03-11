@@ -1,3 +1,18 @@
+import massageImg from "@/assets/wellness/massage.jpg";
+import therapeuticImg from "@/assets/wellness/therapeutic-massage.jpg";
+import soothingImg from "@/assets/wellness/soothing-massage.jpg";
+import yogaImg from "@/assets/wellness/yoga.jpg";
+import soundTherapyImg from "@/assets/wellness/sound-therapy.jpg";
+import acupunctureImg from "@/assets/wellness/acupuncture.jpg";
+import reikiImg from "@/assets/wellness/reiki.jpg";
+import astrologyImg from "@/assets/wellness/astrology.jpg";
+import tarotImg from "@/assets/wellness/tarot.jpg";
+import numerologyImg from "@/assets/wellness/numerology.jpg";
+import energyCleaningImg from "@/assets/wellness/energy-cleaning.jpg";
+import breakfastImg from "@/assets/chef/breakfast.jpg";
+import dinnerImg from "@/assets/chef/dinner.jpg";
+import lunchImg from "@/assets/chef/lunch.jpg";
+
 export interface Boat {
   name: string;
   image: string;

@@ -72,12 +72,12 @@ export const boats: Boat[] = [
     included: [],
     youtubeVideoId: "vPuBkcuKaIc",
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/mrb19313_65f9a50f0bc08.webp?fit=800%2C500&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/unnamed-file.webp?fit=513%2C685&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/2020-lagoon-46-sail-9786601-20250508025053330-1_XLARGE.webp?fit=513%2C685&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/2020-lagoon-46-sail-9786601-20250508025229847-1_XLARGE.webp?fit=514%2C685&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/2020-lagoon-46-sail-9786601-20250508025256289-1_XLARGE.webp?fit=480%2C685&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/cocina.webp?fit=513%2C685&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/mrb19313_65f9a50f0bc08.webp?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/unnamed-file.webp?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/2020-lagoon-46-sail-9786601-20250508025053330-1_XLARGE.webp?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/2020-lagoon-46-sail-9786601-20250508025229847-1_XLARGE.webp?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/2020-lagoon-46-sail-9786601-20250508025256289-1_XLARGE.webp?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/cocina.webp?ssl=1",
     ],
   },
   {

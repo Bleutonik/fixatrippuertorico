@@ -117,8 +117,8 @@ const FixATransport = () => {
 
               <FadeIn direction="right" delay={0.2}>
                 <ParallaxImage
-                  src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80&auto=format&fit=crop"
-                  alt="Fix a Transport service"
+                  src={luxurySuvImg}
+                  alt="Luxury Mercedes SUV in Old San Juan, Puerto Rico"
                   className="rounded-3xl aspect-[4/5]"
                   speed={-30}
                 />

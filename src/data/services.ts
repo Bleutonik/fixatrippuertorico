@@ -51,12 +51,12 @@ export const boats: Boat[] = [
       "Fruit platter, and cheese platter with chips and dip.",
     ],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-32_1.jpg?fit=739%2C1600&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-29_1.jpg?fit=1600%2C1378&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-30_4.jpg?fit=1600%2C1066&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-33.jpg?fit=1020%2C765&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-31_1.jpg?fit=1600%2C1066&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-32_4.jpg?fit=935%2C674&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-32_1.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-29_1.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-30_4.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-33.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-31_1.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PHOTO-2026-01-31-15-35-32_4.jpg?ssl=1",
     ],
   },
   {

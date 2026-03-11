@@ -335,7 +335,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Yoga",
     description: "Private and semi-private sessions are a great way to try yoga for the first time or to share the experience with loved ones. Address specific physical needs, personal goals, and discover modifications for poses that you can use in any yoga class no matter where you are.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/4.png?ssl=1",
+    image: yogaImg,
   },
   {
     name: "Sound Therapy",

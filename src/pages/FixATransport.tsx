@@ -115,7 +115,7 @@ const FixATransport = () => {
 
               <FadeIn direction="right" delay={0.2}>
                 <ParallaxImage
-                  src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/6.jpg?fit=1024%2C1024&ssl=1"
+                  src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80&auto=format&fit=crop"
                   alt="Fix a Transport service"
                   className="rounded-3xl aspect-[4/5]"
                   speed={-30}

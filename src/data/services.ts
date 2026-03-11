@@ -268,7 +268,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Wellcraft 30′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px.png?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px.png?ssl=1",
     location: "Fajardo",
     duration: "During the day",
     slug: "wellcraft-30",

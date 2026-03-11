@@ -67,21 +67,12 @@ const Blog = () => {
       />
       <Header />
       <main>
-        {/* Hero */}
-        <section className="relative py-20 sm:py-28 overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/30">
-          <div className="container relative z-10 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
-              <BookOpen className="h-4 w-4" />
-              {t("blog.badge")}
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tight mb-4">
-              {t("blog.hero")}
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t("blog.herodesc")}
-            </p>
-          </div>
-        </section>
+        <ServiceHero
+          title={t("blog.hero")}
+          subtitle={t("blog.herodesc")}
+          eyebrow={t("blog.badge")}
+          backgroundImage="https://fixatrippuertorico.com/wp-content/uploads/2026/01/1-3-1.webp"
+        />
 
         {/* Categories */}
         <section className="py-6 border-b border-border">

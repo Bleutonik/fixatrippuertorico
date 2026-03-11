@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
+import ServiceHero from "@/components/ServiceHero";
+import FadeIn from "@/components/motion/FadeIn";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useBlogTranslation } from "@/hooks/useBlogTranslation";

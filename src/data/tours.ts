@@ -77,7 +77,7 @@ export const tours: Tour[] = [
     location: "El Yunque",
     rating: 5,
     age: "+4",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-1-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-1.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-1.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-1.jpg",

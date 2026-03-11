@@ -169,7 +169,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Luxury Sailing Catamaran 54′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/12/PORTADA-1.jpg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/12/PORTADA-1.jpg?ssl=1",
     location: "Fajardo",
     duration: "During the day",
     slug: "luxury-sailing-catamaran",

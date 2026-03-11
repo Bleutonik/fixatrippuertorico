@@ -55,7 +55,7 @@ const FixATransport = () => {
           title="Fix A Transport"
           subtitle="Start your trips with the security and luxury of Fix a Transport"
           eyebrow="VIP Ground Transportation"
-          backgroundImage="/images/luxury-interior-hero.jpg"
+          backgroundImage={luxuryInteriorImg}
         />
 
         {/* Stats */}

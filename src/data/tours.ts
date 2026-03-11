@@ -521,7 +521,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 5,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-7-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-7.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-9.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2.webp",

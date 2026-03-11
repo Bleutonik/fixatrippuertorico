@@ -40,7 +40,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
 
       {/* Content */}
-      <motion.div style={{ y, opacity }} className="relative z-10 w-full pb-16 sm:pb-24 lg:pb-28">
+      <motion.div style={{ y, opacity }} className="relative z-10 w-full pt-16 lg:pt-28 xl:pt-32 pb-16 sm:pb-24 lg:pb-28">
         <div className="container">
           <div className="max-w-3xl">
             {/* Eyebrow */}

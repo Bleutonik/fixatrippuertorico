@@ -23,19 +23,19 @@ const FixAChef = () => {
       number: "01",
       title: "We will cook excellent dishes from your home kitchen.",
       desc: "Before your private dinner, your personal chef will arrive and begin to organize and prepare the agreed menu. You will be able to watch, learn and enjoy new recipes from your professional chef while you cook your dishes in your home kitchen!",
-      image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/2-1.jpg?fit=704%2C750&ssl=1",
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80&auto=format&fit=crop",
     },
     {
       number: "02",
       title: "We will be preparing and serving each agreed dish",
       desc: "The chef and his team will take care of everything. Table service, order, cleanliness and they will guide you through all the details involved in each dish so you can have a unique and unforgettable private dining experience in the comfort of your home.",
-      image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/1-1.jpg?fit=704%2C750&ssl=1",
+      image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80&auto=format&fit=crop",
     },
     {
       number: "03",
       title: "Your private chef will leave your kitchen impeccable!",
       desc: "Tidiness and cleanliness are essential parts of impeccable service! Before departing, the chef and his team will ensure that all equipment and crockery are left as you found them. It only remains to relax and enjoy the night.",
-      image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/3.jpg?fit=704%2C750&ssl=1",
+      image: "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=800&q=80&auto=format&fit=crop",
     },
   ];
 

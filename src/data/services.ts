@@ -82,7 +82,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Cruiser Yacht 54′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/PORTADA-.jpg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/10/PORTADA-.jpg?ssl=1",
     location: "Fajardo",
     duration: "6 / 8 hours",
     slug: "cruiser-yacht-54",

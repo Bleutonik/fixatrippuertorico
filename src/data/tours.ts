@@ -315,7 +315,7 @@ export const tours: Tour[] = [
     location: "Ceiba",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/PORTADA-600-x-400-px-5-600x400.webp",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/PORTADA-600-x-400-px-5.webp",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/PORTADA-600-x-400-px-5.webp",
     ],

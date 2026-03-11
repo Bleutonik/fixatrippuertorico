@@ -108,7 +108,7 @@ export const tours: Tour[] = [
     location: "Yunque",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-11-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-11.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-12.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-12.jpg",

@@ -61,7 +61,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Catamaran Lagoon Luxury 42′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/PORTADA-1-2.jpg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/05/PORTADA-1-2.jpg?ssl=1",
     location: "Fajardo",
     duration: "4 - 6 hours",
     slug: "lagoon-42",

@@ -29,7 +29,7 @@ export interface WellnessService {
 export const boats: Boat[] = [
   {
     name: "Catamaran Jenica 47′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PORTADA-.jpg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2026/01/PORTADA-.jpg?ssl=1",
     location: "Fajardo",
     duration: "6 hours",
     slug: "catamaran-jenica-47",

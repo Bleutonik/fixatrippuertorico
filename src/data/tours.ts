@@ -957,27 +957,27 @@ export const categories: Category[] = [
   {
     name: "Adventure",
     slug: "adventure",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/ADVENTURE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/ADVENTURE.jpg",
   },
   {
     name: "Boat Trips",
     slug: "boat-trips",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/BOAT-TRIPS-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/BOAT-TRIPS.jpg",
   },
   {
     name: "City / Nightlife",
     slug: "city-nightlife",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/CITY-_-NIGHLIFE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/CITY-_-NIGHLIFE.jpg",
   },
   {
     name: "Foodie / Culture & History",
     slug: "foodie-culture",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/FOODIE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/FOODIE.jpg",
   },
   {
     name: "Nature",
     slug: "nature",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/NATURE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/NATURE.jpg",
   },
 ];
 

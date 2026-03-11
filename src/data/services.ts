@@ -184,7 +184,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Marine Trader 42′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/PORTADA-600-x-400-px-3.jpg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/PORTADA-600-x-400-px-3.jpg?ssl=1",
     location: "Fajardo",
     duration: "During the day",
     slug: "marine-trader-42",

@@ -340,7 +340,7 @@ export const tours: Tour[] = [
     location: "San Juan",
     rating: 5,
     age: "+18",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/Rum-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/Rum.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/Rum.jpg",
     ],

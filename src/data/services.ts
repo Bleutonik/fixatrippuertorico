@@ -148,7 +148,7 @@ export const boats: Boat[] = [
   },
   {
     name: "Grady White 33′",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/1-10.jpg?fit=600%2C400&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/10/1-10.jpg?ssl=1",
     location: "Fajardo",
     duration: "During the Day",
     slug: "grady-white-33",

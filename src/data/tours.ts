@@ -258,7 +258,7 @@ export const tours: Tour[] = [
     location: "Fajardo Marina",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/culebra-1-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/culebra-1.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/9-2.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/8-2.jpg",

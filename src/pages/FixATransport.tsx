@@ -9,6 +9,8 @@ import FadeIn from "@/components/motion/FadeIn";
 import ParallaxImage from "@/components/motion/ParallaxImage";
 import AnimatedCounter from "@/components/motion/AnimatedCounter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import luxurySuvImg from "@/assets/transport/luxury-suv-old-san-juan.jpg";
+import luxuryInteriorImg from "@/assets/transport/luxury-interior-puerto-rico.jpg";
 
 const FixATransport = () => {
   const { t } = useLanguage();

@@ -278,7 +278,7 @@ export const boats: Boat[] = [
     description: "A versatile 30 foot Wellcraft boat perfect for day trips exploring the islands and reefs of eastern Puerto Rico.",
     included: [],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px.png?fit=600%2C400&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/PORTADA-600-x-400-px.png?ssl=1",
     ],
   },
 ];

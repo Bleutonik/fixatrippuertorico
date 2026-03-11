@@ -287,7 +287,7 @@ export const chefServices: ChefService[] = [
   {
     name: "Breakfast Service",
     description: "Fresh and tasty breakfast services, continental or hot. Drop off, buffet or plated service available.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/Brown-and-Light-Brown-Circle-Framed-Instagram-Profile-Picture-410-x-410-px.png?fit=1024%2C1024&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/Brown-and-Light-Brown-Circle-Framed-Instagram-Profile-Picture-410-x-410-px.png?ssl=1",
   },
   {
     name: "Dinner Service",

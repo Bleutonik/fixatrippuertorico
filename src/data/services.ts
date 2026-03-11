@@ -355,7 +355,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Astrology",
     description: "Astrology is a method of divination based on the map of the sky at the exact place and time of birth. It has been used for millennia to study the life of a person in all its aspects and to know its possibilities such as: life purpose, finances, health, relationships, spirituality, education, etc.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/8.png?ssl=1",
+    image: astrologyImg,
   },
   {
     name: "Tarot",

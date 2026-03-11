@@ -45,7 +45,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 456,
     age: "+8",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2024/10/1-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2024/10/1.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2024/10/4.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2024/10/1.png",
@@ -77,7 +77,7 @@ export const tours: Tour[] = [
     location: "El Yunque",
     rating: 5,
     age: "+4",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-1-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-1.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-1.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-1.jpg",
@@ -108,7 +108,7 @@ export const tours: Tour[] = [
     location: "Yunque",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-11-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-11.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-12.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-12.jpg",
@@ -138,7 +138,7 @@ export const tours: Tour[] = [
     location: "Luquillo",
     rating: 5,
     age: "+16",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-min-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-min.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-min.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-min.jpg",
@@ -167,7 +167,7 @@ export const tours: Tour[] = [
     location: "Plaza Colon",
     rating: 5,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/6-1-600x400.png",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/6-1.png",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-1.png",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-1.png",
@@ -201,7 +201,7 @@ export const tours: Tour[] = [
     location: "Fajardo",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-6-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-6.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-6.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-6.jpg",
@@ -231,7 +231,7 @@ export const tours: Tour[] = [
     location: "Fajardo",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-6-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-6.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-6.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-6.jpg",
@@ -258,7 +258,7 @@ export const tours: Tour[] = [
     location: "Fajardo Marina",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/culebra-1-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/culebra-1.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/9-2.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/8-2.jpg",
@@ -290,7 +290,7 @@ export const tours: Tour[] = [
     location: "Villa Marina, Fajardo",
     rating: 5,
     age: "+4",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-7-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-7.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-7.jpg",
     ],
@@ -315,7 +315,7 @@ export const tours: Tour[] = [
     location: "Ceiba",
     rating: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/PORTADA-600-x-400-px-5-600x400.webp",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/PORTADA-600-x-400-px-5.webp",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/PORTADA-600-x-400-px-5.webp",
     ],
@@ -340,7 +340,7 @@ export const tours: Tour[] = [
     location: "San Juan",
     rating: 5,
     age: "+18",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/Rum-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/Rum.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/Rum.jpg",
     ],
@@ -367,7 +367,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 8,
     age: "+18",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/8.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/7.jpg",
@@ -398,7 +398,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 7,
     age: "+18",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-min-1-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-min-1.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-min-1.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-min-1.jpg",
@@ -430,7 +430,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 6,
     age: "+8",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2.jpg",
@@ -461,7 +461,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 4,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-14-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-14.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-13.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-12.jpg",
@@ -490,7 +490,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 5,
     age: "+7",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-8-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-8.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-10.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-10.jpg",
@@ -521,7 +521,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 5,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-7-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-7.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-9.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2.webp",
@@ -551,7 +551,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 5,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-12-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-12.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-10.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-12.jpg",
@@ -582,7 +582,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 5,
     age: "+3",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-4-600x400.png",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-4.png",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-3.png",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-4.png",
@@ -611,7 +611,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 6,
     age: "+2",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/CATAMARAN-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/CATAMARAN.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/1-4.webp",
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/3-2.webp",
@@ -641,7 +641,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 5,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4-3-600x400.webp",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4-3.webp",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/3-3.webp",
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/1-4.webp",
@@ -672,7 +672,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 4,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/5-2-600x400.webp",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/5-2.webp",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/6-2.webp",
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4-3.webp",
@@ -702,7 +702,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 6,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4-4-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4-4.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/6-2.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/7-2.jpg",
@@ -734,7 +734,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 4,
     age: "+9",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-3-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-3.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/3-2.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/4-2.jpg",
@@ -764,7 +764,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 6,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-5-600x400.png",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-5.png",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-5.png",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/8-2.png",
@@ -796,7 +796,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 8,
     age: "+18",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-4-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-4.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-4.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/6-4.jpg",
@@ -830,7 +830,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 6,
     age: "+6",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-3-600x400.png",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/1-3.png",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-3.png",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-3.png",
@@ -862,7 +862,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 7,
     age: "+18",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-5-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-5.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/7-4.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5-5.jpg",
@@ -895,7 +895,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 5,
     age: "All Ages",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-3-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-3.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/3-2.jpg",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4-2.jpg",
@@ -926,7 +926,7 @@ export const tours: Tour[] = [
     rating: 5,
     ratingCount: 9,
     age: "+7",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2-600x400.png",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/2.png",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/5.png",
       "https://fixatrippuertorico.com/wp-content/uploads/2025/12/4.png",
@@ -957,27 +957,27 @@ export const categories: Category[] = [
   {
     name: "Adventure",
     slug: "adventure",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/ADVENTURE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/ADVENTURE.jpg",
   },
   {
     name: "Boat Trips",
     slug: "boat-trips",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/BOAT-TRIPS-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/BOAT-TRIPS.jpg",
   },
   {
     name: "City / Nightlife",
     slug: "city-nightlife",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/CITY-_-NIGHLIFE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/CITY-_-NIGHLIFE.jpg",
   },
   {
     name: "Foodie / Culture & History",
     slug: "foodie-culture",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/FOODIE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/FOODIE.jpg",
   },
   {
     name: "Nature",
     slug: "nature",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/NATURE-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2025/12/NATURE.jpg",
   },
 ];
 

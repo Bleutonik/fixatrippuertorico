@@ -121,11 +121,11 @@ export const boats: Boat[] = [
       "Gear: Quality snorkeling gear and flotation devices. We disinfect all snorkel equipment following each use, but we encourage guests to bring their own snorkel gear when possible.",
     ],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/7.jpg?fit=600%2C600&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/4-2.jpg?fit=600%2C600&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/5-1.jpg?fit=600%2C600&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/6.jpg?fit=600%2C600&ssl=1",
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/3-4.jpg?fit=600%2C600&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/7.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/4-2.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/5-1.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/6.jpg?ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/06/3-4.jpg?ssl=1",
     ],
   },
   {

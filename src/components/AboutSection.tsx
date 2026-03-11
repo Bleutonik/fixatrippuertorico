@@ -1,91 +1,104 @@
-import { Compass, BookOpen, Phone, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
+import { motion } from "framer-motion";
 
 const AboutSection = () => {
   const { t } = useLanguage();
 
+  const features = [
+    { number: "01", title: t("about.experts"), desc: t("about.experts.desc") },
+    { number: "02", title: t("about.guidelines"), desc: t("about.guidelines.desc") },
+  ];
+
   return (
-    <section className="py-16 sm:py-24 bg-background">
-      <div className="container">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div className="space-y-6 sm:space-y-8">
+    <section className="py-24 sm:py-36 bg-background relative overflow-hidden">
+      {/* Subtle background element */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/50 to-transparent pointer-events-none" />
+
+      <div className="container relative">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Text Content */}
+          <div className="lg:col-span-6 space-y-8">
             <FadeIn>
-              <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">About Us</p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display leading-[1.1] tracking-tight">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">About Us</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display leading-[0.95] tracking-tighter">
                 {t("about.title")}
               </h2>
             </FadeIn>
+
             <FadeIn delay={0.1}>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
                 {t("about.subtitle")}
               </p>
             </FadeIn>
 
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <FadeIn delay={0.15}>
-                <div className="p-4 sm:p-5 rounded-2xl liquid-glass space-y-3 h-full">
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-soft">
-                    <Compass className="h-5 w-5 text-primary-foreground" />
+            {/* Feature list - editorial style */}
+            <div className="space-y-6 pt-4">
+              {features.map((feature, i) => (
+                <FadeIn key={i} delay={0.15 + i * 0.1}>
+                  <div className="flex gap-5 group">
+                    <span className="text-4xl font-display font-bold text-primary/20 group-hover:text-primary/40 transition-colors tracking-tighter">
+                      {feature.number}
+                    </span>
+                    <div className="pt-1.5">
+                      <h4 className="font-semibold text-foreground text-base mb-1">{feature.title}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                    </div>
                   </div>
-                  <h4 className="font-semibold text-foreground text-sm sm:text-[15px]">{t("about.experts")}</h4>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {t("about.experts.desc")}
-                  </p>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.25}>
-                <div className="p-4 sm:p-5 rounded-2xl liquid-glass space-y-3 h-full">
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-soft">
-                    <BookOpen className="h-5 w-5 text-primary-foreground" />
-                  </div>
-                  <h4 className="font-semibold text-foreground text-sm sm:text-[15px]">{t("about.guidelines")}</h4>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {t("about.guidelines.desc")}
-                  </p>
-                </div>
-              </FadeIn>
+                </FadeIn>
+              ))}
             </div>
 
-            <FadeIn delay={0.3}>
-              <div className="flex items-center gap-4 p-4 rounded-2xl liquid-glass-subtle">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">{t("about.callus")}</p>
-                  <a href="tel:+17874880202" className="font-bold text-foreground text-lg hover:text-primary transition-colors">+1 787 488 0202</a>
-                </div>
-              </div>
-            </FadeIn>
-
+            {/* Phone + CTA */}
             <FadeIn delay={0.35}>
-              <Link to="/tours">
-                <Button className="rounded-xl px-7 py-3 h-12 font-semibold text-sm bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity shadow-soft gap-2 group">
+              <div className="flex flex-wrap items-center gap-6 pt-4">
+                <Link
+                  to="/tours"
+                  className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all duration-300"
+                >
                   {t("about.explore")}
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Button>
-              </Link>
+                </Link>
+                <a
+                  href="tel:+17874880202"
+                  className="text-foreground font-bold text-lg hover:text-primary transition-colors font-display tracking-tight"
+                >
+                  +1 787 488 0202
+                </a>
+              </div>
             </FadeIn>
           </div>
 
-          <FadeIn direction="right" delay={0.2} className="relative hidden sm:block">
-            <div className="w-full max-w-md mx-auto">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-primary-glow/10 rounded-full blur-3xl" />
-                <img
-                  src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/a.webp"
-                  alt="Puerto Rico flag"
-                  className="relative w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-[2rem] mx-auto shadow-elevated"
-                />
-                <img
-                  src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/BIOLUM.webp"
-                  alt="Bioluminescent bay"
-                  className="absolute -bottom-6 -left-4 w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-2xl shadow-card border-4 border-background animate-float"
-                />
+          {/* Image Grid - Asymmetric */}
+          <FadeIn direction="right" delay={0.2} className="lg:col-span-6 hidden sm:block">
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="rounded-3xl overflow-hidden aspect-[3/4]">
+                    <img
+                      src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/a.webp"
+                      alt="Puerto Rico experience"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-4 pt-12">
+                  <div className="rounded-3xl overflow-hidden aspect-[3/4]">
+                    <img
+                      src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/BIOLUM.webp"
+                      alt="Bioluminescent bay"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
               </div>
+              {/* Floating accent */}
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-primary/10 blur-3xl" />
             </div>
           </FadeIn>
         </div>

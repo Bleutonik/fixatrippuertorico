@@ -16,7 +16,7 @@ const BottomNav = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden glass safe-bottom">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-background/90 backdrop-blur-xl border-t border-border/50 safe-bottom">
       <div className="flex items-center justify-around h-16">
         {items.map((item) => {
           const isActive =
@@ -27,13 +27,11 @@ const BottomNav = () => {
             <NavLink
               key={item.href}
               to={item.href}
-              className="flex flex-col items-center justify-center gap-0.5 flex-1 h-full transition-colors"
+              className="flex flex-col items-center justify-center gap-0.5 flex-1 h-full transition-colors relative"
             >
               <item.icon
                 className={`h-5 w-5 transition-all duration-200 ${
-                  isActive
-                    ? "text-primary scale-110"
-                    : "text-muted-foreground"
+                  isActive ? "text-primary scale-110" : "text-muted-foreground"
                 }`}
                 strokeWidth={isActive ? 2.5 : 1.8}
               />

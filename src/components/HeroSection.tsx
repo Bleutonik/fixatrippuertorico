@@ -1,86 +1,138 @@
-import { useState } from "react";
-import { Search, ArrowRight, Sparkles } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
+import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const HeroSection = () => {
-  const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (query.trim()) {
-      navigate(`/tours?search=${encodeURIComponent(query)}`);
-    }
-  };
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+
+  const stats = [
+    { value: "2,500+", label: "Happy Travelers" },
+    { value: "50+", label: "Unique Experiences" },
+    { value: "4.9★", label: "Average Rating" },
+  ];
 
   return (
-    <section className="relative h-[75vh] sm:h-[88vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-105"
-        style={{
-          backgroundImage: `url(https://fixatrippuertorico.com/wp-content/uploads/2026/01/1-3-1.webp)`,
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60" />
+    <section ref={ref} className="relative h-screen min-h-[700px] flex items-end overflow-hidden">
+      {/* Parallax Background */}
+      <motion.div style={{ scale }} className="absolute inset-0">
+        <img
+          src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/1-3-1.webp"
+          alt="Puerto Rico aerial view"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
 
-      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/15 mb-6"
-        >
-          <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
-          <span className="text-xs font-medium text-white/90 tracking-wide">Puerto Rico's #1 Experience Concierge</span>
-        </motion.div>
+      {/* Cinematic gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-5 font-display leading-[1.1] tracking-tight"
-        >
-          {t("hero.title")}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-base sm:text-lg text-white/80 mb-8 sm:mb-10 max-w-lg mx-auto leading-relaxed font-light"
-        >
-          {t("hero.subtitle")}
-        </motion.p>
-
-        <motion.form
-          initial={{ opacity: 0, y: 20, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.55 }}
-          onSubmit={handleSearch}
-          className="max-w-lg mx-auto px-2"
-        >
-          <div className="flex items-center liquid-glass-elevated rounded-2xl overflow-hidden bg-white/95 dark:bg-card/90 shadow-lg">
-            <Search className="h-5 w-5 text-foreground/60 ml-5 flex-shrink-0" />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t("hero.search")}
-              className="flex-1 px-4 py-4 sm:py-[18px] text-foreground placeholder:text-foreground/40 bg-transparent focus:outline-none text-sm min-w-0 font-medium"
-            />
-            <button
-              type="submit"
-              className="m-2 p-3 rounded-xl bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity flex-shrink-0 shadow-soft"
+      {/* Content */}
+      <motion.div style={{ y, opacity }} className="relative z-10 w-full pb-16 sm:pb-24 lg:pb-28">
+        <div className="container">
+          <div className="max-w-3xl">
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="flex items-center gap-3 mb-6"
             >
-              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
-            </button>
-          </div>
-        </motion.form>
-      </div>
+              <div className="h-px w-10 bg-primary" />
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">
+                Puerto Rico's #1 Concierge
+              </span>
+            </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+            {/* Main Title - Editorial Style */}
+            <motion.h1
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white font-display leading-[0.95] tracking-tighter mb-6"
+            >
+              {t("hero.title")}
+              <span className="block text-primary">.</span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="text-lg sm:text-xl text-white/70 max-w-lg leading-relaxed font-light mb-10"
+            >
+              {t("hero.subtitle")}
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <Link
+                to="/tours"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all duration-300 shadow-elevated"
+              >
+                {t("about.explore")}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
+              >
+                {t("nav.contact")}
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Stats Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            className="mt-14 sm:mt-20 flex items-center gap-8 sm:gap-14"
+          >
+            {stats.map((stat, i) => (
+              <div key={i} className="relative">
+                {i > 0 && (
+                  <div className="absolute -left-4 sm:-left-7 top-1/2 -translate-y-1/2 h-8 w-px bg-white/20" />
+                )}
+                <p className="text-2xl sm:text-3xl font-bold text-white font-display tracking-tight">{stat.value}</p>
+                <p className="text-[11px] sm:text-xs text-white/50 mt-1 tracking-wide uppercase">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="h-5 w-5 text-white/40" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

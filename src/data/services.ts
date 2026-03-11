@@ -224,7 +224,7 @@ export const boats: Boat[] = [
     description: "A classic 48 foot Newton yacht perfect for exploring the beautiful islands of eastern Puerto Rico.",
     included: [],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/02/PORTADA-1-2.jpg?fit=600%2C400&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2025/02/PORTADA-1-2.jpg?ssl=1",
     ],
   },
   {

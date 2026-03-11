@@ -290,7 +290,7 @@ export const tours: Tour[] = [
     location: "Villa Marina, Fajardo",
     rating: 5,
     age: "+4",
-    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-7-600x400.jpg",
+    image: "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-7.jpg",
     gallery: [
       "https://fixatrippuertorico.com/wp-content/uploads/2026/01/2-7.jpg",
     ],

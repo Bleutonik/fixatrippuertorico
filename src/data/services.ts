@@ -325,7 +325,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Therapeutic Massage",
     description: "Release chronic patterns of tension and pain. Deeper pressure, slower massage strokes and cupping are utilized to facilitate flow of qi and blood.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/2.png?ssl=1",
+    image: therapeuticImg,
   },
   {
     name: "Soothing Massage",

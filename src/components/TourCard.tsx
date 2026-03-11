@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { Star, Clock, MapPin } from "lucide-react";
+import { Star, Clock, MapPin, ArrowUpRight } from "lucide-react";
 import { Tour } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
 
 interface TourCardProps {
   tour: Tour;
@@ -13,39 +14,51 @@ const TourCard = ({ tour }: TourCardProps) => {
   return (
     <Link
       to={`/tour/${tour.slug}`}
-      className="group liquid-glass liquid-glass-shimmer rounded-2xl overflow-hidden active:scale-[0.98]"
+      className="group block relative rounded-3xl overflow-hidden bg-card border border-border/50 hover:border-primary/20 transition-all duration-700 hover:shadow-elevated"
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
+      {/* Image */}
+      <div className="relative aspect-[4/5] overflow-hidden">
         <img
           src={tour.image}
           alt={tour.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 flex items-center gap-1.5 glass-dark px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl border border-white/10">
-          <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-primary text-primary" />
-          <span className="text-[10px] sm:text-xs font-bold text-white">{tour.rating}</span>
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+        {/* Rating badge */}
+        <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+          <Star className="h-3 w-3 fill-primary text-primary" />
+          <span className="text-[11px] font-bold text-white">{tour.rating}</span>
+        </div>
+
+        {/* Price - bottom of image */}
+        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+          <div>
+            <p className="text-white/60 text-[10px] uppercase tracking-wider mb-0.5">From</p>
+            <p className="text-2xl font-bold text-white font-display">${tour.price}</p>
+          </div>
+          <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+            <ArrowUpRight className="h-4 w-4 text-white" />
+          </div>
         </div>
       </div>
-      <div className="p-3.5 sm:p-5 space-y-2 sm:space-y-2.5">
-        <h3 className="font-semibold text-foreground text-[13px] sm:text-[15px] leading-snug line-clamp-2 group-hover:text-primary transition-colors tracking-tight">
+
+      {/* Content */}
+      <div className="p-5 space-y-3">
+        <h3 className="font-semibold text-foreground text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors duration-300 tracking-tight">
           {tour.name}
         </h3>
-        <div className="flex items-center gap-3 text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-            <span className="text-[10px] sm:text-xs">{tour.duration}</span>
+        <div className="flex items-center gap-4 text-muted-foreground">
+          <div className="flex items-center gap-1.5">
+            <Clock className="h-3.5 w-3.5" />
+            <span className="text-xs">{tour.duration}</span>
           </div>
-          <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-          <span className="text-[10px] sm:text-xs">{tour.age}+</span>
-        </div>
-        <div className="flex items-center gap-1.5 text-muted-foreground">
-          <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-          <span className="text-[10px] sm:text-xs">{tour.location}</span>
-        </div>
-        <div className="pt-1 sm:pt-2 border-t border-border/50">
-          <p className="font-bold text-lg sm:text-xl gradient-text">${tour.price}</p>
+          <div className="flex items-center gap-1.5">
+            <MapPin className="h-3.5 w-3.5" />
+            <span className="text-xs">{tour.location}</span>
+          </div>
         </div>
       </div>
     </Link>

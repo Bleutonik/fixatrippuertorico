@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Star, Clock, Users, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Star, ArrowRight } from "lucide-react";
 import { tours } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
+import { motion } from "framer-motion";
 
 const FeaturedTour = () => {
   const { t } = useLanguage();
@@ -11,69 +11,85 @@ const FeaturedTour = () => {
   if (!tour) return null;
 
   return (
-    <section className="py-16 sm:py-24 bg-background">
-      <div className="container">
-        <FadeIn duration={0.6}>
-          <div className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden liquid-glass-elevated">
-            <div className="relative aspect-[4/3] lg:aspect-auto min-h-[280px]">
-              <img
-                src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/YUNQUE-CARTEL.png"
-                alt={tour.name}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute top-4 left-4">
-                <span className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-bold tracking-wide uppercase shadow-soft">
-                  Featured
-                </span>
-              </div>
-            </div>
-            <div className="p-7 sm:p-10 lg:p-14 flex flex-col justify-center space-y-5 sm:space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1.5 bg-primary/10 px-3.5 py-1.5 rounded-xl">
-                  <Star className="h-4 w-4 fill-primary text-primary" />
-                  <span className="text-sm font-bold text-primary">4.9</span>
-                </div>
-                <span className="text-xs text-muted-foreground">({tour.ratingCount} {t("featured.rating")})</span>
-              </div>
+    <section className="py-0 bg-foreground text-background relative overflow-hidden">
+      <div className="grid lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
+        {/* Image Side */}
+        <FadeIn direction="none" className="relative">
+          <div className="absolute inset-0">
+            <img
+              src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/YUNQUE-CARTEL.png"
+              alt={tour.name}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-foreground/20 lg:to-foreground hidden lg:block" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground to-transparent lg:hidden" />
+          </div>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display leading-[1.1] tracking-tight">
-                Off the Beaten Path<br />El Yunque
-              </h2>
-
-              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base line-clamp-3">
-                {tour.description}
-              </p>
-
-              <div className="grid grid-cols-3 gap-4 sm:gap-6 py-2">
-                <div className="p-3 rounded-xl liquid-glass-subtle">
-                  <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 uppercase tracking-wide">{t("featured.price")}</p>
-                  <p className="text-xl sm:text-2xl font-bold gradient-text">${tour.price}</p>
-                </div>
-                <div className="p-3 rounded-xl liquid-glass-subtle">
-                  <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 uppercase tracking-wide">{t("featured.duration")}</p>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <p className="font-semibold text-foreground text-sm">{tour.duration}</p>
-                  </div>
-                </div>
-                <div className="p-3 rounded-xl liquid-glass-subtle">
-                  <p className="text-[10px] sm:text-xs text-muted-foreground mb-1 uppercase tracking-wide">{t("featured.age")}</p>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    <Users className="h-4 w-4 text-primary" />
-                    <p className="font-semibold text-foreground text-sm">{tour.age}</p>
-                  </div>
-                </div>
-              </div>
-
-              <Link to={`/tour/${tour.slug}`}>
-                <Button className="rounded-xl px-7 h-12 font-semibold bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity shadow-soft gap-2 group">
-                  {t("featured.discover")}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
+          {/* Featured badge */}
+          <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
+            <span className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-[11px] font-bold tracking-[0.15em] uppercase">
+              Featured
+            </span>
           </div>
         </FadeIn>
+
+        {/* Content Side */}
+        <div className="relative flex items-center p-8 sm:p-12 lg:p-20">
+          <div className="max-w-lg space-y-8">
+            <FadeIn delay={0.2}>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                <span className="text-sm text-background/50">({tour.ratingCount} {t("featured.rating")})</span>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display leading-[0.95] tracking-tighter">
+                Off the Beaten Path
+                <span className="block text-primary">El Yunque</span>
+              </h2>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <p className="text-background/60 leading-relaxed text-base line-clamp-3">
+                {tour.description}
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={0.5}>
+              <div className="flex items-center gap-8 py-4 border-y border-background/10">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.15em] text-background/40 mb-1">{t("featured.price")}</p>
+                  <p className="text-3xl font-bold font-display text-primary">${tour.price}</p>
+                </div>
+                <div className="h-10 w-px bg-background/10" />
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.15em] text-background/40 mb-1">{t("featured.duration")}</p>
+                  <p className="font-semibold text-lg">{tour.duration}</p>
+                </div>
+                <div className="h-10 w-px bg-background/10" />
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.15em] text-background/40 mb-1">{t("featured.age")}</p>
+                  <p className="font-semibold text-lg">{tour.age}+</p>
+                </div>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.6}>
+              <Link
+                to={`/tour/${tour.slug}`}
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all duration-300"
+              >
+                {t("featured.discover")}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </FadeIn>
+          </div>
+        </div>
       </div>
     </section>
   );

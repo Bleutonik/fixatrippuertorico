@@ -1,62 +1,55 @@
 import { Link } from "react-router-dom";
 import { popularPlaces } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
 import FadeIn from "@/components/motion/FadeIn";
+import { ArrowUpRight } from "lucide-react";
 
 const PopularPlaces = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 sm:py-24 bg-background">
+    <section className="py-24 sm:py-36 bg-background">
       <div className="container">
-        <FadeIn className="text-center mb-10 sm:mb-14">
-          <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">Destinations</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight">
+        <FadeIn className="mb-14 sm:mb-20">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-10 bg-primary" />
+            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">Destinations</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tighter leading-[0.95]">
             {t("popular.title")}
           </h2>
         </FadeIn>
 
-        <FadeIn delay={0.15}>
-          <div className="px-0 sm:px-14">
-            <Carousel opts={{ align: "start", loop: true }} className="w-full">
-              <CarouselContent className="-ml-3 sm:-ml-5">
-                {popularPlaces.map((place) => (
-                  <CarouselItem key={place.slug} className="pl-3 sm:pl-5 basis-[45%] sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
-                    <Link
-                      to={`/tours?location=${place.slug}`}
-                      className="group block"
-                    >
-                      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 active:scale-[0.97]">
-                        <img
-                          src={place.image}
-                          alt={place.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                        <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5">
-                          <h3 className="text-white font-bold text-base sm:text-lg tracking-tight">{place.name}</h3>
-                          <p className="text-white/60 text-xs sm:text-sm mt-0.5">
-                            {place.tourCount} {place.tourCount !== 1 ? t("popular.tours") : t("popular.tour")}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex -left-4 shadow-card" />
-              <CarouselNext className="hidden sm:flex -right-4 shadow-card" />
-            </Carousel>
-          </div>
-        </FadeIn>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          {popularPlaces.map((place, i) => (
+            <FadeIn key={place.slug} delay={i * 0.08}>
+              <Link
+                to={`/tours?location=${place.slug}`}
+                className="group block relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4]"
+              >
+                <img
+                  src={place.image}
+                  alt={place.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent group-hover:from-black/90 transition-all duration-500" />
+
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                  <h3 className="text-white font-bold text-base sm:text-xl font-display tracking-tight">{place.name}</h3>
+                  <div className="flex items-center justify-between mt-2">
+                    <p className="text-white/50 text-xs sm:text-sm">
+                      {place.tourCount} {place.tourCount !== 1 ? t("popular.tours") : t("popular.tour")}
+                    </p>
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <ArrowUpRight className="h-3.5 w-3.5 text-white" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

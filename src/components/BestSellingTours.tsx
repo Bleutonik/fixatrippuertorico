@@ -2,32 +2,43 @@ import { tours } from "@/data/tours";
 import TourCard from "./TourCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
-import StaggerChildren, { staggerItemVariants } from "@/components/motion/StaggerChildren";
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const BestSellingTours = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 sm:py-24 bg-secondary/50">
+    <section className="py-24 sm:py-36 bg-secondary/30">
       <div className="container">
-        <FadeIn className="text-center mb-10 sm:mb-14">
-          <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">Top Picks</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tight">
-            {t("bestselling.title")}
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base mt-3 max-w-md mx-auto">
-            {t("bestselling.subtitle")}
-          </p>
+        <FadeIn className="mb-14 sm:mb-20">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">Top Picks</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tighter leading-[0.95]">
+                {t("bestselling.title")}
+              </h2>
+            </div>
+            <Link
+              to="/tours"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
+              View all experiences
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </FadeIn>
 
-        <StaggerChildren className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6" stagger={0.06}>
-          {tours.map((tour) => (
-            <motion.div key={tour.id} variants={staggerItemVariants}>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          {tours.map((tour, i) => (
+            <FadeIn key={tour.id} delay={i * 0.06}>
               <TourCard tour={tour} />
-            </motion.div>
+            </FadeIn>
           ))}
-        </StaggerChildren>
+        </div>
       </div>
     </section>
   );

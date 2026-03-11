@@ -350,7 +350,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Numerology",
     description: "Numerology is a centuries-old divinatory art based on the teachings of Pythagoras. The father of mathematics believed that every word or name contains a number vibration and that every number has a meaning.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/10.png?fit=1024%2C1024&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/10.png?ssl=1",
   },
   {
     name: "Energy Cleaning",

@@ -1,10 +1,12 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
-import { Button } from "@/components/ui/button";
+import ServiceHero from "@/components/ServiceHero";
+import FadeIn from "@/components/motion/FadeIn";
+import ParallaxImage from "@/components/motion/ParallaxImage";
 import { chefServices } from "@/data/services";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -16,11 +18,32 @@ const FixAChef = () => {
     window.open(`https://wa.me/17874880202?text=${msg}`, "_blank");
   };
 
+  const steps = [
+    {
+      number: "01",
+      title: "We will cook excellent dishes from your home kitchen.",
+      desc: "Before your private dinner, your personal chef will arrive and begin to organize and prepare the agreed menu. You will be able to watch, learn and enjoy new recipes from your professional chef while you cook your dishes in your home kitchen!",
+      image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/2-1.jpg?fit=704%2C750&ssl=1",
+    },
+    {
+      number: "02",
+      title: "We will be preparing and serving each agreed dish",
+      desc: "The chef and his team will take care of everything. Table service, order, cleanliness and they will guide you through all the details involved in each dish so you can have a unique and unforgettable private dining experience in the comfort of your home.",
+      image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/1-1.jpg?fit=704%2C750&ssl=1",
+    },
+    {
+      number: "03",
+      title: "Your private chef will leave your kitchen impeccable!",
+      desc: "Tidiness and cleanliness are essential parts of impeccable service! Before departing, the chef and his team will ensure that all equipment and crockery are left as you found them. It only remains to relax and enjoy the night.",
+      image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/3.jpg?fit=704%2C750&ssl=1",
+    },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Fix a Chef - Private Chef Service Puerto Rico",
-    description: "Fix a Chef by Fix a Trip Puerto Rico delivers an extraordinary private dining experience directly to your vacation rental, Airbnb, hotel suite, or private villa anywhere on the island. Our network of professional, certified chefs specializes in Puerto Rican, Caribbean, Latin American, Mediterranean, Asian fusion, and international cuisines, crafting bespoke multi-course menus tailored to your dietary preferences, allergies, and budget. Whether you are celebrating a birthday, anniversary, honeymoon dinner, corporate retreat, or simply want to elevate your vacation with a gourmet meal, Fix a Chef transforms your kitchen into a world-class restaurant. The experience begins with a personalized menu consultation where your chef designs each course using the freshest locally sourced ingredients, premium seafood from Puerto Rican waters, and seasonal tropical produce. On the day of your event, your private chef arrives with all ingredients and equipment, prepares each dish before your eyes, serves every course with professional table service, and leaves your kitchen spotless. Packages are available for intimate dinners for two, family gatherings, and large group events of up to 50 guests. Multi-day and multi-meal discounts are offered for extended stays. Fix a Chef is the highest-rated private chef service in Puerto Rico, combining culinary excellence with warm Caribbean hospitality. Contact us via WhatsApp to design your perfect dining experience today.",
+    description: "Fix a Chef by Fix a Trip Puerto Rico delivers an extraordinary private dining experience directly to your vacation rental.",
     url: "https://fixatrippuertorico.com/fix-a-chef",
     provider: { "@type": "TravelAgency", name: "Fix a Trip Puerto Rico", telephone: "+1-787-488-0202" },
   };
@@ -29,155 +52,108 @@ const FixAChef = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Fix a Chef | Private Chef Service Puerto Rico"
-        description="Book a private chef in Puerto Rico for a luxury dining experience at your vacation rental. Custom multi-course menus, locally sourced ingredients, professional table service, and spotless cleanup. Perfect for birthdays, anniversaries, and special celebrations. Fix a Trip Puerto Rico."
+        description="Book a private chef in Puerto Rico for a luxury dining experience at your vacation rental. Custom multi-course menus, locally sourced ingredients, professional table service."
         canonicalPath="/fix-a-chef"
         jsonLd={jsonLd}
       />
       <Header />
       <main>
-        {/* Hero */}
-        <section className="relative py-28 sm:py-36 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=1920&q=80&auto=format&fit=crop)" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
-          <div className="container relative z-10 text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#ff4c00] font-display tracking-tight mb-4">
-              FIX A CHEF
-            </h1>
-          </div>
-        </section>
-
-        {/* The New Fix a Trip Service */}
-        <section className="py-16 sm:py-24">
-          <div className="container text-center max-w-4xl">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-display mb-8">
-              The New Fix A Trip Service
-            </h2>
-            <div className="flex justify-center mb-8">
-              <img
-                src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/12/Recurso-8%403x.png?fit=91%2C86&ssl=1"
-                alt="Fix a Trip logo icon"
-                className="w-20 h-20"
-              />
-            </div>
-            <p className="text-lg sm:text-xl text-muted-foreground font-semibold leading-relaxed max-w-3xl mx-auto">
-              Enjoy a high-end personalized culinary experience, with a private chef, created for your budget. All in the tranquility, privacy and comfort of your home!
-            </p>
-          </div>
-        </section>
-
-        {/* Chef image */}
-        <section className="pb-8">
-          <div className="container max-w-4xl">
-            <img
-              src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/istockphoto-1338854758-612x612-1.jpg?fit=1024%2C1024&ssl=1"
-              alt="Private chef preparing food"
-              className="w-full rounded-2xl shadow-elevated"
-              loading="lazy"
-            />
-          </div>
-        </section>
+        <ServiceHero
+          title="Fix A Chef"
+          subtitle="Enjoy a high-end personalized culinary experience with a private chef, created for your budget"
+          eyebrow="Private Dining"
+          backgroundImage="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=1920&q=80&auto=format&fit=crop"
+        />
 
         {/* Packages */}
-        <section className="py-16 sm:py-24">
+        <section className="py-20 sm:py-28">
           <div className="container">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-4 text-center">
-              Fix A Chef Private Chef Packages
-            </h2>
-            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-              Custom menus designed to fit your event and budget. Discounts available for multiple meals/days of service – just ask us!
-            </p>
+            <FadeIn className="mb-14 sm:mb-20 text-center">
+              <div className="flex items-center gap-3 mb-4 justify-center">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">Packages</span>
+                <div className="h-px w-10 bg-primary" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tighter leading-[0.95]">
+                Private Chef Packages
+              </h2>
+              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                Custom menus designed to fit your event and budget. Discounts available for multiple meals/days of service.
+              </p>
+            </FadeIn>
+
             <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
-              {chefServices.map((service) => (
-                <div key={service.name} className="text-center group">
-                  <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden mx-auto mb-5 liquid-glass transition-all duration-500">
-                    <img src={service.image} alt={service.name} className="w-full h-full object-cover" loading="lazy" />
+              {chefServices.map((service, i) => (
+                <FadeIn key={service.name} delay={i * 0.1}>
+                  <div className="group text-center">
+                    <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden mx-auto mb-6 border-2 border-border/50 group-hover:border-primary/30 transition-all duration-500">
+                      <img src={service.image} alt={service.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-2 font-display">{service.name}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{service.description}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{service.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{service.description}</p>
-                </div>
+                </FadeIn>
               ))}
             </div>
           </div>
         </section>
 
-        {/* How it works - Step 1 */}
-        <section className="py-16 sm:py-24 bg-secondary/50">
-          <div className="container max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
-              <div>
-                <img
-                  src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/2-1.jpg?fit=704%2C750&ssl=1"
-                  alt="Private chef cooking"
-                  className="rounded-2xl shadow-elevated w-full"
-                  loading="lazy"
-                />
+        {/* How it works - Editorial Steps */}
+        <section className="py-20 sm:py-28 bg-foreground text-background">
+          <div className="container max-w-6xl">
+            <FadeIn className="mb-16 sm:mb-20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">How It Works</span>
               </div>
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-foreground">We will cook excellent dishes from your home kitchen.</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  <strong>Before</strong> your private dinner, your personal chef will arrive and begin to organize and prepare the agreed menu. You will be able to <strong>watch, learn and enjoy</strong> new recipes from your <strong>professional chef</strong> while you cook your dishes in your home kitchen!
-                </p>
-              </div>
-            </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tighter leading-[0.95]">
+                The Experience
+              </h2>
+            </FadeIn>
 
-            {/* Step 2 */}
-            <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
-              <div className="md:order-2">
-                <img
-                  src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/1-1.jpg?fit=704%2C750&ssl=1"
-                  alt="Chef serving"
-                  className="rounded-2xl shadow-elevated w-full"
-                  loading="lazy"
-                />
-              </div>
-              <div className="space-y-4 md:order-1">
-                <h3 className="text-xl font-bold text-foreground">We will be preparing and serving each agreed dish</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  The chef and his team will take care of everything. Table service, order, cleanliness and they will guide you through all the details involved in each dish so you can have a unique and unforgettable private dining experience in the comfort of your home.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  With our discreet and professional service, we guarantee that you and your guests can enjoy the evening with nothing to worry about!
-                </p>
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-              <div>
-                <img
-                  src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/3.jpg?fit=704%2C750&ssl=1"
-                  alt="Clean kitchen"
-                  className="rounded-2xl shadow-elevated w-full"
-                  loading="lazy"
-                />
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-foreground">Your private chef will organize everything and the best, will leave your kitchen impeccable!</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Tidiness and cleanliness are essential parts of impeccable service! Before departing, the chef and his team will ensure that all equipment and crockery and setup involved in the service are left as you found them.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  It only remains to relax and enjoy the night calmly and exciting at the same time, knowing that the chef took care of everything.
-                </p>
-              </div>
+            <div className="space-y-20 sm:space-y-28">
+              {steps.map((step, index) => (
+                <FadeIn key={step.number} delay={0.1}>
+                  <div className={`grid md:grid-cols-2 gap-10 lg:gap-20 items-center ${index % 2 === 1 ? "" : ""}`}>
+                    <div className={index % 2 === 1 ? "md:order-2" : ""}>
+                      <ParallaxImage
+                        src={step.image}
+                        alt={step.title}
+                        className="rounded-3xl aspect-[4/5]"
+                        speed={-25}
+                      />
+                    </div>
+                    <div className={`space-y-5 ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                      <span className="text-6xl font-display font-bold text-primary/20 tracking-tighter">{step.number}</span>
+                      <h3 className="text-2xl sm:text-3xl font-bold font-display tracking-tight leading-tight">{step.title}</h3>
+                      <p className="text-background/60 leading-relaxed text-base">{step.desc}</p>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-16 sm:py-24">
-          <div className="container text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-4">Fix a Chef Inquiry</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Contact us via WhatsApp to book your private chef experience. We'll help you design the perfect menu for your event.
-            </p>
-            <Button onClick={handleInquiry} className="rounded-xl px-8 h-12 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2">
-              <MessageCircle className="h-5 w-5" />
-              Chat With Us
-            </Button>
+        <section className="py-20 sm:py-28">
+          <div className="container">
+            <FadeIn>
+              <div className="text-center max-w-2xl mx-auto">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-display tracking-tighter mb-4">Fix a Chef Inquiry</h2>
+                <p className="text-muted-foreground mb-8">
+                  Contact us via WhatsApp to book your private chef experience. We'll help you design the perfect menu.
+                </p>
+                <button
+                  onClick={handleInquiry}
+                  className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold text-sm transition-all duration-300"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Chat With Us
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </FadeIn>
           </div>
         </section>
         <SEOCrossLinks />

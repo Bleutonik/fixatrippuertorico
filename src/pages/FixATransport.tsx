@@ -1,10 +1,13 @@
-import { Car, MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone, ArrowRight, Shield, Clock, Car } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
-import { Button } from "@/components/ui/button";
+import ServiceHero from "@/components/ServiceHero";
+import FadeIn from "@/components/motion/FadeIn";
+import ParallaxImage from "@/components/motion/ParallaxImage";
+import AnimatedCounter from "@/components/motion/AnimatedCounter";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const FixATransport = () => {
@@ -15,11 +18,23 @@ const FixATransport = () => {
     window.open(`https://wa.me/17874880202?text=${msg}`, "_blank");
   };
 
+  const features = [
+    { icon: Shield, title: "Licensed & Insured", desc: "Professional bilingual drivers with full insurance coverage" },
+    { icon: Clock, title: "24/7 Availability", desc: "Flexible scheduling for airport transfers and island tours" },
+    { icon: Car, title: "Premium Fleet", desc: "Mercedes-Benz sedans, luxury SUVs, and spacious vans" },
+  ];
+
+  const stats = [
+    { value: "24/7", label: "Available" },
+    { value: "20+", label: "Passengers" },
+    { value: "5★", label: "Service" },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Fix a Transport - Luxury Transportation Services Puerto Rico",
-    description: "Fix a Transport by Fix a Trip Puerto Rico provides premium luxury ground transportation services across the entire island, including San Juan, Fajardo, Ponce, Rincón, Vieques, and all major tourist destinations. Our fleet of executive vehicles, luxury SUVs, Mercedes-Benz sedans, and spacious vans ensures comfortable, safe, and stylish travel for individuals, couples, families, and large groups of up to 20 passengers. Services include San Juan Luis Muñoz Marín International Airport (SJU) transfers, cruise port pickups from the San Juan Cruise Terminal, inter-city transfers, full-day private chauffeur service, and custom multi-day itineraries. Our professional, bilingual drivers are fully licensed and insured, with extensive knowledge of Puerto Rico's roads, neighborhoods, and attractions, providing insider tips and seamless navigation throughout your journey. Whether you need a reliable airport pickup after a long flight, a VIP transfer to your resort or vacation rental, dedicated transportation for a wedding or corporate event, or a private driver for a full-day island exploration, Fix a Transport delivers punctual, discreet, and luxurious service every time. All vehicles are equipped with air conditioning, complimentary bottled water, phone chargers, and WiFi. We offer 24/7 availability with flexible scheduling and competitive pricing. Child car seats are available upon request at no extra charge. Avoid the hassle of rental cars, taxis, and rideshares — trust Fix a Transport for a first-class travel experience in Puerto Rico. Book via WhatsApp or phone for instant confirmation.",
+    description: "Fix a Transport by Fix a Trip Puerto Rico provides premium luxury ground transportation services across the entire island.",
     url: "https://fixatrippuertorico.com/fix-a-transport",
     provider: { "@type": "TravelAgency", name: "Fix a Trip Puerto Rico", telephone: "+1-787-488-0202" },
   };
@@ -28,75 +43,116 @@ const FixATransport = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Fix a Transport | Luxury Transportation Puerto Rico"
-        description="Premium luxury transportation in Puerto Rico. Airport transfers from SJU, cruise port pickups, private chauffeur service, executive SUVs and Mercedes-Benz sedans. Bilingual drivers, 24/7 availability, competitive pricing. Book with Fix a Trip Puerto Rico via WhatsApp."
+        description="Premium luxury transportation in Puerto Rico. Airport transfers from SJU, cruise port pickups, private chauffeur service, executive SUVs and Mercedes-Benz sedans."
         canonicalPath="/fix-a-transport"
         jsonLd={jsonLd}
       />
       <Header />
       <main>
-        {/* Hero */}
-        <section className="relative py-28 sm:py-36 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url(/images/luxury-interior-hero.jpg)" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
-          <div className="container relative z-10 text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#ff4c00] font-display tracking-tight mb-4">
-              FIX A TRANSPORT
-            </h1>
+        <ServiceHero
+          title="Fix A Transport"
+          subtitle="Start your trips with the security and luxury of Fix a Transport"
+          eyebrow="VIP Ground Transportation"
+          backgroundImage="/images/luxury-interior-hero.jpg"
+        />
+
+        {/* Stats */}
+        <section className="py-0 -mt-10 relative z-20">
+          <div className="container">
+            <FadeIn>
+              <div className="flex items-center gap-8 sm:gap-14 bg-card/80 backdrop-blur-xl rounded-2xl border border-border/50 px-8 py-6 max-w-fit">
+                {stats.map((stat, i) => (
+                  <div key={i} className="relative">
+                    {i > 0 && (
+                      <div className="absolute -left-4 sm:-left-7 top-1/2 -translate-y-1/2 h-8 w-px bg-border" />
+                    )}
+                    <AnimatedCounter value={stat.value} className="text-2xl sm:text-3xl font-bold text-foreground font-display tracking-tight block" />
+                    <p className="text-[11px] sm:text-xs text-muted-foreground mt-1 tracking-wide uppercase">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* Content */}
-        <section className="py-16 sm:py-24">
-          <div className="container max-w-4xl">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-display mb-8 text-center">
-              Start Your Trips With The Security Of Fix A Transport.
-            </h2>
+        <section className="py-20 sm:py-28">
+          <div className="container">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="space-y-8">
+                <FadeIn>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-px w-10 bg-primary" />
+                    <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">Our Service</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tighter leading-[0.95]">
+                    Premium Ground Transportation
+                  </h2>
+                </FadeIn>
 
-            <div className="space-y-6 text-muted-foreground text-base sm:text-lg leading-relaxed text-center">
-              <p className="font-semibold">
-                Dock into the San Juan Cruise Piers, or simply need transportation services on the island, your friendly driver will meet you and drive you on this shared service directly to your San Juan destination.
-              </p>
-              <p className="font-semibold">
-                Whether you're traveling individually, with a partner or in a group, your ground transport needs will be covered by our transport services.
-              </p>
-              <p className="font-semibold">
-                Avoid the confusion of taxis or public transport. Approximately 24-48 hours prior to your service, you will be required to reconfirm exact pick-up time and place in order to be advised if there are any adjustments in time in order to accommodate all passengers during this shared service.
-              </p>
-            </div>
+                <FadeIn delay={0.1}>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Whether you're traveling individually, with a partner or in a group, your ground transport needs will be covered by our transport services. Avoid the confusion of taxis or public transport.
+                  </p>
+                </FadeIn>
 
-            <div className="mt-12">
-              <img
-                src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/6.jpg?fit=1024%2C1024&ssl=1"
-                alt="Fix a Transport service"
-                className="w-full rounded-2xl shadow-elevated"
-                loading="lazy"
-              />
+                <div className="space-y-5 pt-2">
+                  {features.map((feature, i) => (
+                    <FadeIn key={i} delay={0.15 + i * 0.1}>
+                      <div className="flex gap-4 group">
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                          <feature.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-foreground text-sm mb-1">{feature.title}</h4>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                        </div>
+                      </div>
+                    </FadeIn>
+                  ))}
+                </div>
+              </div>
+
+              <FadeIn direction="right" delay={0.2}>
+                <ParallaxImage
+                  src="https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/6.jpg?fit=1024%2C1024&ssl=1"
+                  alt="Fix a Transport service"
+                  className="rounded-3xl aspect-[4/5]"
+                  speed={-30}
+                />
+              </FadeIn>
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-16 sm:py-24 bg-secondary/50">
-          <div className="container text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground font-display mb-4">Booking your Fix a Transport now!</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">Contact us via WhatsApp or phone to book your transportation service.</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button onClick={handleInquiry} className="rounded-xl px-8 h-12 font-semibold text-base bg-[#25D366] hover:bg-[#20BD5A] text-white gap-2">
-                <MessageCircle className="h-5 w-5" />
-                Chat With Us
-              </Button>
-              <Button
-                onClick={() => window.open("tel:+17874880202", "_self")}
-                variant="outline"
-                className="rounded-xl px-8 h-12 font-semibold text-base gap-2"
-              >
-                <Phone className="h-5 w-5" />
-                +1 787 488 0202
-              </Button>
-            </div>
+        <section className="py-20 sm:py-28 bg-foreground text-background">
+          <div className="container">
+            <FadeIn>
+              <div className="text-center max-w-2xl mx-auto">
+                <h2 className="text-3xl sm:text-4xl font-bold font-display tracking-tighter mb-4">Book Your Transport</h2>
+                <p className="text-background/60 mb-8">
+                  Contact us via WhatsApp or phone to book your transportation service.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <button
+                    onClick={handleInquiry}
+                    className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold text-sm transition-all duration-300"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Chat With Us
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                  <a
+                    href="tel:+17874880202"
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-background/20 text-background font-semibold text-sm hover:bg-background/10 transition-all duration-300"
+                  >
+                    <Phone className="h-4 w-4" />
+                    +1 787 488 0202
+                  </a>
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </section>
         <SEOCrossLinks />

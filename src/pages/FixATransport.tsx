@@ -9,6 +9,8 @@ import FadeIn from "@/components/motion/FadeIn";
 import ParallaxImage from "@/components/motion/ParallaxImage";
 import AnimatedCounter from "@/components/motion/AnimatedCounter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import luxurySuvImg from "@/assets/transport/luxury-suv-old-san-juan.jpg";
+import luxuryInteriorImg from "@/assets/transport/luxury-interior-puerto-rico.jpg";
 
 const FixATransport = () => {
   const { t } = useLanguage();
@@ -53,7 +55,7 @@ const FixATransport = () => {
           title="Fix A Transport"
           subtitle="Start your trips with the security and luxury of Fix a Transport"
           eyebrow="VIP Ground Transportation"
-          backgroundImage="/images/luxury-interior-hero.jpg"
+          backgroundImage={luxuryInteriorImg}
         />
 
         {/* Stats */}
@@ -115,8 +117,8 @@ const FixATransport = () => {
 
               <FadeIn direction="right" delay={0.2}>
                 <ParallaxImage
-                  src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80&auto=format&fit=crop"
-                  alt="Fix a Transport service"
+                  src={luxurySuvImg}
+                  alt="Luxury Mercedes SUV in Old San Juan, Puerto Rico"
                   className="rounded-3xl aspect-[4/5]"
                   speed={-30}
                 />

@@ -292,7 +292,7 @@ export const chefServices: ChefService[] = [
   {
     name: "Dinner Service",
     description: "Custom Caribbean dinner service. Buffet style or plated with optional servers and wine pairings. Menu designed per your request.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/1.png?fit=1024%2C1024&ssl=1",
+    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/09/1.png?ssl=1",
   },
   {
     name: "Lunch Service",

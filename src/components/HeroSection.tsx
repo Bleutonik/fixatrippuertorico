@@ -1,11 +1,12 @@
-import { useState, useRef } from "react";
-import { ArrowRight, Play, ChevronDown } from "lucide-react";
-import { useNavigate, Link } from "react-router-dom";
+import { useRef } from "react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion, useScroll, useTransform } from "framer-motion";
+import TextReveal from "@/components/motion/TextReveal";
+import AnimatedCounter from "@/components/motion/AnimatedCounter";
 
 const HeroSection = () => {
-  const navigate = useNavigate();
   const { t } = useLanguage();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -55,22 +56,24 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* Main Title - Editorial Style */}
-            <motion.h1
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white font-display leading-[0.95] tracking-tighter mb-6"
-            >
-              {t("hero.title")}
-              <span className="block text-primary">.</span>
-            </motion.h1>
+            {/* Main Title - Letter by Letter Reveal */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white font-display leading-[0.95] tracking-tighter mb-6" style={{ perspective: "600px" }}>
+              <TextReveal text={t("hero.title")} delay={0.5} staggerDelay={0.025} />
+              <motion.span
+                className="block text-primary"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 1.2, type: "spring", stiffness: 300 }}
+              >
+                .
+              </motion.span>
+            </h1>
 
             {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
               className="text-lg sm:text-xl text-white/70 max-w-lg leading-relaxed font-light mb-10"
             >
               {t("hero.subtitle")}
@@ -80,7 +83,7 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
               className="flex flex-wrap items-center gap-4"
             >
               <Link
@@ -99,11 +102,11 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Stats Bar */}
+          {/* Stats Bar with Animated Counters */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
             className="mt-14 sm:mt-20 flex items-center gap-8 sm:gap-14"
           >
             {stats.map((stat, i) => (
@@ -111,7 +114,10 @@ const HeroSection = () => {
                 {i > 0 && (
                   <div className="absolute -left-4 sm:-left-7 top-1/2 -translate-y-1/2 h-8 w-px bg-white/20" />
                 )}
-                <p className="text-2xl sm:text-3xl font-bold text-white font-display tracking-tight">{stat.value}</p>
+                <AnimatedCounter
+                  value={stat.value}
+                  className="text-2xl sm:text-3xl font-bold text-white font-display tracking-tight block"
+                />
                 <p className="text-[11px] sm:text-xs text-white/50 mt-1 tracking-wide uppercase">{stat.label}</p>
               </div>
             ))}
@@ -123,7 +129,7 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 2 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2"
       >
         <motion.div

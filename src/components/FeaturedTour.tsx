@@ -3,7 +3,7 @@ import { Star, ArrowRight } from "lucide-react";
 import { tours } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
-import { motion } from "framer-motion";
+import ParallaxImage from "@/components/motion/ParallaxImage";
 
 const FeaturedTour = () => {
   const { t } = useLanguage();
@@ -13,25 +13,25 @@ const FeaturedTour = () => {
   return (
     <section className="py-0 bg-foreground text-background relative overflow-hidden">
       <div className="grid lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
-        {/* Image Side */}
-        <FadeIn direction="none" className="relative">
+        {/* Image Side with Parallax */}
+        <div className="relative">
           <div className="absolute inset-0">
-            <img
+            <ParallaxImage
               src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/YUNQUE-CARTEL.png"
               alt={tour.name}
-              className="w-full h-full object-cover"
+              className="h-full"
+              speed={-30}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-foreground/20 lg:to-foreground hidden lg:block" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground to-transparent lg:hidden" />
           </div>
 
-          {/* Featured badge */}
           <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
             <span className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-[11px] font-bold tracking-[0.15em] uppercase">
               Featured
             </span>
           </div>
-        </FadeIn>
+        </div>
 
         {/* Content Side */}
         <div className="relative flex items-center p-8 sm:p-12 lg:p-20">

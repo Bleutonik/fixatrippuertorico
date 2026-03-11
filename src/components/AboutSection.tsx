@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
-import { motion } from "framer-motion";
+import ParallaxImage from "@/components/motion/ParallaxImage";
 
 const AboutSection = () => {
   const { t } = useLanguage();
@@ -14,7 +14,6 @@ const AboutSection = () => {
 
   return (
     <section className="py-24 sm:py-36 bg-background relative overflow-hidden">
-      {/* Subtle background element */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/50 to-transparent pointer-events-none" />
 
       <div className="container relative">
@@ -37,7 +36,6 @@ const AboutSection = () => {
               </p>
             </FadeIn>
 
-            {/* Feature list - editorial style */}
             <div className="space-y-6 pt-4">
               {features.map((feature, i) => (
                 <FadeIn key={i} delay={0.15 + i * 0.1}>
@@ -54,7 +52,6 @@ const AboutSection = () => {
               ))}
             </div>
 
-            {/* Phone + CTA */}
             <FadeIn delay={0.35}>
               <div className="flex flex-wrap items-center gap-6 pt-4">
                 <Link
@@ -74,30 +71,27 @@ const AboutSection = () => {
             </FadeIn>
           </div>
 
-          {/* Image Grid - Asymmetric */}
+          {/* Image Grid with Parallax */}
           <FadeIn direction="right" delay={0.2} className="lg:col-span-6 hidden sm:block">
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="rounded-3xl overflow-hidden aspect-[3/4]">
-                    <img
-                      src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/a.webp"
-                      alt="Puerto Rico experience"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
+                  <ParallaxImage
+                    src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/a.webp"
+                    alt="Puerto Rico experience"
+                    className="rounded-3xl aspect-[3/4]"
+                    speed={-30}
+                  />
                 </div>
                 <div className="space-y-4 pt-12">
-                  <div className="rounded-3xl overflow-hidden aspect-[3/4]">
-                    <img
-                      src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/BIOLUM.webp"
-                      alt="Bioluminescent bay"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
+                  <ParallaxImage
+                    src="https://fixatrippuertorico.com/wp-content/uploads/2026/01/BIOLUM.webp"
+                    alt="Bioluminescent bay"
+                    className="rounded-3xl aspect-[3/4]"
+                    speed={-50}
+                  />
                 </div>
               </div>
-              {/* Floating accent */}
               <div className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-primary/10 blur-3xl" />
             </div>
           </FadeIn>

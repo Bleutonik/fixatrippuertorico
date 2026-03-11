@@ -3,14 +3,24 @@ import { popularPlaces } from "@/data/tours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
 import { ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const PopularPlaces = () => {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const headerX = useTransform(scrollYProgress, [0, 0.5], [-60, 0]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
-    <section className="py-24 sm:py-36 bg-background">
+    <section ref={sectionRef} className="py-24 sm:py-36 bg-background">
       <div className="container">
-        <FadeIn className="mb-14 sm:mb-20">
+        <motion.div style={{ x: headerX, opacity: headerOpacity }} className="mb-14 sm:mb-20">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-10 bg-primary" />
             <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">Destinations</span>
@@ -18,7 +28,7 @@ const PopularPlaces = () => {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tighter leading-[0.95]">
             {t("popular.title")}
           </h2>
-        </FadeIn>
+        </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
           {popularPlaces.map((place, i) => (

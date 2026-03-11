@@ -179,7 +179,7 @@ export const boats: Boat[] = [
     description: "Experience the luxury of sailing on a 54 foot catamaran along the beautiful east coast of Puerto Rico. Visit stunning islands and enjoy crystal clear waters.",
     included: [],
     gallery: [
-      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/12/PORTADA-1.jpg?fit=600%2C400&ssl=1",
+      "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2024/12/PORTADA-1.jpg?ssl=1",
     ],
   },
   {

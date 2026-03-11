@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
+import ServiceHero from "@/components/ServiceHero";
+import FadeIn from "@/components/motion/FadeIn";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useBlogTranslation } from "@/hooks/useBlogTranslation";
@@ -65,21 +67,12 @@ const Blog = () => {
       />
       <Header />
       <main>
-        {/* Hero */}
-        <section className="relative py-20 sm:py-28 overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/30">
-          <div className="container relative z-10 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6">
-              <BookOpen className="h-4 w-4" />
-              {t("blog.badge")}
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground font-display tracking-tight mb-4">
-              {t("blog.hero")}
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t("blog.herodesc")}
-            </p>
-          </div>
-        </section>
+        <ServiceHero
+          title={t("blog.hero")}
+          subtitle={t("blog.herodesc")}
+          eyebrow={t("blog.badge")}
+          backgroundImage="https://fixatrippuertorico.com/wp-content/uploads/2026/01/1-3-1.webp"
+        />
 
         {/* Categories */}
         <section className="py-6 border-b border-border">
@@ -127,44 +120,45 @@ const Blog = () => {
             ) : filtered.length === 0 ? (
               <p className="text-center text-muted-foreground text-lg">{t("blog.noarticles")}</p>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {filtered.map((post) => (
-                  <Link
-                    key={post.id}
-                    to={`/blog/${post.slug}`}
-                    className="group rounded-2xl overflow-hidden liquid-glass hover:shadow-card transition-all duration-300 hover:-translate-y-1"
-                  >
-                    <div className="aspect-[16/10] overflow-hidden">
-                      <img
-                        src={post.image_url}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-5 sm:p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                          {post.category}
-                        </span>
-                        <span className="text-xs text-muted-foreground flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {new Date(post.created_at).toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
-                            month: "short",
-                            day: "numeric",
-                            year: "numeric",
-                          })}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                {filtered.map((post, i) => (
+                  <FadeIn key={post.id} delay={i * 0.05}>
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="group block rounded-2xl sm:rounded-3xl overflow-hidden bg-card border border-border/50 hover:border-primary/20 hover:shadow-elevated transition-all duration-500"
+                    >
+                      <div className="aspect-[16/10] overflow-hidden">
+                        <img
+                          src={post.image_url}
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="p-5 sm:p-6">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                            {post.category}
+                          </span>
+                          <span className="text-xs text-muted-foreground flex items-center gap-1">
+                            <Calendar className="h-3 w-3" />
+                            {new Date(post.created_at).toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          </span>
+                        </div>
+                        <h2 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2 font-display tracking-tight">
+                          {post.title}
+                        </h2>
+                        <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
+                        <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                          {t("blog.readmore")} <ArrowRight className="h-4 w-4" />
                         </span>
                       </div>
-                      <h2 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </h2>
-                      <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
-                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                        {t("blog.readmore")} <ArrowRight className="h-4 w-4" />
-                      </span>
-                    </div>
-                  </Link>
+                    </Link>
+                  </FadeIn>
                 ))}
               </div>
             )}

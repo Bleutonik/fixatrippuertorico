@@ -360,7 +360,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Tarot",
     description: "Taromancy is a divinatory art that uses 78 randomly chosen decks or cards to seek knowledge about past, present and future situations. By reading or interpreting the images and symbols on the cards, the taromancer answers specific questions from the client.",
-    image: "https://i0.wp.com/fixatrippr.com/wp-content/uploads/2023/11/9.png?ssl=1",
+    image: tarotImg,
   },
   {
     name: "Numerology",

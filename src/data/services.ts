@@ -346,7 +346,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Tarot",
     description: "Taromancy is a divinatory art that uses 78 randomly chosen decks or cards to seek knowledge about past, present and future situations. By reading or interpreting the images and symbols on the cards, the taromancer answers specific questions from the client.",
-    image: "https://images.unsplash.com/photo-1600430188203-bbb06a2dab3a?w=800&q=80",
+    image: "https://tse3.mm.bing.net/th/id/OIP.5jSr27-sZM5LFK-pUUisNQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     name: "Numerology",

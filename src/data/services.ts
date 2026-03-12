@@ -306,56 +306,56 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Massage",
     description: "Great for those with limited time or tension in specific areas. Unlike a full body massage, this service allows your therapist to focus solely on areas in need.",
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&q=80",
   },
   {
     name: "Therapeutic Massage",
     description: "Release chronic patterns of tension and pain. Deeper pressure, slower massage strokes and cupping are utilized to facilitate flow of qi and blood.",
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734314?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80",
   },
   {
     name: "Soothing Massage",
     description: "Banish stress and enjoy a fresh start. This service is designed to relax muscles, improve circulation and range of motion, and calm the nervous system.",
-    image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=800&q=80",
   },
   {
     name: "Yoga",
     description: "Private and semi-private sessions are a great way to try yoga for the first time or to share the experience with loved ones. Address specific physical needs, personal goals, and discover modifications for poses that you can use in any yoga class no matter where you are.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&q=80",
   },
   {
     name: "Sound Therapy",
     description: "Close your eyes while listening to music, vibrations and magnetic stimulation to drift into a deep meditative state. Tune into your body's energy and rebalance with this deep and healing power nap session.",
-    image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1591291621164-2c6367723315?w=800&q=80",
   },
   {
     name: "Acupuncture",
     description: "This comprehensive service begins with a brief update on progress and your priority for the session, followed by insertion of tiny sterile needles along the acupuncture meridians. Known to be effective for neurological, musculo-skeletal, gynecological, digestive, respiratory, emotional and other conditions.",
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=800&q=80",
   },
   {
     name: "Reiki",
     description: "It acts on the aura and chakras, and also helps to remove energy blockages or imbalances at different levels. A distance healing is performed when the person who requests it, for various reasons, either health or not being able to move, is not present with a healer.",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=800&q=80",
   },
   {
     name: "Astrology",
     description: "Astrology is a method of divination based on the map of the sky at the exact place and time of birth. It has been used for millennia to study the life of a person in all its aspects and to know its possibilities such as: life purpose, finances, health, relationships, spirituality, education, etc.",
-    image: "https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f0?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?w=800&q=80",
   },
   {
     name: "Tarot",
     description: "Taromancy is a divinatory art that uses 78 randomly chosen decks or cards to seek knowledge about past, present and future situations. By reading or interpreting the images and symbols on the cards, the taromancer answers specific questions from the client.",
-    image: "https://images.unsplash.com/photo-1633167606207-d840b5070fc2?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600430188203-bbb06a2dab3a?w=800&q=80",
   },
   {
     name: "Numerology",
     description: "Numerology is a centuries-old divinatory art based on the teachings of Pythagoras. The father of mathematics believed that every word or name contains a number vibration and that every number has a meaning.",
-    image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
   },
   {
     name: "Energy Cleaning",
     description: "Energetic cleansings are used in different cultures to purify and/or bless people, objects or places. Usually, a ceremony with one or more of the four elements of nature – fire, earth, air or water – is carried out with a prayer. Each ceremony is specific to the need of the consultant, object or place to be purified or consecrated.",
-    image: "https://images.unsplash.com/photo-1602607667603-a7d6076d3042?w=800&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
   },
 ];

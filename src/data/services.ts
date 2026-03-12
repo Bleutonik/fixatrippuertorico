@@ -356,6 +356,6 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Energy Cleaning",
     description: "Energetic cleansings are used in different cultures to purify and/or bless people, objects or places. Usually, a ceremony with one or more of the four elements of nature – fire, earth, air or water – is carried out with a prayer. Each ceremony is specific to the need of the consultant, object or place to be purified or consecrated.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=800&q=80",
   },
 ];

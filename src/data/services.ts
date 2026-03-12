@@ -316,7 +316,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Soothing Massage",
     description: "Banish stress and enjoy a fresh start. This service is designed to relax muscles, improve circulation and range of motion, and calm the nervous system.",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=800&q=80",
+    image: "https://tse1.explicit.bing.net/th/id/OIP.H5cqhHeeBO2_NVjst4SVfgHaD4?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     name: "Yoga",

@@ -326,7 +326,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Sound Therapy",
     description: "Close your eyes while listening to music, vibrations and magnetic stimulation to drift into a deep meditative state. Tune into your body's energy and rebalance with this deep and healing power nap session.",
-    image: "https://images.unsplash.com/photo-1591291621164-2c6367723315?w=800&q=80",
+    image: "https://tse4.mm.bing.net/th/id/OIP.1e4oCDkzMpYQI9_UHvzYvQHaEY?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     name: "Acupuncture",

@@ -6,7 +6,6 @@ import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
 import ServiceHero from "@/components/ServiceHero";
 import FadeIn from "@/components/motion/FadeIn";
-import ParallaxImage from "@/components/motion/ParallaxImage";
 import { wellnessServices } from "@/data/services";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -22,7 +21,7 @@ const FixAWellness = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Fix a Wellness - Premium Wellness & Spa Services Puerto Rico",
-    description: "Fix a Wellness by Fix a Trip Puerto Rico offers a comprehensive suite of luxury wellness and spa services.",
+    description: "Fix a Wellness by Fix a Trip Puerto Rico offers personalized wellness experiences delivered to your accommodation.",
     url: "https://fixatrippuertorico.com/fix-a-wellness",
     provider: { "@type": "TravelAgency", name: "Fix a Trip Puerto Rico", telephone: "+1-787-488-0202" },
   };
@@ -31,7 +30,7 @@ const FixAWellness = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Fix a Wellness | Wellness & Spa Services Puerto Rico"
-        description="Luxury wellness and spa services in Puerto Rico delivered to your door. Swedish massage, deep tissue, hot stone therapy, yoga, sound healing, reiki, acupuncture, and more."
+        description="Luxury wellness and spa services in Puerto Rico delivered to your door. Massage, yoga, sound healing, reiki, acupuncture, tarot, and more."
         canonicalPath="/fix-a-wellness"
         jsonLd={jsonLd}
       />
@@ -39,51 +38,47 @@ const FixAWellness = () => {
       <main>
         <ServiceHero
           title="Fix A Wellness"
-          subtitle="Enjoy a high-end personalized relax experience — all the relaxation body & soul"
+          subtitle="Personalized wellness experiences, wherever you stay in Puerto Rico"
           eyebrow="Wellness & Spa"
           backgroundImage="/images/wellness-hero.jpg"
         />
 
-        {/* Intro */}
-        <section className="py-20 sm:py-28">
-          <div className="container text-center max-w-3xl">
+        {/* Intro + Services Grid - visible at first impact */}
+        <section className="py-16 sm:py-20">
+          <div className="container">
             <FadeIn>
-              <div className="flex items-center gap-3 mb-4 justify-center">
-                <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">Body & Soul</span>
-                <div className="h-px w-10 bg-primary" />
+              <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                <div className="flex items-center gap-3 mb-4 justify-center">
+                  <div className="h-px w-10 bg-primary" />
+                  <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">Body & Soul</span>
+                  <div className="h-px w-10 bg-primary" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-display tracking-tighter leading-[0.95] mb-4">
+                  {t("wellness.services")}
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Enjoy a high-end personalized wellness experience delivered directly to your accommodation. Relax body and soul with our curated services.
+                </p>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground font-display tracking-tighter leading-[0.95] mb-6">
-                The New Fix A Trip Service
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Enjoy a high-end personalized relax experience. All the relaxation Body-Soul delivered directly to your accommodation.
-              </p>
             </FadeIn>
-          </div>
-        </section>
 
-        {/* Services - Editorial Alternating */}
-        <section className="py-0 pb-20 sm:pb-28">
-          <div className="container max-w-6xl">
-            <div className="space-y-24 sm:space-y-32">
+            {/* Services Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {wellnessServices.map((service, index) => (
-                <FadeIn key={service.name} delay={0.05}>
-                  <div className={`grid md:grid-cols-2 gap-10 lg:gap-20 items-center`}>
-                    <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                      <ParallaxImage
+                <FadeIn key={service.name} delay={0.05 + index * 0.04}>
+                  <div className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-primary/20 transition-all duration-500 hover:shadow-elevated">
+                    <div className="aspect-[4/5] overflow-hidden">
+                      <img
                         src={service.image}
                         alt={service.name}
-                        className="rounded-3xl aspect-square"
-                        speed={-20}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     </div>
-                    <div className={`space-y-5 ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                      <span className="text-5xl font-display font-bold text-primary/15 tracking-tighter">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground font-display tracking-tight">{service.name}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-semibold text-white text-sm sm:text-base mb-1 drop-shadow-lg">{service.name}</h3>
+                      <p className="text-white/70 text-xs line-clamp-2 leading-relaxed hidden sm:block">{service.description}</p>
                     </div>
                   </div>
                 </FadeIn>
@@ -97,9 +92,9 @@ const FixAWellness = () => {
           <div className="container">
             <FadeIn>
               <div className="text-center max-w-2xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold font-display tracking-tighter mb-4">Book Your Wellness</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold font-display tracking-tighter mb-4">Book Your Wellness Experience</h2>
                 <p className="text-background/60 mb-8">
-                  Contact us via WhatsApp to book your wellness experience. We'll help you choose the perfect service.
+                  Tell us about the service you'd like and we'll arrange a personalized wellness experience for you.
                 </p>
                 <button
                   onClick={handleInquiry}

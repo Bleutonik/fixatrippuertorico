@@ -316,7 +316,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Soothing Massage",
     description: "Banish stress and enjoy a fresh start. This service is designed to relax muscles, improve circulation and range of motion, and calm the nervous system.",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=800&q=80",
+    image: "https://tse1.explicit.bing.net/th/id/OIP.H5cqhHeeBO2_NVjst4SVfgHaD4?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     name: "Yoga",
@@ -326,17 +326,17 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Sound Therapy",
     description: "Close your eyes while listening to music, vibrations and magnetic stimulation to drift into a deep meditative state. Tune into your body's energy and rebalance with this deep and healing power nap session.",
-    image: "https://images.unsplash.com/photo-1591291621164-2c6367723315?w=800&q=80",
+    image: "https://tse4.mm.bing.net/th/id/OIP.1e4oCDkzMpYQI9_UHvzYvQHaEY?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     name: "Acupuncture",
     description: "This comprehensive service begins with a brief update on progress and your priority for the session, followed by insertion of tiny sterile needles along the acupuncture meridians. Known to be effective for neurological, musculo-skeletal, gynecological, digestive, respiratory, emotional and other conditions.",
-    image: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=800&q=80",
+    image: "https://tse2.mm.bing.net/th/id/OIP.Y7bIin25aVrYKR9E0PW5MQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     name: "Reiki",
     description: "It acts on the aura and chakras, and also helps to remove energy blockages or imbalances at different levels. A distance healing is performed when the person who requests it, for various reasons, either health or not being able to move, is not present with a healer.",
-    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=800&q=80",
+    image: "https://i0.wp.com/reikipsychics.com/wp-content/uploads/2021/06/Capture-1.jpg?fit=1252%2C699&ssl=1",
   },
   {
     name: "Astrology",
@@ -346,7 +346,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Tarot",
     description: "Taromancy is a divinatory art that uses 78 randomly chosen decks or cards to seek knowledge about past, present and future situations. By reading or interpreting the images and symbols on the cards, the taromancer answers specific questions from the client.",
-    image: "https://images.unsplash.com/photo-1600430188203-bbb06a2dab3a?w=800&q=80",
+    image: "https://tse3.mm.bing.net/th/id/OIP.5jSr27-sZM5LFK-pUUisNQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
   },
   {
     name: "Numerology",

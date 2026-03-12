@@ -53,7 +53,7 @@ const FixATransport = () => {
       <main>
         <ServiceHero
           title="Fix A Transport"
-          subtitle="Start your trips with the security and luxury of Fix a Transport"
+          subtitle="Premium chauffeur service across Puerto Rico — airport transfers, private tours, and custom itineraries"
           eyebrow="VIP Ground Transportation"
           backgroundImage={luxuryInteriorImg}
         />

@@ -63,9 +63,9 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className={`relative px-3.5 py-2 text-[12px] font-medium tracking-[0.05em] uppercase transition-colors rounded-lg hover:bg-secondary/80 ${
+                className={`relative px-3.5 py-2 text-[13px] font-semibold tracking-[0.05em] uppercase transition-colors rounded-lg hover:bg-secondary/80 ${
                   isHome && !scrolled
-                    ? "text-white/80 hover:text-white hover:bg-white/10"
+                    ? "text-white/90 hover:text-white hover:bg-white/10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
                     : "text-foreground/70 hover:text-foreground"
                 }`}
               >

@@ -336,7 +336,7 @@ export const wellnessServices: WellnessService[] = [
   {
     name: "Reiki",
     description: "It acts on the aura and chakras, and also helps to remove energy blockages or imbalances at different levels. A distance healing is performed when the person who requests it, for various reasons, either health or not being able to move, is not present with a healer.",
-    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=800&q=80",
+    image: "https://i0.wp.com/reikipsychics.com/wp-content/uploads/2021/06/Capture-1.jpg?fit=1252%2C699&ssl=1",
   },
   {
     name: "Astrology",

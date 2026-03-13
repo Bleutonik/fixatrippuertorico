@@ -116,8 +116,15 @@ const Header = () => {
               <Search className={`h-[18px] w-[18px] ${isHome && !scrolled ? "text-white/70" : "text-foreground/70"}`} />
             </button>
 
+            {/* Book Now button */}
+            <Link to="/booking" className="hidden sm:block ml-3">
+              <Button className="rounded-full px-5 h-9 font-semibold text-[13px] tracking-wide">
+                {lang === "es" ? "RESERVAR" : "BOOK NOW"}
+              </Button>
+            </Link>
+
             {/* Contact button */}
-            <Link to="/contact" className="hidden sm:block ml-3">
+            <Link to="/contact" className="hidden sm:block ml-1">
               <Button className="rounded-full px-6 font-semibold text-xs h-10 bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-soft">
                 {t("nav.contact")}
               </Button>

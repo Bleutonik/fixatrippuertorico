@@ -174,20 +174,25 @@ const Booking = () => {
               <label htmlFor="sms-consent" className="text-sm text-foreground/90 leading-relaxed cursor-pointer">
                 {isEs ? (
                   <>
-                    Acepto recibir mensajes SMS de Fix a Trip con confirmaciones de reserva, recordatorios y actualizaciones. Pueden aplicarse tarifas de mensajes y datos. Responda STOP para cancelar en cualquier momento. Lea nuestra{" "}
+                    Acepto recibir mensajes de texto SMS de Fix A Trip PR al número proporcionado anteriormente con respecto a confirmaciones de reserva, recordatorios de actividades, actualizaciones de viaje y mensajes de seguimiento. Pueden aplicarse tarifas de mensajes y datos. Responda STOP para cancelar la suscripción en cualquier momento. Vea nuestra{" "}
                     <Link to="/privacy-policy" className="text-primary underline font-medium">
                       Política de Privacidad
                     </Link>.
                   </>
                 ) : (
                   <>
-                    I agree to receive SMS messages from Fix a Trip with booking confirmations, reminders, and updates. Message and data rates may apply. Reply STOP to opt out at any time. Read our{" "}
+                    I agree to receive SMS text messages from Fix A Trip PR at the number provided above regarding booking confirmations, activity reminders, trip updates, and follow-up messages. Message &amp; data rates may apply. Reply STOP to unsubscribe at any time. View our{" "}
                     <Link to="/privacy-policy" className="text-primary underline font-medium">
                       Privacy Policy
                     </Link>.
                   </>
                 )}
               </label>
+              <p className="text-xs text-muted-foreground mt-1 ml-0">
+                {isEs
+                  ? "(Este campo es obligatorio para completar su reserva.)"
+                  : "(This field is required to complete your booking.)"}
+              </p>
             </div>
 
             {/* Action Buttons */}

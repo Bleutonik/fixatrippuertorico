@@ -97,9 +97,14 @@ const Footer = () => {
           <p className="text-xs text-background/30">
             © {new Date().getFullYear()} Fix a Trip Puerto Rico. All rights reserved.
           </p>
-          <p className="text-xs text-background/30">
-            Made with passion in Puerto Rico 🇵🇷
-          </p>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy-policy" className="text-xs text-background/30 hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <p className="text-xs text-background/30">
+              Made with passion in Puerto Rico 🇵🇷
+            </p>
+          </div>
         </div>
       </div>
     </footer>

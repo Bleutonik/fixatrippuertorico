@@ -19,6 +19,8 @@ const FixAWellness = lazy(() => import("./pages/FixAWellness"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const BlogAdmin = lazy(() => import("./pages/BlogAdmin"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Booking = lazy(() => import("./pages/Booking"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 import BottomNav from "./components/BottomNav";
 import RouteScrollToTop from "./components/RouteScrollToTop";

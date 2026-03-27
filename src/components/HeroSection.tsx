@@ -43,19 +43,6 @@ const HeroSection = () => {
       <motion.div style={{ y, opacity }} className="relative z-10 w-full pt-16 lg:pt-28 xl:pt-32 pb-16 sm:pb-24 lg:pb-28">
         <div className="container">
           <div className="max-w-3xl">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="h-px w-10 bg-primary" />
-              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary">
-                Puerto Rico's #1 Concierge
-              </span>
-            </motion.div>
-
             {/* Main Title - Letter by Letter Reveal */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white font-display leading-[0.95] tracking-tighter mb-6" style={{ perspective: "600px" }}>
               <TextReveal text={t("hero.title")} delay={0.5} staggerDelay={0.025} />
@@ -99,6 +86,19 @@ const HeroSection = () => {
               >
                 {t("nav.contact")}
               </Link>
+            </motion.div>
+
+            {/* Eyebrow badge - below CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.5 }}
+              className="flex items-center gap-3 mt-8"
+            >
+              <div className="h-px w-10 bg-primary" />
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-white/60">
+                Puerto Rico's #1 Concierge
+              </span>
             </motion.div>
           </div>
 

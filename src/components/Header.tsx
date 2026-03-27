@@ -48,13 +48,11 @@ const Header = () => {
         <div className="container flex h-16 sm:h-[72px] items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 group">
-            <img
-              src="https://fixatrippuertorico.com/wp-content/uploads/2025/09/FIX-A-TRIP-LOGO.webp"
-              alt="Fix a Trip Puerto Rico"
-              className={`h-9 sm:h-11 w-auto transition-all duration-500 group-hover:scale-105 ${
-                isHome && !scrolled ? "brightness-0 invert" : "brightness-0 dark:invert"
-              }`}
-            />
+            <span className={`font-display font-bold text-2xl sm:text-3xl tracking-tight transition-all duration-500 group-hover:scale-105 inline-block ${
+              isHome && !scrolled ? "text-white" : "text-foreground"
+            }`}>
+              fix<span className="text-primary">a</span>trip
+            </span>
           </Link>
 
           {/* Desktop Nav */}

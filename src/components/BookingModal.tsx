@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { Tour } from "@/data/tours";
+import { Tour } from "@/hooks/useTours";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BookingModalProps {

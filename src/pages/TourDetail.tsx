@@ -8,7 +8,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SEOHead from "@/components/SEOHead";
 import FadeIn from "@/components/motion/FadeIn";
 import { Button } from "@/components/ui/button";
-import { tours } from "@/data/tours";
+import { useTour, useTours } from "@/hooks/useTours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import TourCard from "@/components/TourCard";
 
@@ -16,9 +16,20 @@ const FAREHARBOR_SHORTNAME = "fixatrippuertorico";
 
 const TourDetail = () => {
   const { slug } = useParams();
-  const tour = tours.find((t) => t.slug === slug);
+  const { data: tour, isLoading } = useTour(slug || '');
+  const { data: allTours = [] } = useTours();
   const [activeImage, setActiveImage] = useState(0);
   const { t } = useLanguage();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container py-20 text-center text-muted-foreground">Cargando...</div>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!tour) {
     return (
@@ -37,11 +48,11 @@ const TourDetail = () => {
     );
   }
 
-  const allImages = tour.gallery.length > 0 ? tour.gallery : [tour.image];
-  const relatedTours = tours.filter((t) => t.category === tour.category && t.id !== tour.id).slice(0, 4);
+  const allImages = (tour.gallery || []).length > 0 ? tour.gallery : [tour.image];
+  const relatedTours = allTours.filter((t) => t.category === tour.category && t.id !== tour.id).slice(0, 4);
   const whatsAppUrl = `https://wa.me/17874880202?text=${encodeURIComponent(`Hi! I'd like to book: ${tour.name} ($${tour.price}/person)`)}`;
-  const fareHarborUrl = tour.fareHarborItemId
-    ? `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/${tour.fareHarborItemId}/?flow=no`
+  const fareHarborUrl = tour.fareharbor_item_id
+    ? `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/items/${tour.fareharbor_item_id}/?flow=no`
     : `https://fareharbor.com/embeds/book/${FAREHARBOR_SHORTNAME}/?flow=no`;
 
   const handleShare = async () => {
@@ -79,7 +90,7 @@ const TourDetail = () => {
       "@type": "AggregateRating",
       ratingValue: tour.rating,
       bestRating: 5,
-      ratingCount: tour.ratingCount || 50,
+      ratingCount: tour.rating_count || 50,
     },
   };
 
@@ -200,12 +211,12 @@ const TourDetail = () => {
                       <Star className="h-4 w-4 fill-primary text-primary" />
                       <span className="font-bold text-primary">{tour.rating}</span>
                     </div>
-                    {tour.ratingCount && (
-                      <span className="text-xs sm:text-sm text-muted-foreground">({tour.ratingCount} {t("detail.reviews")})</span>
+                    {tour.rating_count && (
+                      <span className="text-xs sm:text-sm text-muted-foreground">({tour.rating_count} {t("detail.reviews")})</span>
                     )}
-                    {tour.itemCode && (
+                    {tour.item_code && (
                       <span className="text-xs text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">
-                        #{tour.itemCode}
+                        #{tour.item_code}
                       </span>
                     )}
                   </div>
@@ -269,11 +280,11 @@ const TourDetail = () => {
                       </ul>
                     </section>
                   )}
-                  {tour.notIncluded.length > 0 && (
+                  {tour.not_included.length > 0 && (
                     <section className="p-5 rounded-2xl bg-destructive/5 border border-destructive/10">
                       <h3 className="font-bold text-foreground mb-3 text-base font-display">{t("detail.notincluded")}</h3>
                       <ul className="space-y-2.5">
-                        {tour.notIncluded.map((item, i) => (
+                        {tour.not_included.map((item, i) => (
                           <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                             <XIcon className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
                             {item}

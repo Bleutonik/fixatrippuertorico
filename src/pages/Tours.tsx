@@ -9,7 +9,8 @@ import SEOHead from "@/components/SEOHead";
 import SEOCrossLinks from "@/components/SEOCrossLinks";
 import ServiceHero from "@/components/ServiceHero";
 import FadeIn from "@/components/motion/FadeIn";
-import { tours, categories } from "@/data/tours";
+import { categories } from "@/data/tours";
+import { useTours } from "@/hooks/useTours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
@@ -49,6 +50,7 @@ const Tours = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchFilter = searchParams.get("search") || "";
   const { t } = useLanguage();
+  const { data: tours = [], isLoading: toursLoading } = useTours();
 
   const [sortBy, setSortBy] = useState<SortOption>("title");
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
@@ -66,11 +68,11 @@ const Tours = () => {
   const allLocations = useMemo(() => {
     const locs = [...new Set(tours.map((t) => t.location))];
     return locs.sort();
-  }, []);
+  }, [tours]);
 
-  const priceMin = useMemo(() => Math.min(...tours.map((t) => t.price)), []);
-  const priceMax = useMemo(() => Math.max(...tours.map((t) => t.price)), []);
-  const [priceRange, setPriceRange] = useState<[number, number]>([priceMin, priceMax]);
+  const priceMin = useMemo(() => tours.length ? Math.min(...tours.map((t) => t.price)) : 0, [tours]);
+  const priceMax = useMemo(() => tours.length ? Math.max(...tours.map((t) => t.price)) : 500, [tours]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
 
   const filteredTours = useMemo(() => {
     let result = tours.filter((tour) => {

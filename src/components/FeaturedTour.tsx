@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { Star, ArrowRight } from "lucide-react";
-import { tours } from "@/data/tours";
+import { useTours } from "@/hooks/useTours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
 import ParallaxImage from "@/components/motion/ParallaxImage";
 
 const FeaturedTour = () => {
   const { t } = useLanguage();
+  const { data: tours = [] } = useTours();
   const tour = tours.find((t) => t.featured);
   if (!tour) return null;
 
@@ -43,7 +44,7 @@ const FeaturedTour = () => {
                     <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
-                <span className="text-sm text-background/50">({tour.ratingCount} {t("featured.rating")})</span>
+                <span className="text-sm text-background/50">({tour.rating_count} {t("featured.rating")})</span>
               </div>
             </FadeIn>
 

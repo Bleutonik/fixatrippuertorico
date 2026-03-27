@@ -19,6 +19,7 @@ const FixAWellness = lazy(() => import("./pages/FixAWellness"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const BlogAdmin = lazy(() => import("./pages/BlogAdmin"));
+const TourAdmin = lazy(() => import("./pages/TourAdmin"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Booking = lazy(() => import("./pages/Booking"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -52,6 +53,7 @@ const App = () => (
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/booking" element={<Booking />} />
                   <Route path="/admin/blog" element={<BlogAdmin />} />
+                  <Route path="/admin/tours" element={<TourAdmin />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

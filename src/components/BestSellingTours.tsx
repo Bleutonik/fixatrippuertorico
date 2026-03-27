@@ -1,4 +1,4 @@
-import { tours } from "@/data/tours";
+import { useTours } from "@/hooks/useTours";
 import TourCard from "./TourCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import FadeIn from "@/components/motion/FadeIn";
@@ -7,6 +7,9 @@ import { ArrowRight } from "lucide-react";
 
 const BestSellingTours = () => {
   const { t } = useLanguage();
+  const { data: tours = [] } = useTours();
+  const featured = tours.filter(t => t.featured).slice(0, 4);
+  const displayed = featured.length > 0 ? featured : tours.slice(0, 8);
 
   return (
     <section className="py-24 sm:py-36 bg-secondary/30">
@@ -33,7 +36,7 @@ const BestSellingTours = () => {
         </FadeIn>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {tours.map((tour, i) => (
+          {displayed.map((tour, i) => (
             <FadeIn key={tour.id} delay={i * 0.06}>
               <TourCard tour={tour} />
             </FadeIn>

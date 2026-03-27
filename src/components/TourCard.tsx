@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Star, Clock, MapPin, ArrowUpRight } from "lucide-react";
-import { Tour } from "@/data/tours";
+import { Tour } from "@/hooks/useTours";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ProgressiveImage from "@/components/motion/ProgressiveImage";
 

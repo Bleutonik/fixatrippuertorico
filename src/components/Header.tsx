@@ -52,7 +52,7 @@ const Header = () => {
               src="https://fixatrippuertorico.com/wp-content/uploads/2025/09/FIX-A-TRIP-LOGO.webp"
               alt="Fix a Trip Puerto Rico"
               className={`h-9 sm:h-11 w-auto transition-all duration-500 group-hover:scale-105 ${
-                isHome && !scrolled ? "brightness-0 invert" : ""
+                isHome && !scrolled ? "brightness-0 invert" : "brightness-0 dark:invert"
               }`}
             />
           </Link>

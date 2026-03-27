@@ -45,7 +45,6 @@ const BestSellingTours = () => {
             </FadeIn>
           ))}
         </div>
-        </div>
       </div>
     </section>
   );

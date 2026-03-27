@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b bg-white/95 backdrop-blur-xl border-gray-200 shadow-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b bg-white/60 backdrop-blur-xl border-white/30 shadow-sm">
         <div className="container flex h-16 sm:h-[72px] items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 group">

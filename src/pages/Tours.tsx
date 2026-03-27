@@ -105,7 +105,7 @@ const Tours = () => {
     }
 
     return result;
-  }, [selectedCategories, searchFilter, selectedLocations, priceRange, sortBy]);
+  }, [tours, selectedCategories, searchFilter, selectedLocations, priceRange, sortBy]);
 
   const toggleLocation = (loc: string) => {
     setSelectedLocations((prev) =>

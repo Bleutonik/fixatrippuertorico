@@ -12,8 +12,11 @@ const BestSellingTours = () => {
   const displayed = featured.length > 0 ? featured : tours.slice(0, 8);
 
   return (
-    <section className="py-24 sm:py-36 bg-secondary/30">
-      <div className="container">
+    <section className="py-24 sm:py-36 relative overflow-hidden glass-section" style={{ background: 'linear-gradient(160deg, hsl(var(--background)) 0%, hsl(var(--secondary)/0.5) 50%, hsl(var(--background)) 100%)' }}>
+      {/* Decorative glass orbs */}
+      <div className="glass-orb w-96 h-96 bg-primary/20 -top-20 -left-20" />
+      <div className="glass-orb w-64 h-64 bg-primary/10 bottom-10 right-10" />
+      <div className="container relative z-10">
         <FadeIn className="mb-14 sm:mb-20">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div>
@@ -41,6 +44,7 @@ const BestSellingTours = () => {
               <TourCard tour={tour} />
             </FadeIn>
           ))}
+        </div>
         </div>
       </div>
     </section>

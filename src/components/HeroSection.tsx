@@ -96,18 +96,15 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="mt-14 sm:mt-20 flex items-center gap-8 sm:gap-14"
+            className="mt-14 sm:mt-20 inline-flex items-center gap-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-1 divide-x divide-white/10"
           >
             {stats.map((stat, i) => (
-              <div key={i} className="relative">
-                {i > 0 && (
-                  <div className="absolute -left-4 sm:-left-7 top-1/2 -translate-y-1/2 h-8 w-px bg-white/20" />
-                )}
+              <div key={i} className="px-5 sm:px-8 py-3 text-center">
                 <AnimatedCounter
                   value={stat.value}
-                  className="text-2xl sm:text-3xl font-bold text-white font-display tracking-tight block"
+                  className="text-xl sm:text-2xl font-bold text-white font-display tracking-tight block"
                 />
-                <p className="text-[11px] sm:text-xs text-white/50 mt-1 tracking-wide uppercase">{stat.label}</p>
+                <p className="text-[10px] sm:text-[11px] text-white/50 mt-0.5 tracking-wide uppercase">{stat.label}</p>
               </div>
             ))}
           </motion.div>

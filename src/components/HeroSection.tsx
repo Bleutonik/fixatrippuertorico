@@ -47,12 +47,13 @@ const HeroSection = () => {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white font-display leading-[0.95] tracking-tighter mb-6" style={{ perspective: "600px" }}>
               <TextReveal text={t("hero.title")} delay={0.5} staggerDelay={0.025} />
               <motion.span
-                className="block text-primary"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 1.2, type: "spring", stiffness: 300 }}
+                className="block text-primary text-2xl sm:text-3xl font-semibold tracking-[0.2em] uppercase mt-2"
+                style={{ fontFamily: "inherit", fontSize: "clamp(0.75rem, 2vw, 1.1rem)" }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
               >
-                .
+                Puerto Rico's #1 Concierge
               </motion.span>
             </h1>
 
@@ -88,18 +89,6 @@ const HeroSection = () => {
               </Link>
             </motion.div>
 
-            {/* Eyebrow badge - below CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.5 }}
-              className="flex items-center gap-3 mt-8"
-            >
-              <div className="h-px w-10 bg-primary" />
-              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-white/60">
-                Puerto Rico's #1 Concierge
-              </span>
-            </motion.div>
           </div>
 
           {/* Stats Bar with Animated Counters */}

@@ -10,18 +10,10 @@ const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { lang, setLang, t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
-  const isHome = location.pathname === "/";
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -36,21 +28,13 @@ const Header = () => {
     { label: t("nav.blog"), href: "/blog" },
   ];
 
-  const headerBg = isHome && !scrolled
-    ? "bg-transparent border-transparent"
-    : "glass border-border/50";
-
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${headerBg}`}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b glass border-border/50">
         <div className="container flex h-16 sm:h-[72px] items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 group">
-            <span className={`font-display font-bold text-2xl sm:text-3xl tracking-tight transition-all duration-500 group-hover:scale-105 inline-block ${
-              isHome && !scrolled ? "text-white" : "text-foreground"
-            }`}>
+            <span className="font-display font-bold text-2xl sm:text-3xl tracking-tight transition-transform duration-300 group-hover:scale-105 inline-block text-foreground">
               fix<span className="text-primary">a</span>trip
             </span>
           </Link>
@@ -61,11 +45,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className={`relative px-3.5 py-2 text-[13px] font-semibold tracking-[0.05em] uppercase transition-colors rounded-lg hover:bg-secondary/80 ${
-                  isHome && !scrolled
-                    ? "text-white/90 hover:text-white hover:bg-white/10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
-                    : "text-foreground/70 hover:text-foreground"
-                }`}
+                className="relative px-3.5 py-2 text-[13px] font-semibold tracking-[0.05em] uppercase transition-colors rounded-lg text-foreground/70 hover:text-foreground hover:bg-secondary/80"
               >
                 {item.label}
               </Link>
@@ -77,13 +57,11 @@ const Header = () => {
             {/* Language toggle */}
             <button
               onClick={() => setLang(lang === "en" ? "es" : "en")}
-              className={`p-2.5 rounded-xl transition-all duration-200 flex items-center gap-1.5 focus-ring ${
-                isHome && !scrolled ? "hover:bg-white/10" : "hover:bg-secondary"
-              }`}
+              className="p-2.5 rounded-xl transition-all duration-200 flex items-center gap-1.5 focus-ring hover:bg-secondary"
               aria-label="Toggle language"
             >
-              <Globe className={`h-[18px] w-[18px] ${isHome && !scrolled ? "text-white/70" : "text-foreground/70"}`} />
-              <span className={`text-xs font-semibold hidden sm:inline ${isHome && !scrolled ? "text-white/70" : "text-foreground/70"}`}>
+              <Globe className="h-[18px] w-[18px] text-foreground/70" />
+              <span className="text-xs font-semibold hidden sm:inline text-foreground/70">
                 {lang.toUpperCase()}
               </span>
             </button>
@@ -91,27 +69,23 @@ const Header = () => {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className={`p-2.5 rounded-xl transition-all duration-200 focus-ring ${
-                isHome && !scrolled ? "hover:bg-white/10" : "hover:bg-secondary"
-              }`}
+              className="p-2.5 rounded-xl transition-all duration-200 focus-ring hover:bg-secondary"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (
-                <Moon className={`h-[18px] w-[18px] ${isHome && !scrolled ? "text-white/70" : "text-foreground/70"}`} />
+                <Moon className="h-[18px] w-[18px] text-foreground/70" />
               ) : (
-                <Sun className={`h-[18px] w-[18px] ${isHome && !scrolled ? "text-white/70" : "text-foreground/70"}`} />
+                <Sun className="h-[18px] w-[18px] text-foreground/70" />
               )}
             </button>
 
             {/* Search */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className={`p-2.5 rounded-xl transition-all duration-200 focus-ring ${
-                isHome && !scrolled ? "hover:bg-white/10" : "hover:bg-secondary"
-              }`}
+              className="p-2.5 rounded-xl transition-all duration-200 focus-ring hover:bg-secondary"
               aria-label="Search"
             >
-              <Search className={`h-[18px] w-[18px] ${isHome && !scrolled ? "text-white/70" : "text-foreground/70"}`} />
+              <Search className="h-[18px] w-[18px] text-foreground/70" />
             </button>
 
             {/* Book Now button */}
@@ -131,15 +105,13 @@ const Header = () => {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`lg:hidden p-2.5 rounded-xl transition-all duration-200 focus-ring ${
-                isHome && !scrolled ? "hover:bg-white/10" : "hover:bg-secondary"
-              }`}
+              className="lg:hidden p-2.5 rounded-xl transition-all duration-200 focus-ring hover:bg-secondary"
               aria-label="Menu"
             >
               {menuOpen ? (
-                <X className={`h-5 w-5 ${isHome && !scrolled ? "text-white" : "text-foreground"}`} />
+                <X className="h-5 w-5 text-foreground" />
               ) : (
-                <Menu className={`h-5 w-5 ${isHome && !scrolled ? "text-white" : "text-foreground"}`} />
+                <Menu className="h-5 w-5 text-foreground" />
               )}
             </button>
           </div>

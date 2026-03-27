@@ -44,18 +44,18 @@ const HeroSection = () => {
         <div className="container">
           <div className="max-w-3xl">
             {/* Main Title - Letter by Letter Reveal */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white font-display leading-[0.95] tracking-tighter mb-6" style={{ perspective: "600px" }}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white font-display leading-[0.95] tracking-tighter mb-3" style={{ perspective: "600px" }}>
               <TextReveal text={t("hero.title")} delay={0.5} staggerDelay={0.025} />
-              <motion.span
-                className="block text-primary text-2xl sm:text-3xl font-semibold tracking-[0.2em] uppercase mt-2"
-                style={{ fontFamily: "inherit", fontSize: "clamp(0.75rem, 2vw, 1.1rem)" }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
-                Puerto Rico's #1 Concierge
-              </motion.span>
             </h1>
+
+            <motion.p
+              className="text-primary text-xs font-bold tracking-[0.25em] uppercase mb-4"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+            >
+              Puerto Rico's #1 Concierge
+            </motion.p>
 
             {/* Subtitle */}
             <motion.p

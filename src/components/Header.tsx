@@ -30,11 +30,11 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b glass border-border/50">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b bg-white/95 backdrop-blur-xl border-gray-200 shadow-sm">
         <div className="container flex h-16 sm:h-[72px] items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 group">
-            <span className="font-display font-bold text-2xl sm:text-3xl tracking-tight transition-transform duration-300 group-hover:scale-105 inline-block text-foreground">
+            <span className="font-display font-bold text-2xl sm:text-3xl tracking-tight transition-transform duration-300 group-hover:scale-105 inline-block text-gray-900">
               fix<span className="text-primary">a</span>trip
             </span>
           </Link>
@@ -45,7 +45,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="relative px-3.5 py-2 text-[13px] font-semibold tracking-[0.05em] uppercase transition-colors rounded-lg text-foreground/70 hover:text-foreground hover:bg-secondary/80"
+                className="relative px-3.5 py-2 text-[13px] font-semibold tracking-[0.05em] uppercase transition-colors rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100"
               >
                 {item.label}
               </Link>
@@ -60,8 +60,8 @@ const Header = () => {
               className="p-2.5 rounded-xl transition-all duration-200 flex items-center gap-1.5 focus-ring hover:bg-secondary"
               aria-label="Toggle language"
             >
-              <Globe className="h-[18px] w-[18px] text-foreground/70" />
-              <span className="text-xs font-semibold hidden sm:inline text-foreground/70">
+              <Globe className="h-[18px] w-[18px] text-gray-500" />
+              <span className="text-xs font-semibold hidden sm:inline text-gray-500">
                 {lang.toUpperCase()}
               </span>
             </button>
@@ -73,9 +73,9 @@ const Header = () => {
               aria-label="Toggle theme"
             >
               {theme === "light" ? (
-                <Moon className="h-[18px] w-[18px] text-foreground/70" />
+                <Moon className="h-[18px] w-[18px] text-gray-500" />
               ) : (
-                <Sun className="h-[18px] w-[18px] text-foreground/70" />
+                <Sun className="h-[18px] w-[18px] text-gray-500" />
               )}
             </button>
 
@@ -85,7 +85,7 @@ const Header = () => {
               className="p-2.5 rounded-xl transition-all duration-200 focus-ring hover:bg-secondary"
               aria-label="Search"
             >
-              <Search className="h-[18px] w-[18px] text-foreground/70" />
+              <Search className="h-[18px] w-[18px] text-gray-500" />
             </button>
 
             {/* Book Now button */}
@@ -109,9 +109,9 @@ const Header = () => {
               aria-label="Menu"
             >
               {menuOpen ? (
-                <X className="h-5 w-5 text-foreground" />
+                <X className="h-5 w-5 text-gray-700" />
               ) : (
-                <Menu className="h-5 w-5 text-foreground" />
+                <Menu className="h-5 w-5 text-gray-700" />
               )}
             </button>
           </div>
